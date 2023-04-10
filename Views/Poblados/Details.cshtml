@@ -1,0 +1,51 @@
+﻿@model VotoElectronico.Models.tbPoblados
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>tbPoblados</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.pobl_Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pobl_Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tbAldeas.aldea_Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tbAldeas.aldea_Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tbDepartamentos.depto_Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tbDepartamentos.depto_Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tbMunicipios.muni_Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tbMunicipios.muni_Descripcion)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.pobl_Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

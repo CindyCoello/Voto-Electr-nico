@@ -1,0 +1,357 @@
+﻿@model IEnumerable<VotoElectronico.Models.tbCentroElectoral>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="card">
+    <div class="card-header">
+
+        <div class="float-left"><h3>Censo Nacional de la Personas</h3></div>
+
+    </div>
+    <div class="card-body">
+
+        <table class="table table-striped table-bordered table-hover dt-responsive nowrap" id="datatableCenso">
+            <thead>
+                <tr>
+                    <th>
+                        Id
+                    </th>
+                    <th>
+                        Identidad
+                    </th>
+                    <th>
+                        Nombre
+                    </th>
+                    <th>
+                        Apellido
+                    </th>
+                    <th>
+                        Sexo
+                    </th>
+                    <th>
+                        Estado Civil
+                    </th>
+                    <th>
+                        Poblado
+                    </th>
+                    <th>
+                        Aldea
+                    </th>
+                    <th>
+                        Municipio
+                    </th>
+
+                    <th> Acciones </th>
+                </tr>
+            </thead>
+
+        </table>
+    </div>
+
+</div>
+
+
+
+
+
+<!-- Modal Ingresar-->
+<div class="modal fade" id="ModalNuevoCenso" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Agregar Censo de Persona</h5>
+                <button type="button" class="btn btn-close" data-dismiss="modal" aria-label="Close"><i class="mdi mdi-close"></i></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <div class="row">
+
+                                <div class="col-md-12">
+                                    @*<input class="form-control" type="hidden" id="idCenso" />*@
+                                    <label class="control-label" for="nombreCentro">Identidad de la Persona</label>
+                                    <input class="form-control" type="text" maxlength="13" id="identidadCenso" />
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="control-label">Primer Nombre</label>
+                                    <input class="form-control" type="text" maxlength="50" id="primerNombreCenso" />
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="control-label">Segundo Nombre</label>
+                                    <input class="form-control" type="text" maxlength="50" id="segundoNombreCenso" />
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label class="control-label">Primer Apellido</label>
+                                    <input class="form-control" type="text" maxlength="50" id="primerApellidoCenso" />
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="control-label">Segundo Apellido</label>
+                                    <input class="form-control" type="text" maxlength="50" id="segundoApellidoCenso" />
+                                </div>
+
+                                <div class="col-md-4">
+                                    <label class="control-label"> Sexo </label>
+                                    <input class="form-control" type="text" maxlength="1" id="sexoCenso" />
+                                </div>
+                                <div class="col-md-8">
+                                    <label class="control-label">Fecha Nacimiento</label>
+                                    <input class="form-control" type="date" id="fechaNacCenso" />
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label class="control-label">Estados Civil</label>
+                                    <select id="estado_IdNuevo" class="form-control">
+                                        <option disabled>Seleccione un Estado</option>
+                                    </select>
+
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="control-label">Departamentos</label>
+                                    <select id="depto_IdNuevo" class="form-control">
+                                        <option disabled>Seleccione un Departamento</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label class="control-label">Municipios</label>
+                                    <select id="muni_IdNuevo" class="form-control">
+                                        <option disabled>Seleccione un Municipio</option>
+                                    </select>
+
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="control-label">Aldeas</label>
+                                    <select id="aldea_IdNuevo" class="form-control">
+                                        <option disabled>Seleccione una Aldea</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label class="control-label">Poblados</label>
+                                    <select id="poblado_IdNuevo" class="form-control">
+                                        <option disabled>Seleccione un Poblado</option>
+                                    </select>
+
+                                </div>
+                                <div class="col-md-6">
+
+                                    <label class="control-label">Centro de votacion</label>
+                                    <select id="centro_IdNuevo" class="form-control">
+                                        <option disabled>Seleccione un Centro</option>
+                                    </select>
+                                </div>
+
+
+                                <div class="col-md-4">
+                                    <label class="control-label">Codigo de Area</label>
+                                    <input class="form-control" type="number" id="codigoAreaCenso" />
+
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="control-label">Sector Electoral</label>
+                                    <input class="form-control" type="number" id="sectorElectoralCenso" />
+
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="control-label">Numero de Linea </label>
+                                    <input class="form-control" type="number" id="numeroLineaCenso" />
+                                </div>
+
+
+                            </div>
+
+
+                            <label class="text-danger" id="errorMessage"></label>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+
+                <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="mdi mdi-close"></i>Cancelar</button>
+                <button type="button" class="btn btn-primary" onclick="GuardarCenso('Nuevo');"><i class="mdi mdi-content-save"></i>Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal Editar-->
+<div class="modal fade" id="ModalEditarCenso" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Editar Centro de Votacion</h5>
+                <button type="button" class="btn btn-close" data-dismiss="modal" aria-label="Close"><i class="mdi mdi-close"></i></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <div class="row">
+
+                                <div class="col-md-12">
+                                    <input class="form-control" type="hidden" id="idCensoEditar" />
+                                    <label class="control-label" for="nombreCentro">Identidad de la Persona</label>
+                                    <input class="form-control" type="text" maxlength="13" id="identidadCensoEditar" />
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="control-label">Primer Nombre</label>
+                                    <input class="form-control" type="text" maxlength="50" id="primerNombreCensoEditar" />
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="control-label">Segundo Nombre</label>
+                                    <input class="form-control" type="text" maxlength="50" id="segundoNombreCensoEditar" />
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label class="control-label">Primer Apellido</label>
+                                    <input class="form-control" type="text" maxlength="50" id="primerApellidoCensoEditar" />
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="control-label">Segundo Apellido</label>
+                                    <input class="form-control" type="text" maxlength="50" id="segundoApellidoCensoEditar" />
+                                </div>
+
+                                <div class="col-md-4">
+                                    <label class="control-label"> Sexo </label>
+                                    <input class="form-control" type="text" maxlength="1" id="sexoCensoEditar" />
+                                </div>
+                                <div class="col-md-8">
+                                    <label class="control-label">Fecha Nacimiento</label>
+                                    <input class="form-control" type="date" id="fechaNacCensoEditar" />
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label class="control-label">Estados Civil</label>
+                                    <select id="estado_IdEditar" class="form-control">
+                                        <option disabled>Seleccione un Estado</option>
+                                    </select>
+
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="control-label">Departamentos</label>
+                                    <select id="depto_IdEditar" class="form-control">
+                                        <option disabled>Seleccione un Departamento</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label class="control-label">Municipios</label>
+                                    <select id="muni_IdEditar" class="form-control">
+                                        <option disabled>Seleccione un Municipio</option>
+                                    </select>
+
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="control-label">Aldeas</label>
+                                    <select id="aldea_IdEditar" class="form-control">
+                                        <option disabled>Seleccione una Aldea</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label class="control-label">Poblados</label>
+                                    <select id="poblado_IdEditar" class="form-control">
+                                        <option disabled>Seleccione un Poblado</option>
+                                    </select>
+
+                                </div>
+                                <div class="col-md-6">
+
+                                    <label class="control-label">Centro de votacion</label>
+                                    <select id="centro_IdEditar" class="form-control">
+                                        <option disabled>Seleccione un Centro</option>
+                                    </select>
+                                </div>
+
+
+                                <div class="col-md-4">
+                                    <label class="control-label">Codigo de Area</label>
+                                    <input class="form-control" type="number" id="codigoAreaCensoEditar" />
+
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="control-label">Sector Electoral</label>
+                                    <input class="form-control" type="number" id="sectorElectoralCensoEditar" />
+
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="control-label">Numero de Linea </label>
+                                    <input class="form-control" type="number" id="numeroLineaCensoEditar" />
+                                </div>
+
+
+                            </div>
+
+
+                            <label class="text-danger" id="errorMessage"></label>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+
+                <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="mdi mdi-close"></i>Cancelar</button>
+                <button type="button" class="btn btn-primary" onclick="GuardarCenso('Editar');"><i class="mdi mdi-content-save"></i>Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@*modal eliminar*@
+
+<div class="modal fade" id="ModalDeleteCenso" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Eliminar Datos del Censo de la Persona</h5>
+                <button type="button" class="btn btn-close" data-dismiss="modal" aria-label="Close"><i class="mdi mdi-close"></i></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label class="control-label">¿Esta seguro que desea eliminar este registro?</label>
+                            <div class="input-group mb-3">
+                                <input type="hidden" id="idCensoDelete" />
+
+                                <input type="hidden" id="identidadCensoDelete" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+
+                <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="mdi mdi-close"></i>Cancelar</button>
+                <button type="button" class="btn btn-primary" onclick="GuardarCenso('Delete');"><i class="mdi mdi-content-save"></i>Eliminar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@section Scripts{
+
+    <script src="~/Content/js/app/seguridad/centro-electoral.js"></script>
+    <script src="~/Content/js/app/seguridad/list-centro-electoral.js"></script>
+    <script>
+        VotoElectronicoConfig.CensoElectoral.configureTable({ listUrl: "@Url.Action("ListCenso")" });
+    </script>
+}
+
+
+

@@ -1,0 +1,51 @@
+﻿@model VotoElectronico.Models.tbCliente
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>tbCliente</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.cli_Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cli_Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cli_RTN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cli_RTN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cli_Telefono)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cli_Telefono)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cli_Dirección)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cli_Dirección)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.cli_Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

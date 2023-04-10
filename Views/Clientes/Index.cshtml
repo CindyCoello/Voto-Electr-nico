@@ -1,0 +1,226 @@
+﻿@model IEnumerable<VotoElectronico.Models.tbCliente>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card">
+    <div class="card-header">
+        <div class="row">
+            <div class="col-md-11"><h3>Listado de Clientes</h3></div>
+            @*<div class="col-md-1">@Html.ActionLink("Nuevo", "Create", null, new { @class = "btn btn-primary" })</div>*@
+            <button class="btn btn-primary" id="btnNuevo"><i class="mdi mdi-plus-thick"></i>Nuevo</button>
+        </div>
+    </div>
+    <div class="card-body">
+
+        <table class="table table-bordered table-hover">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.cli_Id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.cli_Nombre)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.cli_RTN)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.cli_Telefono)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.cli_Dirección)
+                </th>
+                <th>Acciones</th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelitem => item.cli_Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.cli_Nombre)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.cli_RTN)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.cli_Telefono)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.cli_Dirección)
+                    </td>
+                    <td>
+                        <button class="btn btn-success btn-sm" onclick="EditarCliente(@item.cli_Id) "><i class="mdi mdi-file-edit-outline"></i></button>
+                        @*@Html.ActionLink("Edit", "Edit", new { id = item.cli_Id }, new { @class = "btn btn-success btn-sm " })*@ |
+                        @Html.ActionLink("Details", "Details", new { id = item.cli_Id }, new { @class = "btn btn-warning btn-sm" }) |
+                        @*@Html.ActionLink("Delete", "Delete", new { id = item.cli_Id }, new { @class = "btn btn-danger btn-sm" })*@
+                        <button class="btn btn-danger btn-sm" onclick="EliminarCliente(@item.cli_Id) "><i class="mdi mdi-delete-empty-outline"></i></button>
+                    </td>
+                </tr>
+            }
+        </table>
+
+    </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="modalNuevo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Crear Clientes</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+                <div class="form-row">
+
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label class="control-label">Nombre Cliente</label>
+                            <input class="form-control" type="text" maxlength="50" id="nombreCliente" />
+                            <label class="text-danger" id="errorMessage1"></label>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label class="control-label">RTN</label>
+                            <input class="form-control" type="text" maxlength="50" id="rtnCliente" />
+                            <label class="text-danger" id="errorMessage2"></label>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label class="control-label">Telefono</label>
+                            <input class="form-control" type="text" maxlength="50" id="telefonoCliente" />
+                            <label class="text-danger" id="errorMessage3"></label>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label class="control-label">Direccion</label>
+                            <input class="form-control" type="text" maxlength="50" id="direccionCliente" />
+                            <label class="text-danger" id="errorMessage4"></label>
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary" onclick="GuardarCliente('Nuevo');"><i class="mdi mdi-content-save"></i>Guardar</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="modalEditar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Editar Clientes</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-row">
+
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label class="control-label">Nombre Cliente</label>
+                            <input class="form-control" type="text" maxlength="50" id="nombreClienteEdit" />
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label class="control-label">RTN</label>
+                            <input class="form-control" type="text" maxlength="50" id="rtnClienteEdit" />
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label class="control-label">Telefono</label>
+                            <input class="form-control" type="text" maxlength="50" id="telefonoClienteEdit" />
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label class="control-label">Direccion</label>
+                            <input class="form-control" type="text" maxlength="50" id="direccionClienteEdit" />
+                            <input type="hidden" maxlength="50" id="idClienteEdit" />
+                            <label class="text-danger" id="errorMessage"></label>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary" onclick="GuardarCliente('Editar');"><i class="mdi mdi-content-save"></i>Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="modalEliminar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">¡Atención!</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <input type="hidden" id="idEliminar">
+                        <p>¿Estas Seguro que quieres eliminar?</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary" onclick="EliminarCliente(); location.reload();">Confirmar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script src="~/Content/js/app/seguridad/cliente.js"></script>
+}
+

@@ -1,0 +1,97 @@
+﻿@model VotoElectronico.Models.tbUsuarios
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>tbUsuarios</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.usu_Identidad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.usu_Identidad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.usu_PrimerNombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.usu_PrimerNombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.usu_PrimerApellido)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.usu_PrimerApellido)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.usu_SegundoNombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.usu_SegundoNombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.usu_SegundoApellido)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.usu_SegundoApellido)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.usu_Telefono)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.usu_Telefono)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.usu_Contraseña)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.usu_Contraseña)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.usu_EsActivo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.usu_EsActivo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tbRoles.rol_Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tbRoles.rol_Nombre)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

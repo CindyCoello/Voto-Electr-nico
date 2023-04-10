@@ -1,0 +1,35 @@
+﻿@model VotoElectronico.Models.tbMunicipios
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>tbMunicipios</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.muni_Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.muni_Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tbDepartamentos.depto_Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tbDepartamentos.depto_Descripcion)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.muni_Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,525 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="VotoElectronicoModelStoreContainer" CdmEntityContainer="VotoElectronicoEntities3">
+    <EntitySetMapping Name="tbComponentes">
+      <EntityTypeMapping TypeName="VotoElectronicoModel.tbComponentes">
+        <MappingFragment StoreEntitySet="tbComponentes">
+          <ScalarProperty Name="comp_Id" ColumnName="comp_Id" />
+          <ScalarProperty Name="comp_Nombre" ColumnName="comp_Nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbModuloPantallas">
+      <EntityTypeMapping TypeName="VotoElectronicoModel.tbModuloPantallas">
+        <MappingFragment StoreEntitySet="tbModuloPantallas">
+          <ScalarProperty Name="modpan_Id" ColumnName="modpan_Id" />
+          <ScalarProperty Name="mod_Id" ColumnName="mod_Id" />
+          <ScalarProperty Name="modpan_Nombre" ColumnName="modpan_Nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbRoles">
+      <EntityTypeMapping TypeName="VotoElectronicoModel.tbRoles">
+        <MappingFragment StoreEntitySet="tbRoles">
+          <ScalarProperty Name="rol_Id" ColumnName="rol_Id" />
+          <ScalarProperty Name="rol_Nombre" ColumnName="rol_Nombre" />
+          <ScalarProperty Name="rol_EsActivo" ColumnName="rol_EsActivo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbRolModuloPantallas">
+      <EntityTypeMapping TypeName="VotoElectronicoModel.tbRolModuloPantallas">
+        <MappingFragment StoreEntitySet="tbRolModuloPantallas">
+          <ScalarProperty Name="rmodPant" ColumnName="rmodPant" />
+          <ScalarProperty Name="modpan_Id" ColumnName="modpan_Id" />
+          <ScalarProperty Name="rol_Id" ColumnName="rol_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbUsuarios">
+      <EntityTypeMapping TypeName="VotoElectronicoModel.tbUsuarios">
+        <MappingFragment StoreEntitySet="tbUsuarios">
+          <ScalarProperty Name="usu_Id" ColumnName="usu_Id" />
+          <ScalarProperty Name="usu_Identidad" ColumnName="usu_Identidad" />
+          <ScalarProperty Name="usu_PrimerNombre" ColumnName="usu_PrimerNombre" />
+          <ScalarProperty Name="usu_PrimerApellido" ColumnName="usu_PrimerApellido" />
+          <ScalarProperty Name="usu_SegundoNombre" ColumnName="usu_SegundoNombre" />
+          <ScalarProperty Name="usu_SegundoApellido" ColumnName="usu_SegundoApellido" />
+          <ScalarProperty Name="usu_Telefono" ColumnName="usu_Telefono" />
+          <ScalarProperty Name="usu_Contraseña" ColumnName="usu_Contraseña" />
+          <ScalarProperty Name="rol_Id" ColumnName="rol_Id" />
+          <ScalarProperty Name="usu_EsActivo" ColumnName="usu_EsActivo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbCliente">
+      <EntityTypeMapping TypeName="VotoElectronicoModel.tbCliente">
+        <MappingFragment StoreEntitySet="tbCliente">
+          <ScalarProperty Name="cli_Dirección" ColumnName="cli_Dirección" />
+          <ScalarProperty Name="cli_Telefono" ColumnName="cli_Telefono" />
+          <ScalarProperty Name="cli_RTN" ColumnName="cli_RTN" />
+          <ScalarProperty Name="cli_Nombre" ColumnName="cli_Nombre" />
+          <ScalarProperty Name="cli_Id" ColumnName="cli_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbAldeas">
+      <EntityTypeMapping TypeName="VotoElectronicoModel.tbAldeas">
+        <MappingFragment StoreEntitySet="tbAldeas">
+          <ScalarProperty Name="depto_Id" ColumnName="depto_Id" />
+          <ScalarProperty Name="muni_Id" ColumnName="muni_Id" />
+          <ScalarProperty Name="aldea_Descripcion" ColumnName="aldea_Descripcion" />
+          <ScalarProperty Name="aldea_Id" ColumnName="aldea_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbCandidatos">
+      <EntityTypeMapping TypeName="VotoElectronicoModel.tbCandidatos">
+        <MappingFragment StoreEntitySet="tbCandidatos">
+          <ScalarProperty Name="cand_Posicion" ColumnName="cand_Posicion" />
+          <ScalarProperty Name="muni_Id" ColumnName="muni_Id" />
+          <ScalarProperty Name="depto_Id" ColumnName="depto_Id" />
+          <ScalarProperty Name="censo_Id" ColumnName="censo_Id" />
+          <ScalarProperty Name="tipcan_Id" ColumnName="tipcan_Id" />
+          <ScalarProperty Name="mov_Id" ColumnName="mov_Id" />
+          <ScalarProperty Name="part_Id" ColumnName="part_Id" />
+          <ScalarProperty Name="cand_Id" ColumnName="cand_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbCentroElectoral">
+      <EntityTypeMapping TypeName="VotoElectronicoModel.tbCentroElectoral">
+        <MappingFragment StoreEntitySet="tbCentroElectoral">
+          <ScalarProperty Name="censo_Voto" ColumnName="censo_Voto" />
+          <ScalarProperty Name="censo_EsHabilitado" ColumnName="censo_EsHabilitado" />
+          <ScalarProperty Name="censo_NumeroLinea" ColumnName="censo_NumeroLinea" />
+          <ScalarProperty Name="cenvot_Id" ColumnName="cenvot_Id" />
+          <ScalarProperty Name="censo_CodigoSectorElectoral" ColumnName="censo_CodigoSectorElectoral" />
+          <ScalarProperty Name="censo_CodigoArea" ColumnName="censo_CodigoArea" />
+          <ScalarProperty Name="pobl_Id" ColumnName="pobl_Id" />
+          <ScalarProperty Name="aldea_Id" ColumnName="aldea_Id" />
+          <ScalarProperty Name="muni_Id" ColumnName="muni_Id" />
+          <ScalarProperty Name="depto_Id" ColumnName="depto_Id" />
+          <ScalarProperty Name="estCiv_Id" ColumnName="estCiv_Id" />
+          <ScalarProperty Name="censo_FechaNacimiento" ColumnName="censo_FechaNacimiento" />
+          <ScalarProperty Name="censo_CodigoSexo" ColumnName="censo_CodigoSexo" />
+          <ScalarProperty Name="censo_SegundoApellido" ColumnName="censo_SegundoApellido" />
+          <ScalarProperty Name="censo_PrimerApellido" ColumnName="censo_PrimerApellido" />
+          <ScalarProperty Name="censo_SegundoNombre" ColumnName="censo_SegundoNombre" />
+          <ScalarProperty Name="censo_PrimerNombre" ColumnName="censo_PrimerNombre" />
+          <ScalarProperty Name="censo_Identidad" ColumnName="censo_Identidad" />
+          <ScalarProperty Name="censo_Id" ColumnName="censo_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbCentrosVotacion">
+      <EntityTypeMapping TypeName="VotoElectronicoModel.tbCentrosVotacion">
+        <MappingFragment StoreEntitySet="tbCentrosVotacion">
+          <ScalarProperty Name="cenvot_TotalMesas" ColumnName="cenvot_TotalMesas" />
+          <ScalarProperty Name="cenvot_Longitud" ColumnName="cenvot_Longitud" />
+          <ScalarProperty Name="cenvot_Latitud" ColumnName="cenvot_Latitud" />
+          <ScalarProperty Name="cenvot_Nombre" ColumnName="cenvot_Nombre" />
+          <ScalarProperty Name="cenvot_CodigoSectorElectoral" ColumnName="cenvot_CodigoSectorElectoral" />
+          <ScalarProperty Name="cenvot_CodigoArea" ColumnName="cenvot_CodigoArea" />
+          <ScalarProperty Name="muni_Id" ColumnName="muni_Id" />
+          <ScalarProperty Name="depto_Id" ColumnName="depto_Id" />
+          <ScalarProperty Name="cenvot_Id" ColumnName="cenvot_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbDepartamentos">
+      <EntityTypeMapping TypeName="VotoElectronicoModel.tbDepartamentos">
+        <MappingFragment StoreEntitySet="tbDepartamentos">
+          <ScalarProperty Name="depto_Descripcion" ColumnName="depto_Descripcion" />
+          <ScalarProperty Name="depto_Id" ColumnName="depto_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbEstadosCivil">
+      <EntityTypeMapping TypeName="VotoElectronicoModel.tbEstadosCivil">
+        <MappingFragment StoreEntitySet="tbEstadosCivil">
+          <ScalarProperty Name="estCiv_Descripcion" ColumnName="estCiv_Descripcion" />
+          <ScalarProperty Name="estCiv_Id" ColumnName="estCiv_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbMesasElectorales">
+      <EntityTypeMapping TypeName="VotoElectronicoModel.tbMesasElectorales">
+        <MappingFragment StoreEntitySet="tbMesasElectorales">
+          <ScalarProperty Name="cenvot_Id" ColumnName="cenvot_Id" />
+          <ScalarProperty Name="mesa_Id" ColumnName="mesa_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbMunicipios">
+      <EntityTypeMapping TypeName="VotoElectronicoModel.tbMunicipios">
+        <MappingFragment StoreEntitySet="tbMunicipios">
+          <ScalarProperty Name="muni_Codigo" ColumnName="muni_Codigo" />
+          <ScalarProperty Name="depto_Id" ColumnName="depto_Id" />
+          <ScalarProperty Name="muni_Descripcion" ColumnName="muni_Descripcion" />
+          <ScalarProperty Name="muni_Id" ColumnName="muni_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbPartidos">
+      <EntityTypeMapping TypeName="VotoElectronicoModel.tbPartidos">
+        <MappingFragment StoreEntitySet="tbPartidos">
+          <ScalarProperty Name="part_Logo" ColumnName="part_Logo" />
+          <ScalarProperty Name="part_ColorEmblema" ColumnName="part_ColorEmblema" />
+          <ScalarProperty Name="part_Sede" ColumnName="part_Sede" />
+          <ScalarProperty Name="part_Siglas" ColumnName="part_Siglas" />
+          <ScalarProperty Name="part_Nombre" ColumnName="part_Nombre" />
+          <ScalarProperty Name="part_Id" ColumnName="part_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbPoblados">
+      <EntityTypeMapping TypeName="VotoElectronicoModel.tbPoblados">
+        <MappingFragment StoreEntitySet="tbPoblados">
+          <ScalarProperty Name="aldea_Id" ColumnName="aldea_Id" />
+          <ScalarProperty Name="depto_Id" ColumnName="depto_Id" />
+          <ScalarProperty Name="muni_Id" ColumnName="muni_Id" />
+          <ScalarProperty Name="pobl_Descripcion" ColumnName="pobl_Descripcion" />
+          <ScalarProperty Name="pobl_Id" ColumnName="pobl_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbTipoCandidato">
+      <EntityTypeMapping TypeName="VotoElectronicoModel.tbTipoCandidato">
+        <MappingFragment StoreEntitySet="tbTipoCandidato">
+          <ScalarProperty Name="tipcan_Descripcion" ColumnName="tipcan_Descripcion" />
+          <ScalarProperty Name="tipcan_Id" ColumnName="tipcan_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbMovimientos">
+      <EntityTypeMapping TypeName="VotoElectronicoModel.tbMovimientos">
+        <MappingFragment StoreEntitySet="tbMovimientos">
+          <ScalarProperty Name="mov_Eslogan" ColumnName="mov_Eslogan" />
+          <ScalarProperty Name="mov_Logo" ColumnName="mov_Logo" />
+          <ScalarProperty Name="mov_Nombre" ColumnName="mov_Nombre" />
+          <ScalarProperty Name="part_Id" ColumnName="part_Id" />
+          <ScalarProperty Name="mov_Id" ColumnName="mov_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="UDP_tbComponentes_Insert" FunctionName="VotoElectronicoModel.Store.UDP_tbComponentes_Insert">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="VotoElectronicoModel.UDP_tbComponentes_Insert_Result">
+          <ScalarProperty Name="resultado" ColumnName="resultado" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="UDP_tbEstadosCivil_Insert" FunctionName="VotoElectronicoModel.Store.UDP_tbEstadosCivil_Insert">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="VotoElectronicoModel.UDP_tbEstadosCivil_Insert_Result">
+          <ScalarProperty Name="resultado" ColumnName="resultado" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="UDP_tbTipoCandidato_Insert" FunctionName="VotoElectronicoModel.Store.UDP_tbTipoCandidato_Insert">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="VotoElectronicoModel.UDP_tbTipoCandidato_Insert_Result">
+          <ScalarProperty Name="resultado" ColumnName="resultado" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="tbModulos">
+      <EntityTypeMapping TypeName="VotoElectronicoModel.tbModulos">
+        <MappingFragment StoreEntitySet="tbModulos">
+          <ScalarProperty Name="mod_Nombre" ColumnName="mod_Nombre" />
+          <ScalarProperty Name="comp_Id" ColumnName="comp_Id" />
+          <ScalarProperty Name="mod_Id" ColumnName="mod_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="UDP_tbDepartamentos_Insert" FunctionName="VotoElectronicoModel.Store.UDP_tbDepartamentos_Insert">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="VotoElectronicoModel.UDP_tbDepartamentos_Insert_Result">
+          <ScalarProperty Name="resultado" ColumnName="resultado" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="UDP_tbComponentes_Delete" FunctionName="VotoElectronicoModel.Store.UDP_tbComponentes_Delete">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="VotoElectronicoModel.UDP_tbComponentes_Delete_Result">
+          <ScalarProperty Name="resultado" ColumnName="resultado" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="UDP_tbComponentes_Edit" FunctionName="VotoElectronicoModel.Store.UDP_tbComponentes_Edit">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="VotoElectronicoModel.UDP_tbComponentes_Edit_Result">
+          <ScalarProperty Name="resultado" ColumnName="resultado" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="UDP_tbDepartamentos_Delete" FunctionName="VotoElectronicoModel.Store.UDP_tbDepartamentos_Delete">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="VotoElectronicoModel.UDP_tbDepartamentos_Delete_Result">
+          <ScalarProperty Name="resultado" ColumnName="resultado" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="UDP_tbDepartamentos_Edit" FunctionName="VotoElectronicoModel.Store.UDP_tbDepartamentos_Edit">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="VotoElectronicoModel.UDP_tbDepartamentos_Edit_Result">
+          <ScalarProperty Name="resultado" ColumnName="resultado" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="UDP_tbEstadosCivil_Delete" FunctionName="VotoElectronicoModel.Store.UDP_tbEstadosCivil_Delete">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="VotoElectronicoModel.UDP_tbEstadosCivil_Delete_Result">
+          <ScalarProperty Name="resultado" ColumnName="resultado" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="UDP_tbEstadosCivil_Edit" FunctionName="VotoElectronicoModel.Store.UDP_tbEstadosCivil_Edit">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="VotoElectronicoModel.UDP_tbEstadosCivil_Edit_Result">
+          <ScalarProperty Name="resultado" ColumnName="resultado" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="UDP_tbTipoCandidato_Delete" FunctionName="VotoElectronicoModel.Store.UDP_tbTipoCandidato_Delete">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="VotoElectronicoModel.UDP_tbTipoCandidato_Delete_Result">
+          <ScalarProperty Name="resultado" ColumnName="resultado" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="UDP_tbTipoCandidato_Edit" FunctionName="VotoElectronicoModel.Store.UDP_tbTipoCandidato_Edit">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="VotoElectronicoModel.UDP_tbTipoCandidato_Edit_Result">
+          <ScalarProperty Name="resultado" ColumnName="resultado" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="UDP_tbMunicipios_Insert" FunctionName="VotoElectronicoModel.Store.UDP_tbMunicipios_Insert">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="VotoElectronicoModel.UDP_tbMunicipios_Insert_Result">
+          <ScalarProperty Name="resultado" ColumnName="resultado" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="UDP_tbMunicipios_Edit" FunctionName="VotoElectronicoModel.Store.UDP_tbMunicipios_Edit">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="VotoElectronicoModel.UDP_tbMunicipios_Edit_Result">
+          <ScalarProperty Name="resultado" ColumnName="resultado" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="UDP_tbMunicipios_Delete" FunctionName="VotoElectronicoModel.Store.UDP_tbMunicipios_Delete">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="VotoElectronicoModel.UDP_tbMunicipios_Delete_Result1">
+          <ScalarProperty Name="resultado" ColumnName="resultado" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="UDP_tbAldeas_Insert" FunctionName="VotoElectronicoModel.Store.UDP_tbAldeas_Insert">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="VotoElectronicoModel.UDP_tbAldeas_Insert_Result">
+          <ScalarProperty Name="resultado" ColumnName="resultado" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="UDP_tbAldeas_Edit" FunctionName="VotoElectronicoModel.Store.UDP_tbAldeas_Edit">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="VotoElectronicoModel.UDP_tbAldeas_Edit_Result">
+          <ScalarProperty Name="resultado" ColumnName="resultado" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="UDP_tbAldeas_Delete" FunctionName="VotoElectronicoModel.Store.UDP_tbAldeas_Delete">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="VotoElectronicoModel.UDP_tbAldeas_Delete_Result">
+          <ScalarProperty Name="resultado" ColumnName="resultado" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="UDP_tbPoblados_Insert" FunctionName="VotoElectronicoModel.Store.UDP_tbPoblados_Insert">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="VotoElectronicoModel.UDP_tbPoblados_Insert_Result">
+          <ScalarProperty Name="resultado" ColumnName="resultado" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="UDP_tbPoblados_Edit" FunctionName="VotoElectronicoModel.Store.UDP_tbPoblados_Edit">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="VotoElectronicoModel.UDP_tbPoblados_Edit_Result">
+          <ScalarProperty Name="resultado" ColumnName="resultado" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="UDP_tbPoblados_Delete" FunctionName="VotoElectronicoModel.Store.UDP_tbPoblados_Delete">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="VotoElectronicoModel.UDP_tbPoblados_Delete_Result">
+          <ScalarProperty Name="resultado" ColumnName="resultado" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="UDP_tbCentrosVotacion_Insert" FunctionName="VotoElectronicoModel.Store.UDP_tbCentrosVotacion_Insert">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="VotoElectronicoModel.UDP_tbCentrosVotacion_Insert_Result">
+          <ScalarProperty Name="resultado" ColumnName="resultado" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="UDP_tbCentrosVotacion_Edit" FunctionName="VotoElectronicoModel.Store.UDP_tbCentrosVotacion_Edit">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="VotoElectronicoModel.UDP_tbCentrosVotacion_Edit_Result">
+          <ScalarProperty Name="resultado" ColumnName="resultado" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="UDP_tbCentrosVotacion_Delete" FunctionName="VotoElectronicoModel.Store.UDP_tbCentrosVotacion_Delete">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="VotoElectronicoModel.UDP_tbCentrosVotacion_Delete_Result">
+          <ScalarProperty Name="resultado" ColumnName="resultado" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="UDP_tbMesasElectorales_Insert" FunctionName="VotoElectronicoModel.Store.UDP_tbMesasElectorales_Insert">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="VotoElectronicoModel.UDP_tbMesasElectorales_Insert_Result">
+          <ScalarProperty Name="resultado" ColumnName="resultado" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="UDP_tbMesasElectorales_Edit" FunctionName="VotoElectronicoModel.Store.UDP_tbMesasElectorales_Edit">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="VotoElectronicoModel.UDP_tbMesasElectorales_Edit_Result">
+          <ScalarProperty Name="resultado" ColumnName="resultado" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="UDP_tbMesasElectorales_Delete" FunctionName="VotoElectronicoModel.Store.UDP_tbMesasElectorales_Delete">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="VotoElectronicoModel.UDP_tbMesasElectorales_Delete_Result">
+          <ScalarProperty Name="resultado" ColumnName="resultado" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="UDP_tbCentroElectoral_Insert" FunctionName="VotoElectronicoModel.Store.UDP_tbCentroElectoral_Insert">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="VotoElectronicoModel.UDP_tbCentroElectoral_Insert_Result">
+          <ScalarProperty Name="resultado" ColumnName="resultado" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="UDP_tbCentroElectoral_Edit" FunctionName="VotoElectronicoModel.Store.UDP_tbCentroElectoral_Edit">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="VotoElectronicoModel.UDP_tbCentroElectoral_Edit_Result">
+          <ScalarProperty Name="resultado" ColumnName="resultado" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="UDP_tbCentroElectoral_Delete" FunctionName="VotoElectronicoModel.Store.UDP_tbCentroElectoral_Delete">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="VotoElectronicoModel.UDP_tbCentroElectoral_Delete_Result">
+          <ScalarProperty Name="resultado" ColumnName="resultado" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="UDP_tbCandidatos_Insert" FunctionName="VotoElectronicoModel.Store.UDP_tbCandidatos_Insert">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="VotoElectronicoModel.UDP_tbCandidatos_Insert_Result">
+          <ScalarProperty Name="resultado" ColumnName="resultado" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="UDP_tbCandidatos_Edit" FunctionName="VotoElectronicoModel.Store.UDP_tbCandidatos_Edit">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="VotoElectronicoModel.UDP_tbCandidatos_Edit_Result">
+          <ScalarProperty Name="resultado" ColumnName="resultado" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="UDP_tbCandidatos_Delete" FunctionName="VotoElectronicoModel.Store.UDP_tbCandidatos_Delete">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="VotoElectronicoModel.UDP_tbCandidatos_Delete_Result">
+          <ScalarProperty Name="resultado" ColumnName="resultado" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="UDP_tbPartidos_Insert" FunctionName="VotoElectronicoModel.Store.UDP_tbPartidos_Insert">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="VotoElectronicoModel.UDP_tbPartidos_Insert_Result">
+          <ScalarProperty Name="resultado" ColumnName="resultado" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="UDP_tbPartidos_Edit" FunctionName="VotoElectronicoModel.Store.UDP_tbPartidos_Edit">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="VotoElectronicoModel.UDP_tbPartidos_Edit_Result">
+          <ScalarProperty Name="resultado" ColumnName="resultado" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="UDP_tbPartidos_Delete" FunctionName="VotoElectronicoModel.Store.UDP_tbPartidos_Delete" />
+    <FunctionImportMapping FunctionImportName="UDP_tbModulos_Insert" FunctionName="VotoElectronicoModel.Store.UDP_tbModulos_Insert">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="VotoElectronicoModel.UDP_tbModulos_Insert_Result">
+          <ScalarProperty Name="resultado" ColumnName="resultado" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="UDP_tbModulos_Edit" FunctionName="VotoElectronicoModel.Store.UDP_tbModulos_Edit">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="VotoElectronicoModel.UDP_tbModulos_Edit_Result">
+          <ScalarProperty Name="resultado" ColumnName="resultado" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="UDP_tbModulos_Delete" FunctionName="VotoElectronicoModel.Store.UDP_tbModulos_Delete">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="VotoElectronicoModel.UDP_tbModulos_Delete_Result">
+          <ScalarProperty Name="resultado" ColumnName="resultado" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="UDP_tbModuloPantallas_Delete" FunctionName="VotoElectronicoModel.Store.UDP_tbModuloPantallas_Delete">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="VotoElectronicoModel.UDP_tbModuloPantallas_Delete_Result">
+          <ScalarProperty Name="resultado" ColumnName="resultado" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="UDP_tbModuloPantallas_Edit" FunctionName="VotoElectronicoModel.Store.UDP_tbModuloPantallas_Edit">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="VotoElectronicoModel.UDP_tbModuloPantallas_Edit_Result">
+          <ScalarProperty Name="resultado" ColumnName="resultado" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="UDP_tbModuloPantallas_Insert" FunctionName="VotoElectronicoModel.Store.UDP_tbModuloPantallas_Insert">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="VotoElectronicoModel.UDP_tbModuloPantallas_Insert_Result">
+          <ScalarProperty Name="resultado" ColumnName="resultado" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="UDP_tbUsuario_Delete" FunctionName="VotoElectronicoModel.Store.UDP_tbUsuario_Delete">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="VotoElectronicoModel.UDP_tbUsuario_Delete_Result">
+          <ScalarProperty Name="resultado" ColumnName="resultado" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="UDP_tbUsuario_Edit" FunctionName="VotoElectronicoModel.Store.UDP_tbUsuario_Edit">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="VotoElectronicoModel.UDP_tbUsuario_Edit_Result">
+          <ScalarProperty Name="resultado" ColumnName="resultado" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="UDP_tbUsuario_Insert" FunctionName="VotoElectronicoModel.Store.UDP_tbUsuario_Insert">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="VotoElectronicoModel.UDP_tbUsuario_Insert_Result">
+          <ScalarProperty Name="resultado" ColumnName="resultado" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

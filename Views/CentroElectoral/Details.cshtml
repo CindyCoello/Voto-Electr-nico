@@ -1,0 +1,155 @@
+﻿@model VotoElectronico.Models.tbCentroElectoral
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>tbCentroElectoral</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.censo_Identidad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.censo_Identidad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.censo_PrimerNombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.censo_PrimerNombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.censo_SegundoNombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.censo_SegundoNombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.censo_PrimerApellido)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.censo_PrimerApellido)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.censo_SegundoApellido)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.censo_SegundoApellido)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.censo_CodigoSexo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.censo_CodigoSexo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.censo_FechaNacimiento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.censo_FechaNacimiento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.censo_CodigoArea)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.censo_CodigoArea)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.censo_CodigoSectorElectoral)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.censo_CodigoSectorElectoral)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cenvot_Id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cenvot_Id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.censo_NumeroLinea)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.censo_NumeroLinea)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.censo_EsHabilitado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.censo_EsHabilitado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tbAldeas.aldea_Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tbAldeas.aldea_Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tbDepartamentos.depto_Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tbDepartamentos.depto_Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tbEstadosCivil.estCiv_Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tbEstadosCivil.estCiv_Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tbMunicipios.muni_Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tbMunicipios.muni_Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tbPoblados.pobl_Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tbPoblados.pobl_Descripcion)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.censo_Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

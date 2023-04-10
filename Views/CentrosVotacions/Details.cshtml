@@ -1,0 +1,83 @@
+﻿@model VotoElectronico.Models.tbCentrosVotacion
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>tbCentrosVotacion</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.cenvot_CodigoArea)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cenvot_CodigoArea)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cenvot_CodigoSectorElectoral)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cenvot_CodigoSectorElectoral)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cenvot_Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cenvot_Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cenvot_Latitud)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cenvot_Latitud)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cenvot_Longitud)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cenvot_Longitud)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cenvot_TotalMesas)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cenvot_TotalMesas)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tbDepartamentos.depto_Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tbDepartamentos.depto_Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tbMunicipios.muni_Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tbMunicipios.muni_Descripcion)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.cenvot_Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

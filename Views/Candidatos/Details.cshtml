@@ -1,0 +1,75 @@
+﻿@model VotoElectronico.Models.tbCandidatos
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>tbCandidatos</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.cand_Posicion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cand_Posicion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tbCentroElectoral.censo_Identidad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tbCentroElectoral.censo_Identidad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tbDepartamentos.depto_Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tbDepartamentos.depto_Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tbMunicipios.muni_Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tbMunicipios.muni_Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tbPartidos.part_Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tbPartidos.part_Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tbTipoCandidato.tipcan_Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tbTipoCandidato.tipcan_Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tbMovimientos.mov_Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tbMovimientos.mov_Nombre)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.cand_Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="253f6ab3467f43269e9a3921fa6ea41d" Name="Diagram1">
+        <EntityTypeShape EntityType="VotoElectronicoModel.tbComponentes" Width="1.5" PointX="6.625" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VotoElectronicoModel.tbModuloPantallas" Width="1.5" PointX="4.125" PointY="0.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="VotoElectronicoModel.tbRoles" Width="1.5" PointX="0.75" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="VotoElectronicoModel.tbRolModuloPantallas" Width="1.5" PointX="1.25" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="VotoElectronicoModel.tbUsuarios" Width="1.5" PointX="3.25" PointY="3.25" IsExpanded="true" />
+        <AssociationConnector Association="VotoElectronicoModel.FK_bRolModuloPantallas_tbModuloPantallas_modpan_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="VotoElectronicoModel.FK_bRolModuloPantallas_tbRoles_rol_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="VotoElectronicoModel.FK_tbUsuarios_tbRoles_rol_Id" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="VotoElectronicoModel.tbCliente" Width="1.5" PointX="9.375" PointY="0.5" />
+        <EntityTypeShape EntityType="VotoElectronicoModel.tbAldeas" Width="1.5" PointX="2.625" PointY="16.5" />
+        <EntityTypeShape EntityType="VotoElectronicoModel.tbCandidatos" Width="1.5" PointX="6" PointY="8.125" />
+        <EntityTypeShape EntityType="VotoElectronicoModel.tbCentroElectoral" Width="1.5" PointX="6.25" PointY="12.5" />
+        <EntityTypeShape EntityType="VotoElectronicoModel.tbCentrosVotacion" Width="1.5" PointX="8.375" PointY="12.75" />
+        <EntityTypeShape EntityType="VotoElectronicoModel.tbDepartamentos" Width="1.5" PointX="0.5" PointY="8.75" />
+        <EntityTypeShape EntityType="VotoElectronicoModel.tbEstadosCivil" Width="1.5" PointX="10.5" PointY="18.75" />
+        <EntityTypeShape EntityType="VotoElectronicoModel.tbMesasElectorales" Width="1.5" PointX="9.125" PointY="16.5" />
+        <EntityTypeShape EntityType="VotoElectronicoModel.tbMunicipios" Width="1.5" PointX="3" PointY="7.125" />
+        <EntityTypeShape EntityType="VotoElectronicoModel.tbPartidos" Width="1.5" PointX="11" PointY="11" />
+        <EntityTypeShape EntityType="VotoElectronicoModel.tbPoblados" Width="1.5" PointX="3.625" PointY="12.25" />
+        <EntityTypeShape EntityType="VotoElectronicoModel.tbTipoCandidato" Width="1.5" PointX="7.75" PointY="10.25" />
+        <AssociationConnector Association="VotoElectronicoModel.FK_tbAldeas_tbDepartamentos_depto_Id" />
+        <AssociationConnector Association="VotoElectronicoModel.FK_tbAldeas_tbMunicipios_muni_Id" />
+        <AssociationConnector Association="VotoElectronicoModel.FK_tbCentroElectoral_tbAldeas_aldea_Id" />
+        <AssociationConnector Association="VotoElectronicoModel.FK_tbPoblados_tbAldeas_aldea_Id" />
+        <AssociationConnector Association="VotoElectronicoModel.FK_tbCandidatos_tbCentroElectoral_censo_Id" />
+        <AssociationConnector Association="VotoElectronicoModel.FK_tbCandidatos_tbDepartamentos_depto_Id" />
+        <AssociationConnector Association="VotoElectronicoModel.FK_tbCandidatos_tbMunicipios_muni_Id" />
+        <AssociationConnector Association="VotoElectronicoModel.FK_tbCandidatos_tbPartidos_part_Id" />
+        <AssociationConnector Association="VotoElectronicoModel.FK_tbCandidatos_tbTipoCandidato_tipcan_Id" />
+        <AssociationConnector Association="VotoElectronicoModel.FK_tbCentroElectoral_tbDepartamentos_depto_Id" />
+        <AssociationConnector Association="VotoElectronicoModel.FK_tbCentroElectoral_tbEstadosCivil_estCiv_Id" />
+        <AssociationConnector Association="VotoElectronicoModel.FK_tbCentroElectoral_tbMunicipios_muni_Id" />
+        <AssociationConnector Association="VotoElectronicoModel.FK_tbCentroElectoral_tbPoblados_pobl_Id" />
+        <AssociationConnector Association="VotoElectronicoModel.FK_tbCentrosVotacion_tbDepartamentos_depto_Id" />
+        <AssociationConnector Association="VotoElectronicoModel.FK_tbCentrosVotacion_tbMunicipios_muni_Id" />
+        <AssociationConnector Association="VotoElectronicoModel.FK_tbMesasElectorales_tbCentrosVotacion_cenvot_Id" />
+        <AssociationConnector Association="VotoElectronicoModel.FK_tbMunicipios_tbDepartamentos_depto_Id" />
+        <AssociationConnector Association="VotoElectronicoModel.FK_tbPoblados_tbDepartamentos_depto_Id" />
+        <AssociationConnector Association="VotoElectronicoModel.FK_tbPoblados_tbMunicipios_muni_Id" />
+        <EntityTypeShape EntityType="VotoElectronicoModel.tbMovimientos" Width="1.5" PointX="14.625" PointY="10.875" />
+        <AssociationConnector Association="VotoElectronicoModel.FK_tbCandidatos_tbMoviminetos_mov_Id" />
+        <AssociationConnector Association="VotoElectronicoModel.FK_tbMoviminetos_tbPartidos_part_Id" />
+        <EntityTypeShape EntityType="VotoElectronicoModel.tbModulos" Width="1.5" PointX="8.875" PointY="3.5" />
+        <AssociationConnector Association="VotoElectronicoModel.FK_tbModulos_tbComponente_comp_Id" />
+        <AssociationConnector Association="VotoElectronicoModel.FK_tbModuloPantallas_tbModulos_mod_Id" />
+        <AssociationConnector Association="VotoElectronicoModel.FK_tbCentroElectoral_tbCentrosVotacion_cenvot_Id" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

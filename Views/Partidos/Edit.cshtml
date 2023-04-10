@@ -1,0 +1,88 @@
+﻿@model VotoElectronico.Models.tbPartidos
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+
+
+    <div class="card">
+        <div class="card-header">
+            <div class="row">
+                <h4 style="font-family: Nunito,sans-serif; font-size:1.2em;font-weight: 600;">Partidos</h4>
+            </div>
+        </div>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.part_Id)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.part_Nombre, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.part_Nombre, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.part_Nombre, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.part_Siglas, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.part_Siglas, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.part_Siglas, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.part_Sede, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.part_Sede, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.part_Sede, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.part_ColorEmblema, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.part_ColorEmblema, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.part_ColorEmblema, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <!--<div class="form-group">
+        <!--@Html.LabelFor(model => model.part_Logo, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">-->
+        <!--@*@Html.EditorFor(model => model.part_Logo, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.part_Logo, "", new { @class = "text-danger" })*@
+
+            </div>
+        </div>-->
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.part_Logo, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <img src="@Model.part_Logo" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-primary" /> 
+                <br />
+                <br />
+                <div>
+                    @Html.ActionLink("Back to List", "Index", new { @class = "btn btn-success btn-sm " })
+                </div>
+            </div>
+        </div>
+    </div>
+
+  
+}
+
+

@@ -1,0 +1,2540 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="VotoElectronicoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tbAldeas">
+          <Key>
+            <PropertyRef Name="aldea_Id" />
+          </Key>
+          <Property Name="aldea_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="aldea_Descripcion" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="muni_Id" Type="int" Nullable="false" />
+          <Property Name="depto_Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbCandidatos">
+          <Key>
+            <PropertyRef Name="cand_Id" />
+          </Key>
+          <Property Name="cand_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="part_Id" Type="int" Nullable="false" />
+          <Property Name="mov_Id" Type="int" Nullable="false" />
+          <Property Name="tipcan_Id" Type="int" Nullable="false" />
+          <Property Name="censo_Id" Type="int" Nullable="false" />
+          <Property Name="depto_Id" Type="int" Nullable="false" />
+          <Property Name="muni_Id" Type="int" Nullable="false" />
+          <Property Name="cand_Posicion" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbCentroElectoral">
+          <Key>
+            <PropertyRef Name="censo_Id" />
+          </Key>
+          <Property Name="censo_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="censo_Identidad" Type="varchar" MaxLength="13" Nullable="false" />
+          <Property Name="censo_PrimerNombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="censo_SegundoNombre" Type="nvarchar" MaxLength="50" />
+          <Property Name="censo_PrimerApellido" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="censo_SegundoApellido" Type="nvarchar" MaxLength="50" />
+          <Property Name="censo_CodigoSexo" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="censo_FechaNacimiento" Type="date" Nullable="false" />
+          <Property Name="estCiv_Id" Type="int" Nullable="false" />
+          <Property Name="depto_Id" Type="int" Nullable="false" />
+          <Property Name="muni_Id" Type="int" Nullable="false" />
+          <Property Name="aldea_Id" Type="int" Nullable="false" />
+          <Property Name="pobl_Id" Type="int" Nullable="false" />
+          <Property Name="censo_CodigoArea" Type="int" Nullable="false" />
+          <Property Name="censo_CodigoSectorElectoral" Type="int" Nullable="false" />
+          <Property Name="cenvot_Id" Type="int" Nullable="false" />
+          <Property Name="censo_NumeroLinea" Type="int" Nullable="false" />
+          <Property Name="censo_EsHabilitado" Type="bit" Nullable="false" />
+          <Property Name="censo_Voto" Type="bit" />
+        </EntityType>
+        <EntityType Name="tbCentrosVotacion">
+          <Key>
+            <PropertyRef Name="cenvot_Id" />
+          </Key>
+          <Property Name="cenvot_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="depto_Id" Type="int" Nullable="false" />
+          <Property Name="muni_Id" Type="int" Nullable="false" />
+          <Property Name="cenvot_CodigoArea" Type="int" Nullable="false" />
+          <Property Name="cenvot_CodigoSectorElectoral" Type="int" Nullable="false" />
+          <Property Name="cenvot_Nombre" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="cenvot_Latitud" Type="float" Nullable="false" />
+          <Property Name="cenvot_Longitud" Type="float" Nullable="false" />
+          <Property Name="cenvot_TotalMesas" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbCliente">
+          <Key>
+            <PropertyRef Name="cli_Id" />
+          </Key>
+          <Property Name="cli_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cli_Nombre" Type="nvarchar" MaxLength="100" />
+          <Property Name="cli_RTN" Type="nvarchar" MaxLength="15" />
+          <Property Name="cli_Telefono" Type="nvarchar" MaxLength="13" />
+          <Property Name="cli_Dirección" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="tbComponentes">
+          <Key>
+            <PropertyRef Name="comp_Id" />
+          </Key>
+          <Property Name="comp_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="comp_Nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbDepartamentos">
+          <Key>
+            <PropertyRef Name="depto_Id" />
+          </Key>
+          <Property Name="depto_Id" Type="int" Nullable="false" />
+          <Property Name="depto_Descripcion" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbEstadosCivil">
+          <Key>
+            <PropertyRef Name="estCiv_Id" />
+          </Key>
+          <Property Name="estCiv_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="estCiv_Descripcion" Type="nvarchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbMesasElectorales">
+          <Key>
+            <PropertyRef Name="mesa_Id" />
+          </Key>
+          <Property Name="mesa_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cenvot_Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbModuloPantallas">
+          <Key>
+            <PropertyRef Name="modpan_Id" />
+          </Key>
+          <Property Name="modpan_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="mod_Id" Type="int" />
+          <Property Name="modpan_Nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbModulos">
+          <Key>
+            <PropertyRef Name="mod_Id" />
+          </Key>
+          <Property Name="mod_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="comp_Id" Type="int" />
+          <Property Name="mod_Nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbMovimientos">
+          <Key>
+            <PropertyRef Name="mov_Id" />
+          </Key>
+          <Property Name="mov_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="part_Id" Type="int" Nullable="false" />
+          <Property Name="mov_Nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="mov_Logo" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="mov_Eslogan" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbMunicipios">
+          <Key>
+            <PropertyRef Name="muni_Id" />
+          </Key>
+          <Property Name="muni_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="muni_Codigo" Type="int" Nullable="false" />
+          <Property Name="muni_Descripcion" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="depto_Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbPartidos">
+          <Key>
+            <PropertyRef Name="part_Id" />
+          </Key>
+          <Property Name="part_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="part_Nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="part_Siglas" Type="nvarchar" MaxLength="3" Nullable="false" />
+          <Property Name="part_Sede" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="part_ColorEmblema" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="part_Logo" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="tbPoblados">
+          <Key>
+            <PropertyRef Name="pobl_Id" />
+          </Key>
+          <Property Name="pobl_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="pobl_Descripcion" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="muni_Id" Type="int" Nullable="false" />
+          <Property Name="depto_Id" Type="int" Nullable="false" />
+          <Property Name="aldea_Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbRoles">
+          <Key>
+            <PropertyRef Name="rol_Id" />
+          </Key>
+          <Property Name="rol_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="rol_Nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="rol_EsActivo" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbRolModuloPantallas">
+          <Key>
+            <PropertyRef Name="rmodPant" />
+          </Key>
+          <Property Name="rmodPant" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="modpan_Id" Type="int" Nullable="false" />
+          <Property Name="rol_Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbTipoCandidato">
+          <Key>
+            <PropertyRef Name="tipcan_Id" />
+          </Key>
+          <Property Name="tipcan_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tipcan_Descripcion" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbUsuarios">
+          <Key>
+            <PropertyRef Name="usu_Id" />
+          </Key>
+          <Property Name="usu_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="usu_Identidad" Type="varchar" MaxLength="13" Nullable="false" />
+          <Property Name="usu_PrimerNombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="usu_PrimerApellido" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="usu_SegundoNombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="usu_SegundoApellido" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="usu_Telefono" Type="varchar" MaxLength="8" Nullable="false" />
+          <Property Name="usu_Contraseña" Type="varbinary" MaxLength="8000" Nullable="false" />
+          <Property Name="rol_Id" Type="int" Nullable="false" />
+          <Property Name="usu_EsActivo" Type="bit" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_bRolModuloPantallas_tbModuloPantallas_modpan_Id">
+          <End Role="tbModuloPantallas" Type="Self.tbModuloPantallas" Multiplicity="1" />
+          <End Role="tbRolModuloPantallas" Type="Self.tbRolModuloPantallas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbModuloPantallas">
+              <PropertyRef Name="modpan_Id" />
+            </Principal>
+            <Dependent Role="tbRolModuloPantallas">
+              <PropertyRef Name="modpan_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_bRolModuloPantallas_tbRoles_rol_Id">
+          <End Role="tbRoles" Type="Self.tbRoles" Multiplicity="1" />
+          <End Role="tbRolModuloPantallas" Type="Self.tbRolModuloPantallas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbRoles">
+              <PropertyRef Name="rol_Id" />
+            </Principal>
+            <Dependent Role="tbRolModuloPantallas">
+              <PropertyRef Name="rol_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbAldeas_tbDepartamentos_depto_Id">
+          <End Role="tbDepartamentos" Type="Self.tbDepartamentos" Multiplicity="1" />
+          <End Role="tbAldeas" Type="Self.tbAldeas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbDepartamentos">
+              <PropertyRef Name="depto_Id" />
+            </Principal>
+            <Dependent Role="tbAldeas">
+              <PropertyRef Name="depto_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbAldeas_tbMunicipios_muni_Id">
+          <End Role="tbMunicipios" Type="Self.tbMunicipios" Multiplicity="1" />
+          <End Role="tbAldeas" Type="Self.tbAldeas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbMunicipios">
+              <PropertyRef Name="muni_Id" />
+            </Principal>
+            <Dependent Role="tbAldeas">
+              <PropertyRef Name="muni_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbCandidatos_tbCentroElectoral_censo_Id">
+          <End Role="tbCentroElectoral" Type="Self.tbCentroElectoral" Multiplicity="1" />
+          <End Role="tbCandidatos" Type="Self.tbCandidatos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbCentroElectoral">
+              <PropertyRef Name="censo_Id" />
+            </Principal>
+            <Dependent Role="tbCandidatos">
+              <PropertyRef Name="censo_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbCandidatos_tbDepartamentos_depto_Id">
+          <End Role="tbDepartamentos" Type="Self.tbDepartamentos" Multiplicity="1" />
+          <End Role="tbCandidatos" Type="Self.tbCandidatos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbDepartamentos">
+              <PropertyRef Name="depto_Id" />
+            </Principal>
+            <Dependent Role="tbCandidatos">
+              <PropertyRef Name="depto_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbCandidatos_tbMoviminetos_mov_Id">
+          <End Role="tbMovimientos" Type="Self.tbMovimientos" Multiplicity="1" />
+          <End Role="tbCandidatos" Type="Self.tbCandidatos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbMovimientos">
+              <PropertyRef Name="mov_Id" />
+            </Principal>
+            <Dependent Role="tbCandidatos">
+              <PropertyRef Name="mov_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbCandidatos_tbMunicipios_muni_Id">
+          <End Role="tbMunicipios" Type="Self.tbMunicipios" Multiplicity="1" />
+          <End Role="tbCandidatos" Type="Self.tbCandidatos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbMunicipios">
+              <PropertyRef Name="muni_Id" />
+            </Principal>
+            <Dependent Role="tbCandidatos">
+              <PropertyRef Name="muni_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbCandidatos_tbPartidos_part_Id">
+          <End Role="tbPartidos" Type="Self.tbPartidos" Multiplicity="1" />
+          <End Role="tbCandidatos" Type="Self.tbCandidatos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbPartidos">
+              <PropertyRef Name="part_Id" />
+            </Principal>
+            <Dependent Role="tbCandidatos">
+              <PropertyRef Name="part_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbCandidatos_tbTipoCandidato_tipcan_Id">
+          <End Role="tbTipoCandidato" Type="Self.tbTipoCandidato" Multiplicity="1" />
+          <End Role="tbCandidatos" Type="Self.tbCandidatos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbTipoCandidato">
+              <PropertyRef Name="tipcan_Id" />
+            </Principal>
+            <Dependent Role="tbCandidatos">
+              <PropertyRef Name="tipcan_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbCentroElectoral_tbAldeas_aldea_Id">
+          <End Role="tbAldeas" Type="Self.tbAldeas" Multiplicity="1" />
+          <End Role="tbCentroElectoral" Type="Self.tbCentroElectoral" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbAldeas">
+              <PropertyRef Name="aldea_Id" />
+            </Principal>
+            <Dependent Role="tbCentroElectoral">
+              <PropertyRef Name="aldea_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbCentroElectoral_tbCentrosVotacion_cenvot_Id">
+          <End Role="tbCentrosVotacion" Type="Self.tbCentrosVotacion" Multiplicity="1" />
+          <End Role="tbCentroElectoral" Type="Self.tbCentroElectoral" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbCentrosVotacion">
+              <PropertyRef Name="cenvot_Id" />
+            </Principal>
+            <Dependent Role="tbCentroElectoral">
+              <PropertyRef Name="cenvot_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbCentroElectoral_tbDepartamentos_depto_Id">
+          <End Role="tbDepartamentos" Type="Self.tbDepartamentos" Multiplicity="1" />
+          <End Role="tbCentroElectoral" Type="Self.tbCentroElectoral" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbDepartamentos">
+              <PropertyRef Name="depto_Id" />
+            </Principal>
+            <Dependent Role="tbCentroElectoral">
+              <PropertyRef Name="depto_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbCentroElectoral_tbEstadosCivil_estCiv_Id">
+          <End Role="tbEstadosCivil" Type="Self.tbEstadosCivil" Multiplicity="1" />
+          <End Role="tbCentroElectoral" Type="Self.tbCentroElectoral" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbEstadosCivil">
+              <PropertyRef Name="estCiv_Id" />
+            </Principal>
+            <Dependent Role="tbCentroElectoral">
+              <PropertyRef Name="estCiv_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbCentroElectoral_tbMunicipios_muni_Id">
+          <End Role="tbMunicipios" Type="Self.tbMunicipios" Multiplicity="1" />
+          <End Role="tbCentroElectoral" Type="Self.tbCentroElectoral" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbMunicipios">
+              <PropertyRef Name="muni_Id" />
+            </Principal>
+            <Dependent Role="tbCentroElectoral">
+              <PropertyRef Name="muni_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbCentroElectoral_tbPoblados_pobl_Id">
+          <End Role="tbPoblados" Type="Self.tbPoblados" Multiplicity="1" />
+          <End Role="tbCentroElectoral" Type="Self.tbCentroElectoral" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbPoblados">
+              <PropertyRef Name="pobl_Id" />
+            </Principal>
+            <Dependent Role="tbCentroElectoral">
+              <PropertyRef Name="pobl_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbCentrosVotacion_tbDepartamentos_depto_Id">
+          <End Role="tbDepartamentos" Type="Self.tbDepartamentos" Multiplicity="1" />
+          <End Role="tbCentrosVotacion" Type="Self.tbCentrosVotacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbDepartamentos">
+              <PropertyRef Name="depto_Id" />
+            </Principal>
+            <Dependent Role="tbCentrosVotacion">
+              <PropertyRef Name="depto_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbCentrosVotacion_tbMunicipios_muni_Id">
+          <End Role="tbMunicipios" Type="Self.tbMunicipios" Multiplicity="1" />
+          <End Role="tbCentrosVotacion" Type="Self.tbCentrosVotacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbMunicipios">
+              <PropertyRef Name="muni_Id" />
+            </Principal>
+            <Dependent Role="tbCentrosVotacion">
+              <PropertyRef Name="muni_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbMesasElectorales_tbCentrosVotacion_cenvot_Id">
+          <End Role="tbCentrosVotacion" Type="Self.tbCentrosVotacion" Multiplicity="1" />
+          <End Role="tbMesasElectorales" Type="Self.tbMesasElectorales" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbCentrosVotacion">
+              <PropertyRef Name="cenvot_Id" />
+            </Principal>
+            <Dependent Role="tbMesasElectorales">
+              <PropertyRef Name="cenvot_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbModuloPantallas_tbModulos_mod_Id">
+          <End Role="tbModulos" Type="Self.tbModulos" Multiplicity="0..1" />
+          <End Role="tbModuloPantallas" Type="Self.tbModuloPantallas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbModulos">
+              <PropertyRef Name="mod_Id" />
+            </Principal>
+            <Dependent Role="tbModuloPantallas">
+              <PropertyRef Name="mod_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbModulos_tbComponente_comp_Id">
+          <End Role="tbComponentes" Type="Self.tbComponentes" Multiplicity="0..1" />
+          <End Role="tbModulos" Type="Self.tbModulos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbComponentes">
+              <PropertyRef Name="comp_Id" />
+            </Principal>
+            <Dependent Role="tbModulos">
+              <PropertyRef Name="comp_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbMoviminetos_tbPartidos_part_Id">
+          <End Role="tbPartidos" Type="Self.tbPartidos" Multiplicity="1" />
+          <End Role="tbMovimientos" Type="Self.tbMovimientos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbPartidos">
+              <PropertyRef Name="part_Id" />
+            </Principal>
+            <Dependent Role="tbMovimientos">
+              <PropertyRef Name="part_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbMunicipios_tbDepartamentos_depto_Id">
+          <End Role="tbDepartamentos" Type="Self.tbDepartamentos" Multiplicity="1" />
+          <End Role="tbMunicipios" Type="Self.tbMunicipios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbDepartamentos">
+              <PropertyRef Name="depto_Id" />
+            </Principal>
+            <Dependent Role="tbMunicipios">
+              <PropertyRef Name="depto_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbPoblados_tbAldeas_aldea_Id">
+          <End Role="tbAldeas" Type="Self.tbAldeas" Multiplicity="1" />
+          <End Role="tbPoblados" Type="Self.tbPoblados" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbAldeas">
+              <PropertyRef Name="aldea_Id" />
+            </Principal>
+            <Dependent Role="tbPoblados">
+              <PropertyRef Name="aldea_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbPoblados_tbDepartamentos_depto_Id">
+          <End Role="tbDepartamentos" Type="Self.tbDepartamentos" Multiplicity="1" />
+          <End Role="tbPoblados" Type="Self.tbPoblados" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbDepartamentos">
+              <PropertyRef Name="depto_Id" />
+            </Principal>
+            <Dependent Role="tbPoblados">
+              <PropertyRef Name="depto_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbPoblados_tbMunicipios_muni_Id">
+          <End Role="tbMunicipios" Type="Self.tbMunicipios" Multiplicity="1" />
+          <End Role="tbPoblados" Type="Self.tbPoblados" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbMunicipios">
+              <PropertyRef Name="muni_Id" />
+            </Principal>
+            <Dependent Role="tbPoblados">
+              <PropertyRef Name="muni_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbUsuarios_tbRoles_rol_Id">
+          <End Role="tbRoles" Type="Self.tbRoles" Multiplicity="1" />
+          <End Role="tbUsuarios" Type="Self.tbUsuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbRoles">
+              <PropertyRef Name="rol_Id" />
+            </Principal>
+            <Dependent Role="tbUsuarios">
+              <PropertyRef Name="rol_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="UDP_tbAldeas_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="aldea_Id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="UDP_tbAldeas_Edit" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="aldea_Id" Type="int" Mode="In" />
+          <Parameter Name="aldea_Descripcion" Type="nvarchar" Mode="In" />
+          <Parameter Name="muni_Id" Type="int" Mode="In" />
+          <Parameter Name="depto_Id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="UDP_tbAldeas_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="aldea_Descripcion" Type="nvarchar" Mode="In" />
+          <Parameter Name="muni_Id" Type="int" Mode="In" />
+          <Parameter Name="depto_Id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="UDP_tbCandidatos_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="cand_Id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="UDP_tbCandidatos_Edit" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="cand_Id" Type="int" Mode="In" />
+          <Parameter Name="part_Id" Type="int" Mode="In" />
+          <Parameter Name="mov_Id" Type="int" Mode="In" />
+          <Parameter Name="tipcan_Id" Type="int" Mode="In" />
+          <Parameter Name="censo_Id" Type="int" Mode="In" />
+          <Parameter Name="depto_Id" Type="int" Mode="In" />
+          <Parameter Name="muni_Id" Type="int" Mode="In" />
+          <Parameter Name="cand_Posicion" Type="int" Mode="In" />
+        </Function>
+        <Function Name="UDP_tbCandidatos_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="part_Id" Type="int" Mode="In" />
+          <Parameter Name="mov_Id" Type="int" Mode="In" />
+          <Parameter Name="tipcan_Id" Type="int" Mode="In" />
+          <Parameter Name="censo_Id" Type="int" Mode="In" />
+          <Parameter Name="depto_Id" Type="int" Mode="In" />
+          <Parameter Name="muni_Id" Type="int" Mode="In" />
+          <Parameter Name="cand_Posicion" Type="int" Mode="In" />
+        </Function>
+        <Function Name="UDP_tbCentroElectoral_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="censo_Id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="UDP_tbCentroElectoral_Edit" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="censo_Id" Type="int" Mode="In" />
+          <Parameter Name="censo_Identidad" Type="varchar" Mode="In" />
+          <Parameter Name="censo_PrimerNombre" Type="nvarchar" Mode="In" />
+          <Parameter Name="censo_SegundoNombre" Type="nvarchar" Mode="In" />
+          <Parameter Name="censo_PrimerApellido" Type="nvarchar" Mode="In" />
+          <Parameter Name="censo_SegundoApellido" Type="nvarchar" Mode="In" />
+          <Parameter Name="censo_CodigoSexo" Type="char" Mode="In" />
+          <Parameter Name="censo_FechaNacimiento" Type="date" Mode="In" />
+          <Parameter Name="estCiv_Id" Type="int" Mode="In" />
+          <Parameter Name="depto_Id" Type="int" Mode="In" />
+          <Parameter Name="muni_Id" Type="int" Mode="In" />
+          <Parameter Name="aldea_Id" Type="int" Mode="In" />
+          <Parameter Name="pobl_Id" Type="int" Mode="In" />
+          <Parameter Name="censo_CodigoArea" Type="int" Mode="In" />
+          <Parameter Name="censo_CodigoSectorElectoral" Type="int" Mode="In" />
+          <Parameter Name="cenvot_Id" Type="int" Mode="In" />
+          <Parameter Name="censo_NumeroLinea" Type="int" Mode="In" />
+          <Parameter Name="censo_EsHabilitado" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="UDP_tbCentroElectoral_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="censo_Identidad" Type="varchar" Mode="In" />
+          <Parameter Name="censo_PrimerNombre" Type="nvarchar" Mode="In" />
+          <Parameter Name="censo_SegundoNombre" Type="nvarchar" Mode="In" />
+          <Parameter Name="censo_PrimerApellido" Type="nvarchar" Mode="In" />
+          <Parameter Name="censo_SegundoApellido" Type="nvarchar" Mode="In" />
+          <Parameter Name="censo_CodigoSexo" Type="char" Mode="In" />
+          <Parameter Name="censo_FechaNacimiento" Type="date" Mode="In" />
+          <Parameter Name="estCiv_Id" Type="int" Mode="In" />
+          <Parameter Name="depto_Id" Type="int" Mode="In" />
+          <Parameter Name="muni_Id" Type="int" Mode="In" />
+          <Parameter Name="aldea_Id" Type="int" Mode="In" />
+          <Parameter Name="pobl_Id" Type="int" Mode="In" />
+          <Parameter Name="censo_CodigoArea" Type="int" Mode="In" />
+          <Parameter Name="censo_CodigoSectorElectoral" Type="int" Mode="In" />
+          <Parameter Name="cenvot_Id" Type="int" Mode="In" />
+          <Parameter Name="censo_NumeroLinea" Type="int" Mode="In" />
+          <Parameter Name="censo_EsHabilitado" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="UDP_tbCentrosVotacion_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="cenvot_Id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="UDP_tbCentrosVotacion_Edit" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="cenvot_Id" Type="int" Mode="In" />
+          <Parameter Name="depto_Id" Type="int" Mode="In" />
+          <Parameter Name="muni_Id" Type="int" Mode="In" />
+          <Parameter Name="cenvot_CodigoArea" Type="int" Mode="In" />
+          <Parameter Name="cenvot_CodigoSectorElectoral" Type="int" Mode="In" />
+          <Parameter Name="cenvot_Nombre" Type="nvarchar" Mode="In" />
+          <Parameter Name="cenvot_Latitud" Type="float" Mode="In" />
+          <Parameter Name="cenvot_Longitud" Type="float" Mode="In" />
+          <Parameter Name="cenvot_TotalMesas" Type="int" Mode="In" />
+        </Function>
+        <Function Name="UDP_tbCentrosVotacion_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="depto_Id" Type="int" Mode="In" />
+          <Parameter Name="muni_Id" Type="int" Mode="In" />
+          <Parameter Name="cenvot_CodigoArea" Type="int" Mode="In" />
+          <Parameter Name="cenvot_CodigoSectorElectoral" Type="int" Mode="In" />
+          <Parameter Name="cenvot_Nombre" Type="nvarchar" Mode="In" />
+          <Parameter Name="cenvot_Latitud" Type="float" Mode="In" />
+          <Parameter Name="cenvot_Longitud" Type="float" Mode="In" />
+          <Parameter Name="cenvot_TotalMesas" Type="int" Mode="In" />
+        </Function>
+        <Function Name="UDP_tbComponentes_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="comp_Id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="UDP_tbComponentes_Edit" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="comp_Id" Type="int" Mode="In" />
+          <Parameter Name="comp_Nombre" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="UDP_tbComponentes_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="comp_Nombre" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="UDP_tbDepartamentos_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="depto_Id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="UDP_tbDepartamentos_Edit" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="depto_Id" Type="int" Mode="In" />
+          <Parameter Name="depto_Descripcion" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="UDP_tbDepartamentos_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="depto_Id" Type="int" Mode="In" />
+          <Parameter Name="depto_Descripcion" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="UDP_tbEstadosCivil_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="estCiv_Id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="UDP_tbEstadosCivil_Edit" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="estCiv_Id" Type="int" Mode="In" />
+          <Parameter Name="estCiv_Descripcion" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="UDP_tbEstadosCivil_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="estCiv_Descripcion" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="UDP_tbMesasElectorales_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="mesa_Id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="UDP_tbMesasElectorales_Edit" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="mesa_Id" Type="int" Mode="In" />
+          <Parameter Name="cenvot_Id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="UDP_tbMesasElectorales_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="cenvot_Id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="UDP_tbModuloPantallas_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="modpan_Id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="UDP_tbModuloPantallas_Edit" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="modpan_Id" Type="int" Mode="In" />
+          <Parameter Name="mod_Id" Type="int" Mode="In" />
+          <Parameter Name="modpan_Nombre" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="UDP_tbModuloPantallas_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="mod_Id" Type="int" Mode="In" />
+          <Parameter Name="modpan_Nombre" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="UDP_tbModulos_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="mod_Id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="UDP_tbModulos_Edit" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="mod_Id" Type="int" Mode="In" />
+          <Parameter Name="comp_Id" Type="int" Mode="In" />
+          <Parameter Name="mod_Nombre" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="UDP_tbModulos_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="comp_Id" Type="int" Mode="In" />
+          <Parameter Name="mod_Nombre" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="UDP_tbMunicipios_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="muni_Id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="UDP_tbMunicipios_Edit" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="muni_Id" Type="int" Mode="In" />
+          <Parameter Name="muni_Codigo" Type="int" Mode="In" />
+          <Parameter Name="muni_Descripcion" Type="nvarchar" Mode="In" />
+          <Parameter Name="depto_Id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="UDP_tbMunicipios_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="muni_Codigo" Type="int" Mode="In" />
+          <Parameter Name="muni_Descripcion" Type="nvarchar" Mode="In" />
+          <Parameter Name="depto_Id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="UDP_tbPartidos_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="part_Id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="UDP_tbPartidos_Edit" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="part_Id" Type="int" Mode="In" />
+          <Parameter Name="part_Nombre" Type="nvarchar" Mode="In" />
+          <Parameter Name="part_Siglas" Type="nvarchar" Mode="In" />
+          <Parameter Name="part_Sede" Type="nvarchar" Mode="In" />
+          <Parameter Name="part_ColorEmblema" Type="nvarchar" Mode="In" />
+          <Parameter Name="part_Logo" Type="nvarchar(max)" Mode="In" />
+        </Function>
+        <Function Name="UDP_tbPartidos_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="part_Nombre" Type="nvarchar" Mode="In" />
+          <Parameter Name="part_Siglas" Type="nvarchar" Mode="In" />
+          <Parameter Name="part_Sede" Type="nvarchar" Mode="In" />
+          <Parameter Name="part_ColorEmblema" Type="nvarchar" Mode="In" />
+          <Parameter Name="part_Logo" Type="nvarchar(max)" Mode="In" />
+        </Function>
+        <Function Name="UDP_tbPoblados_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="pobl_Id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="UDP_tbPoblados_Edit" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="pobl_Id" Type="int" Mode="In" />
+          <Parameter Name="pobl_Descripcion" Type="nvarchar" Mode="In" />
+          <Parameter Name="muni_Id" Type="int" Mode="In" />
+          <Parameter Name="depto_Id" Type="int" Mode="In" />
+          <Parameter Name="aldea_Id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="UDP_tbPoblados_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="pobl_Descripcion" Type="nvarchar" Mode="In" />
+          <Parameter Name="muni_Id" Type="int" Mode="In" />
+          <Parameter Name="depto_Id" Type="int" Mode="In" />
+          <Parameter Name="aldea_Id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="UDP_tbTipoCandidato_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="tipcan_Id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="UDP_tbTipoCandidato_Edit" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="tipcan_Id" Type="int" Mode="In" />
+          <Parameter Name="tipcan_Descripcion" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="UDP_tbTipoCandidato_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="tipcan_Descripcion" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="UDP_tbUsuario_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="usu_Id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="UDP_tbUsuario_Edit" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="usu_Id" Type="int" Mode="In" />
+          <Parameter Name="usu_Identidad" Type="varchar" Mode="In" />
+          <Parameter Name="usu_PrimerNombre" Type="nvarchar" Mode="In" />
+          <Parameter Name="usu_PrimerApellido" Type="nvarchar" Mode="In" />
+          <Parameter Name="usu_SegundoNombre" Type="nvarchar" Mode="In" />
+          <Parameter Name="usu_SegundoApellido" Type="nvarchar" Mode="In" />
+          <Parameter Name="usu_Telefono" Type="varchar" Mode="In" />
+          <Parameter Name="rol_Id" Type="int" Mode="In" />
+          <Parameter Name="usu_EsActivo" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="UDP_tbUsuario_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="usu_Identidad" Type="varchar" Mode="In" />
+          <Parameter Name="usu_PrimerNombre" Type="nvarchar" Mode="In" />
+          <Parameter Name="usu_PrimerApellido" Type="nvarchar" Mode="In" />
+          <Parameter Name="usu_SegundoNombre" Type="nvarchar" Mode="In" />
+          <Parameter Name="usu_SegundoApellido" Type="nvarchar" Mode="In" />
+          <Parameter Name="usu_Telefono" Type="varchar" Mode="In" />
+          <Parameter Name="usu_Contraseña" Type="nvarchar" Mode="In" />
+          <Parameter Name="rol_Id" Type="int" Mode="In" />
+          <Parameter Name="usu_EsActivo" Type="bit" Mode="In" />
+        </Function>
+        <EntityContainer Name="VotoElectronicoModelStoreContainer">
+          <EntitySet Name="tbAldeas" EntityType="Self.tbAldeas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbCandidatos" EntityType="Self.tbCandidatos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbCentroElectoral" EntityType="Self.tbCentroElectoral" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbCentrosVotacion" EntityType="Self.tbCentrosVotacion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbCliente" EntityType="Self.tbCliente" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbComponentes" EntityType="Self.tbComponentes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbDepartamentos" EntityType="Self.tbDepartamentos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbEstadosCivil" EntityType="Self.tbEstadosCivil" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbMesasElectorales" EntityType="Self.tbMesasElectorales" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbModuloPantallas" EntityType="Self.tbModuloPantallas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbModulos" EntityType="Self.tbModulos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbMovimientos" EntityType="Self.tbMovimientos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbMunicipios" EntityType="Self.tbMunicipios" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbPartidos" EntityType="Self.tbPartidos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbPoblados" EntityType="Self.tbPoblados" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbRoles" EntityType="Self.tbRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbRolModuloPantallas" EntityType="Self.tbRolModuloPantallas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbTipoCandidato" EntityType="Self.tbTipoCandidato" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbUsuarios" EntityType="Self.tbUsuarios" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_bRolModuloPantallas_tbModuloPantallas_modpan_Id" Association="Self.FK_bRolModuloPantallas_tbModuloPantallas_modpan_Id">
+            <End Role="tbModuloPantallas" EntitySet="tbModuloPantallas" />
+            <End Role="tbRolModuloPantallas" EntitySet="tbRolModuloPantallas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_bRolModuloPantallas_tbRoles_rol_Id" Association="Self.FK_bRolModuloPantallas_tbRoles_rol_Id">
+            <End Role="tbRoles" EntitySet="tbRoles" />
+            <End Role="tbRolModuloPantallas" EntitySet="tbRolModuloPantallas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbAldeas_tbDepartamentos_depto_Id" Association="Self.FK_tbAldeas_tbDepartamentos_depto_Id">
+            <End Role="tbDepartamentos" EntitySet="tbDepartamentos" />
+            <End Role="tbAldeas" EntitySet="tbAldeas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbAldeas_tbMunicipios_muni_Id" Association="Self.FK_tbAldeas_tbMunicipios_muni_Id">
+            <End Role="tbMunicipios" EntitySet="tbMunicipios" />
+            <End Role="tbAldeas" EntitySet="tbAldeas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbCandidatos_tbCentroElectoral_censo_Id" Association="Self.FK_tbCandidatos_tbCentroElectoral_censo_Id">
+            <End Role="tbCentroElectoral" EntitySet="tbCentroElectoral" />
+            <End Role="tbCandidatos" EntitySet="tbCandidatos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbCandidatos_tbDepartamentos_depto_Id" Association="Self.FK_tbCandidatos_tbDepartamentos_depto_Id">
+            <End Role="tbDepartamentos" EntitySet="tbDepartamentos" />
+            <End Role="tbCandidatos" EntitySet="tbCandidatos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbCandidatos_tbMoviminetos_mov_Id" Association="Self.FK_tbCandidatos_tbMoviminetos_mov_Id">
+            <End Role="tbMovimientos" EntitySet="tbMovimientos" />
+            <End Role="tbCandidatos" EntitySet="tbCandidatos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbCandidatos_tbMunicipios_muni_Id" Association="Self.FK_tbCandidatos_tbMunicipios_muni_Id">
+            <End Role="tbMunicipios" EntitySet="tbMunicipios" />
+            <End Role="tbCandidatos" EntitySet="tbCandidatos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbCandidatos_tbPartidos_part_Id" Association="Self.FK_tbCandidatos_tbPartidos_part_Id">
+            <End Role="tbPartidos" EntitySet="tbPartidos" />
+            <End Role="tbCandidatos" EntitySet="tbCandidatos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbCandidatos_tbTipoCandidato_tipcan_Id" Association="Self.FK_tbCandidatos_tbTipoCandidato_tipcan_Id">
+            <End Role="tbTipoCandidato" EntitySet="tbTipoCandidato" />
+            <End Role="tbCandidatos" EntitySet="tbCandidatos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbCentroElectoral_tbAldeas_aldea_Id" Association="Self.FK_tbCentroElectoral_tbAldeas_aldea_Id">
+            <End Role="tbAldeas" EntitySet="tbAldeas" />
+            <End Role="tbCentroElectoral" EntitySet="tbCentroElectoral" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbCentroElectoral_tbCentrosVotacion_cenvot_Id" Association="Self.FK_tbCentroElectoral_tbCentrosVotacion_cenvot_Id">
+            <End Role="tbCentrosVotacion" EntitySet="tbCentrosVotacion" />
+            <End Role="tbCentroElectoral" EntitySet="tbCentroElectoral" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbCentroElectoral_tbDepartamentos_depto_Id" Association="Self.FK_tbCentroElectoral_tbDepartamentos_depto_Id">
+            <End Role="tbDepartamentos" EntitySet="tbDepartamentos" />
+            <End Role="tbCentroElectoral" EntitySet="tbCentroElectoral" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbCentroElectoral_tbEstadosCivil_estCiv_Id" Association="Self.FK_tbCentroElectoral_tbEstadosCivil_estCiv_Id">
+            <End Role="tbEstadosCivil" EntitySet="tbEstadosCivil" />
+            <End Role="tbCentroElectoral" EntitySet="tbCentroElectoral" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbCentroElectoral_tbMunicipios_muni_Id" Association="Self.FK_tbCentroElectoral_tbMunicipios_muni_Id">
+            <End Role="tbMunicipios" EntitySet="tbMunicipios" />
+            <End Role="tbCentroElectoral" EntitySet="tbCentroElectoral" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbCentroElectoral_tbPoblados_pobl_Id" Association="Self.FK_tbCentroElectoral_tbPoblados_pobl_Id">
+            <End Role="tbPoblados" EntitySet="tbPoblados" />
+            <End Role="tbCentroElectoral" EntitySet="tbCentroElectoral" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbCentrosVotacion_tbDepartamentos_depto_Id" Association="Self.FK_tbCentrosVotacion_tbDepartamentos_depto_Id">
+            <End Role="tbDepartamentos" EntitySet="tbDepartamentos" />
+            <End Role="tbCentrosVotacion" EntitySet="tbCentrosVotacion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbCentrosVotacion_tbMunicipios_muni_Id" Association="Self.FK_tbCentrosVotacion_tbMunicipios_muni_Id">
+            <End Role="tbMunicipios" EntitySet="tbMunicipios" />
+            <End Role="tbCentrosVotacion" EntitySet="tbCentrosVotacion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbMesasElectorales_tbCentrosVotacion_cenvot_Id" Association="Self.FK_tbMesasElectorales_tbCentrosVotacion_cenvot_Id">
+            <End Role="tbCentrosVotacion" EntitySet="tbCentrosVotacion" />
+            <End Role="tbMesasElectorales" EntitySet="tbMesasElectorales" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbModuloPantallas_tbModulos_mod_Id" Association="Self.FK_tbModuloPantallas_tbModulos_mod_Id">
+            <End Role="tbModulos" EntitySet="tbModulos" />
+            <End Role="tbModuloPantallas" EntitySet="tbModuloPantallas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbModulos_tbComponente_comp_Id" Association="Self.FK_tbModulos_tbComponente_comp_Id">
+            <End Role="tbComponentes" EntitySet="tbComponentes" />
+            <End Role="tbModulos" EntitySet="tbModulos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbMoviminetos_tbPartidos_part_Id" Association="Self.FK_tbMoviminetos_tbPartidos_part_Id">
+            <End Role="tbPartidos" EntitySet="tbPartidos" />
+            <End Role="tbMovimientos" EntitySet="tbMovimientos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbMunicipios_tbDepartamentos_depto_Id" Association="Self.FK_tbMunicipios_tbDepartamentos_depto_Id">
+            <End Role="tbDepartamentos" EntitySet="tbDepartamentos" />
+            <End Role="tbMunicipios" EntitySet="tbMunicipios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbPoblados_tbAldeas_aldea_Id" Association="Self.FK_tbPoblados_tbAldeas_aldea_Id">
+            <End Role="tbAldeas" EntitySet="tbAldeas" />
+            <End Role="tbPoblados" EntitySet="tbPoblados" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbPoblados_tbDepartamentos_depto_Id" Association="Self.FK_tbPoblados_tbDepartamentos_depto_Id">
+            <End Role="tbDepartamentos" EntitySet="tbDepartamentos" />
+            <End Role="tbPoblados" EntitySet="tbPoblados" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbPoblados_tbMunicipios_muni_Id" Association="Self.FK_tbPoblados_tbMunicipios_muni_Id">
+            <End Role="tbMunicipios" EntitySet="tbMunicipios" />
+            <End Role="tbPoblados" EntitySet="tbPoblados" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbUsuarios_tbRoles_rol_Id" Association="Self.FK_tbUsuarios_tbRoles_rol_Id">
+            <End Role="tbRoles" EntitySet="tbRoles" />
+            <End Role="tbUsuarios" EntitySet="tbUsuarios" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="VotoElectronicoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tbComponentes">
+          <Key>
+            <PropertyRef Name="comp_Id" />
+          </Key>
+          <Property Name="comp_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="comp_Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="tbModulos" Relationship="VotoElectronicoModel.FK_tbModulos_tbComponente_comp_Id" FromRole="tbComponentes" ToRole="tbModulos" />
+        </EntityType>
+        <EntityType Name="tbModuloPantallas">
+          <Key>
+            <PropertyRef Name="modpan_Id" />
+          </Key>
+          <Property Name="modpan_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="mod_Id" Type="Int32" />
+          <Property Name="modpan_Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="tbRolModuloPantallas" Relationship="Self.FK_bRolModuloPantallas_tbModuloPantallas_modpan_Id" FromRole="tbModuloPantallas" ToRole="tbRolModuloPantallas" />
+          <NavigationProperty Name="tbModulos" Relationship="VotoElectronicoModel.FK_tbModuloPantallas_tbModulos_mod_Id" FromRole="tbModuloPantallas" ToRole="tbModulos" />
+        </EntityType>
+        <EntityType Name="tbRoles">
+          <Key>
+            <PropertyRef Name="rol_Id" />
+          </Key>
+          <Property Name="rol_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="rol_Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="rol_EsActivo" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="tbRolModuloPantallas" Relationship="Self.FK_bRolModuloPantallas_tbRoles_rol_Id" FromRole="tbRoles" ToRole="tbRolModuloPantallas" />
+          <NavigationProperty Name="tbUsuarios" Relationship="Self.FK_tbUsuarios_tbRoles_rol_Id" FromRole="tbRoles" ToRole="tbUsuarios" />
+        </EntityType>
+        <EntityType Name="tbRolModuloPantallas">
+          <Key>
+            <PropertyRef Name="rmodPant" />
+          </Key>
+          <Property Name="rmodPant" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="modpan_Id" Type="Int32" Nullable="false" />
+          <Property Name="rol_Id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="tbModuloPantallas" Relationship="Self.FK_bRolModuloPantallas_tbModuloPantallas_modpan_Id" FromRole="tbRolModuloPantallas" ToRole="tbModuloPantallas" />
+          <NavigationProperty Name="tbRoles" Relationship="Self.FK_bRolModuloPantallas_tbRoles_rol_Id" FromRole="tbRolModuloPantallas" ToRole="tbRoles" />
+        </EntityType>
+        <EntityType Name="tbUsuarios">
+          <Key>
+            <PropertyRef Name="usu_Id" />
+          </Key>
+          <Property Name="usu_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="usu_Identidad" Type="String" MaxLength="13" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="usu_PrimerNombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="usu_PrimerApellido" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="usu_SegundoNombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="usu_SegundoApellido" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="usu_Telefono" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="usu_Contraseña" Type="Binary" MaxLength="8000" FixedLength="false" Nullable="false" />
+          <Property Name="rol_Id" Type="Int32" Nullable="false" />
+          <Property Name="usu_EsActivo" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="tbRoles" Relationship="Self.FK_tbUsuarios_tbRoles_rol_Id" FromRole="tbUsuarios" ToRole="tbRoles" />
+        </EntityType>
+        <Association Name="FK_bRolModuloPantallas_tbModuloPantallas_modpan_Id">
+          <End Role="tbModuloPantallas" Type="Self.tbModuloPantallas" Multiplicity="1" />
+          <End Role="tbRolModuloPantallas" Type="Self.tbRolModuloPantallas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbModuloPantallas">
+              <PropertyRef Name="modpan_Id" />
+            </Principal>
+            <Dependent Role="tbRolModuloPantallas">
+              <PropertyRef Name="modpan_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_bRolModuloPantallas_tbRoles_rol_Id">
+          <End Role="tbRoles" Type="Self.tbRoles" Multiplicity="1" />
+          <End Role="tbRolModuloPantallas" Type="Self.tbRolModuloPantallas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbRoles">
+              <PropertyRef Name="rol_Id" />
+            </Principal>
+            <Dependent Role="tbRolModuloPantallas">
+              <PropertyRef Name="rol_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbUsuarios_tbRoles_rol_Id">
+          <End Role="tbRoles" Type="Self.tbRoles" Multiplicity="1" />
+          <End Role="tbUsuarios" Type="Self.tbUsuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbRoles">
+              <PropertyRef Name="rol_Id" />
+            </Principal>
+            <Dependent Role="tbUsuarios">
+              <PropertyRef Name="rol_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="VotoElectronicoEntities3" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tbComponentes" EntityType="Self.tbComponentes" />
+          <EntitySet Name="tbModuloPantallas" EntityType="Self.tbModuloPantallas" />
+          <EntitySet Name="tbRoles" EntityType="Self.tbRoles" />
+          <EntitySet Name="tbRolModuloPantallas" EntityType="Self.tbRolModuloPantallas" />
+          <EntitySet Name="tbUsuarios" EntityType="Self.tbUsuarios" />
+          <AssociationSet Name="FK_bRolModuloPantallas_tbModuloPantallas_modpan_Id" Association="Self.FK_bRolModuloPantallas_tbModuloPantallas_modpan_Id">
+            <End Role="tbModuloPantallas" EntitySet="tbModuloPantallas" />
+            <End Role="tbRolModuloPantallas" EntitySet="tbRolModuloPantallas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_bRolModuloPantallas_tbRoles_rol_Id" Association="Self.FK_bRolModuloPantallas_tbRoles_rol_Id">
+            <End Role="tbRoles" EntitySet="tbRoles" />
+            <End Role="tbRolModuloPantallas" EntitySet="tbRolModuloPantallas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbUsuarios_tbRoles_rol_Id" Association="Self.FK_tbUsuarios_tbRoles_rol_Id">
+            <End Role="tbRoles" EntitySet="tbRoles" />
+            <End Role="tbUsuarios" EntitySet="tbUsuarios" />
+          </AssociationSet>
+          <EntitySet Name="tbCliente" EntityType="VotoElectronicoModel.tbCliente" />
+          <EntitySet Name="tbAldeas" EntityType="VotoElectronicoModel.tbAldeas" />
+          <EntitySet Name="tbCandidatos" EntityType="VotoElectronicoModel.tbCandidatos" />
+          <EntitySet Name="tbCentroElectoral" EntityType="VotoElectronicoModel.tbCentroElectoral" />
+          <EntitySet Name="tbCentrosVotacion" EntityType="VotoElectronicoModel.tbCentrosVotacion" />
+          <EntitySet Name="tbDepartamentos" EntityType="VotoElectronicoModel.tbDepartamentos" />
+          <EntitySet Name="tbEstadosCivil" EntityType="VotoElectronicoModel.tbEstadosCivil" />
+          <EntitySet Name="tbMesasElectorales" EntityType="VotoElectronicoModel.tbMesasElectorales" />
+          <EntitySet Name="tbMunicipios" EntityType="VotoElectronicoModel.tbMunicipios" />
+          <EntitySet Name="tbPartidos" EntityType="VotoElectronicoModel.tbPartidos" />
+          <EntitySet Name="tbPoblados" EntityType="VotoElectronicoModel.tbPoblados" />
+          <EntitySet Name="tbTipoCandidato" EntityType="VotoElectronicoModel.tbTipoCandidato" />
+          <AssociationSet Name="FK_tbAldeas_tbDepartamentos_depto_Id" Association="VotoElectronicoModel.FK_tbAldeas_tbDepartamentos_depto_Id">
+            <End Role="tbDepartamentos" EntitySet="tbDepartamentos" />
+            <End Role="tbAldeas" EntitySet="tbAldeas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbAldeas_tbMunicipios_muni_Id" Association="VotoElectronicoModel.FK_tbAldeas_tbMunicipios_muni_Id">
+            <End Role="tbMunicipios" EntitySet="tbMunicipios" />
+            <End Role="tbAldeas" EntitySet="tbAldeas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbCentroElectoral_tbAldeas_aldea_Id" Association="VotoElectronicoModel.FK_tbCentroElectoral_tbAldeas_aldea_Id">
+            <End Role="tbAldeas" EntitySet="tbAldeas" />
+            <End Role="tbCentroElectoral" EntitySet="tbCentroElectoral" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbPoblados_tbAldeas_aldea_Id" Association="VotoElectronicoModel.FK_tbPoblados_tbAldeas_aldea_Id">
+            <End Role="tbAldeas" EntitySet="tbAldeas" />
+            <End Role="tbPoblados" EntitySet="tbPoblados" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbCandidatos_tbCentroElectoral_censo_Id" Association="VotoElectronicoModel.FK_tbCandidatos_tbCentroElectoral_censo_Id">
+            <End Role="tbCentroElectoral" EntitySet="tbCentroElectoral" />
+            <End Role="tbCandidatos" EntitySet="tbCandidatos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbCandidatos_tbDepartamentos_depto_Id" Association="VotoElectronicoModel.FK_tbCandidatos_tbDepartamentos_depto_Id">
+            <End Role="tbDepartamentos" EntitySet="tbDepartamentos" />
+            <End Role="tbCandidatos" EntitySet="tbCandidatos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbCandidatos_tbMunicipios_muni_Id" Association="VotoElectronicoModel.FK_tbCandidatos_tbMunicipios_muni_Id">
+            <End Role="tbMunicipios" EntitySet="tbMunicipios" />
+            <End Role="tbCandidatos" EntitySet="tbCandidatos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbCandidatos_tbPartidos_part_Id" Association="VotoElectronicoModel.FK_tbCandidatos_tbPartidos_part_Id">
+            <End Role="tbPartidos" EntitySet="tbPartidos" />
+            <End Role="tbCandidatos" EntitySet="tbCandidatos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbCandidatos_tbTipoCandidato_tipcan_Id" Association="VotoElectronicoModel.FK_tbCandidatos_tbTipoCandidato_tipcan_Id">
+            <End Role="tbTipoCandidato" EntitySet="tbTipoCandidato" />
+            <End Role="tbCandidatos" EntitySet="tbCandidatos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbCentroElectoral_tbDepartamentos_depto_Id" Association="VotoElectronicoModel.FK_tbCentroElectoral_tbDepartamentos_depto_Id">
+            <End Role="tbDepartamentos" EntitySet="tbDepartamentos" />
+            <End Role="tbCentroElectoral" EntitySet="tbCentroElectoral" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbCentroElectoral_tbEstadosCivil_estCiv_Id" Association="VotoElectronicoModel.FK_tbCentroElectoral_tbEstadosCivil_estCiv_Id">
+            <End Role="tbEstadosCivil" EntitySet="tbEstadosCivil" />
+            <End Role="tbCentroElectoral" EntitySet="tbCentroElectoral" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbCentroElectoral_tbMunicipios_muni_Id" Association="VotoElectronicoModel.FK_tbCentroElectoral_tbMunicipios_muni_Id">
+            <End Role="tbMunicipios" EntitySet="tbMunicipios" />
+            <End Role="tbCentroElectoral" EntitySet="tbCentroElectoral" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbCentroElectoral_tbPoblados_pobl_Id" Association="VotoElectronicoModel.FK_tbCentroElectoral_tbPoblados_pobl_Id">
+            <End Role="tbPoblados" EntitySet="tbPoblados" />
+            <End Role="tbCentroElectoral" EntitySet="tbCentroElectoral" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbCentrosVotacion_tbDepartamentos_depto_Id" Association="VotoElectronicoModel.FK_tbCentrosVotacion_tbDepartamentos_depto_Id">
+            <End Role="tbDepartamentos" EntitySet="tbDepartamentos" />
+            <End Role="tbCentrosVotacion" EntitySet="tbCentrosVotacion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbCentrosVotacion_tbMunicipios_muni_Id" Association="VotoElectronicoModel.FK_tbCentrosVotacion_tbMunicipios_muni_Id">
+            <End Role="tbMunicipios" EntitySet="tbMunicipios" />
+            <End Role="tbCentrosVotacion" EntitySet="tbCentrosVotacion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbMesasElectorales_tbCentrosVotacion_cenvot_Id" Association="VotoElectronicoModel.FK_tbMesasElectorales_tbCentrosVotacion_cenvot_Id">
+            <End Role="tbCentrosVotacion" EntitySet="tbCentrosVotacion" />
+            <End Role="tbMesasElectorales" EntitySet="tbMesasElectorales" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbMunicipios_tbDepartamentos_depto_Id" Association="VotoElectronicoModel.FK_tbMunicipios_tbDepartamentos_depto_Id">
+            <End Role="tbDepartamentos" EntitySet="tbDepartamentos" />
+            <End Role="tbMunicipios" EntitySet="tbMunicipios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbPoblados_tbDepartamentos_depto_Id" Association="VotoElectronicoModel.FK_tbPoblados_tbDepartamentos_depto_Id">
+            <End Role="tbDepartamentos" EntitySet="tbDepartamentos" />
+            <End Role="tbPoblados" EntitySet="tbPoblados" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbPoblados_tbMunicipios_muni_Id" Association="VotoElectronicoModel.FK_tbPoblados_tbMunicipios_muni_Id">
+            <End Role="tbMunicipios" EntitySet="tbMunicipios" />
+            <End Role="tbPoblados" EntitySet="tbPoblados" />
+          </AssociationSet>
+          <EntitySet Name="tbMovimientos" EntityType="VotoElectronicoModel.tbMovimientos" />
+          <AssociationSet Name="FK_tbCandidatos_tbMoviminetos_mov_Id" Association="VotoElectronicoModel.FK_tbCandidatos_tbMoviminetos_mov_Id">
+            <End Role="tbMovimientos" EntitySet="tbMovimientos" />
+            <End Role="tbCandidatos" EntitySet="tbCandidatos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbMoviminetos_tbPartidos_part_Id" Association="VotoElectronicoModel.FK_tbMoviminetos_tbPartidos_part_Id">
+            <End Role="tbPartidos" EntitySet="tbPartidos" />
+            <End Role="tbMovimientos" EntitySet="tbMovimientos" />
+          </AssociationSet>
+          <FunctionImport Name="UDP_tbComponentes_Insert" ReturnType="Collection(VotoElectronicoModel.UDP_tbComponentes_Insert_Result)">
+          <Parameter Name="comp_Nombre" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="UDP_tbEstadosCivil_Insert" ReturnType="Collection(VotoElectronicoModel.UDP_tbEstadosCivil_Insert_Result)">
+          <Parameter Name="estCiv_Descripcion" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="UDP_tbTipoCandidato_Insert" ReturnType="Collection(VotoElectronicoModel.UDP_tbTipoCandidato_Insert_Result)">
+          <Parameter Name="tipcan_Descripcion" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="tbModulos" EntityType="VotoElectronicoModel.tbModulos" />
+          <AssociationSet Name="FK_tbModulos_tbComponente_comp_Id" Association="VotoElectronicoModel.FK_tbModulos_tbComponente_comp_Id">
+            <End Role="tbComponentes" EntitySet="tbComponentes" />
+            <End Role="tbModulos" EntitySet="tbModulos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tbModuloPantallas_tbModulos_mod_Id" Association="VotoElectronicoModel.FK_tbModuloPantallas_tbModulos_mod_Id">
+            <End Role="tbModulos" EntitySet="tbModulos" />
+            <End Role="tbModuloPantallas" EntitySet="tbModuloPantallas" />
+          </AssociationSet>
+          <FunctionImport Name="UDP_tbDepartamentos_Insert" ReturnType="Collection(VotoElectronicoModel.UDP_tbDepartamentos_Insert_Result)">
+            <Parameter Name="depto_Id" Mode="In" Type="Int32" />
+            <Parameter Name="depto_Descripcion" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="UDP_tbComponentes_Delete" ReturnType="Collection(VotoElectronicoModel.UDP_tbComponentes_Delete_Result)">
+          <Parameter Name="comp_Id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="UDP_tbComponentes_Edit" ReturnType="Collection(VotoElectronicoModel.UDP_tbComponentes_Edit_Result)">
+            <Parameter Name="comp_Id" Mode="In" Type="Int32" />
+            <Parameter Name="comp_Nombre" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="UDP_tbDepartamentos_Delete" ReturnType="Collection(VotoElectronicoModel.UDP_tbDepartamentos_Delete_Result)">
+          <Parameter Name="depto_Id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="UDP_tbDepartamentos_Edit" ReturnType="Collection(VotoElectronicoModel.UDP_tbDepartamentos_Edit_Result)">
+            <Parameter Name="depto_Id" Mode="In" Type="Int32" />
+            <Parameter Name="depto_Descripcion" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="UDP_tbEstadosCivil_Delete" ReturnType="Collection(VotoElectronicoModel.UDP_tbEstadosCivil_Delete_Result)">
+          <Parameter Name="estCiv_Id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="UDP_tbEstadosCivil_Edit" ReturnType="Collection(VotoElectronicoModel.UDP_tbEstadosCivil_Edit_Result)">
+            <Parameter Name="estCiv_Id" Mode="In" Type="Int32" />
+            <Parameter Name="estCiv_Descripcion" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="UDP_tbTipoCandidato_Delete" ReturnType="Collection(VotoElectronicoModel.UDP_tbTipoCandidato_Delete_Result)">
+          <Parameter Name="tipcan_Id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="UDP_tbTipoCandidato_Edit" ReturnType="Collection(VotoElectronicoModel.UDP_tbTipoCandidato_Edit_Result)">
+            <Parameter Name="tipcan_Id" Mode="In" Type="Int32" />
+            <Parameter Name="tipcan_Descripcion" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="UDP_tbMunicipios_Insert" ReturnType="Collection(VotoElectronicoModel.UDP_tbMunicipios_Insert_Result)">
+            <Parameter Name="muni_Codigo" Mode="In" Type="Int32" />
+            <Parameter Name="muni_Descripcion" Mode="In" Type="String" />
+            <Parameter Name="depto_Id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="UDP_tbMunicipios_Edit" ReturnType="Collection(VotoElectronicoModel.UDP_tbMunicipios_Edit_Result)">
+            <Parameter Name="muni_Id" Mode="In" Type="Int32" />
+            <Parameter Name="muni_Codigo" Mode="In" Type="Int32" />
+            <Parameter Name="muni_Descripcion" Mode="In" Type="String" />
+            <Parameter Name="depto_Id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="UDP_tbMunicipios_Delete" ReturnType="Collection(VotoElectronicoModel.UDP_tbMunicipios_Delete_Result1)">
+          <Parameter Name="muni_Id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="UDP_tbAldeas_Insert" ReturnType="Collection(VotoElectronicoModel.UDP_tbAldeas_Insert_Result)">
+            <Parameter Name="aldea_Descripcion" Mode="In" Type="String" />
+            <Parameter Name="muni_Id" Mode="In" Type="Int32" />
+            <Parameter Name="depto_Id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="UDP_tbAldeas_Edit" ReturnType="Collection(VotoElectronicoModel.UDP_tbAldeas_Edit_Result)">
+            <Parameter Name="aldea_Id" Mode="In" Type="Int32" />
+            <Parameter Name="aldea_Descripcion" Mode="In" Type="String" />
+            <Parameter Name="muni_Id" Mode="In" Type="Int32" />
+            <Parameter Name="depto_Id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="UDP_tbAldeas_Delete" ReturnType="Collection(VotoElectronicoModel.UDP_tbAldeas_Delete_Result)">
+          <Parameter Name="aldea_Id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="UDP_tbPoblados_Insert" ReturnType="Collection(VotoElectronicoModel.UDP_tbPoblados_Insert_Result)">
+            <Parameter Name="pobl_Descripcion" Mode="In" Type="String" />
+            <Parameter Name="muni_Id" Mode="In" Type="Int32" />
+            <Parameter Name="depto_Id" Mode="In" Type="Int32" />
+            <Parameter Name="aldea_Id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="UDP_tbPoblados_Edit" ReturnType="Collection(VotoElectronicoModel.UDP_tbPoblados_Edit_Result)">
+            <Parameter Name="pobl_Id" Mode="In" Type="Int32" />
+            <Parameter Name="pobl_Descripcion" Mode="In" Type="String" />
+            <Parameter Name="muni_Id" Mode="In" Type="Int32" />
+            <Parameter Name="depto_Id" Mode="In" Type="Int32" />
+            <Parameter Name="aldea_Id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="UDP_tbPoblados_Delete" ReturnType="Collection(VotoElectronicoModel.UDP_tbPoblados_Delete_Result)">
+          <Parameter Name="pobl_Id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="UDP_tbCentrosVotacion_Insert" ReturnType="Collection(VotoElectronicoModel.UDP_tbCentrosVotacion_Insert_Result)">
+            <Parameter Name="depto_Id" Mode="In" Type="Int32" />
+            <Parameter Name="muni_Id" Mode="In" Type="Int32" />
+            <Parameter Name="cenvot_CodigoArea" Mode="In" Type="Int32" />
+            <Parameter Name="cenvot_CodigoSectorElectoral" Mode="In" Type="Int32" />
+            <Parameter Name="cenvot_Nombre" Mode="In" Type="String" />
+            <Parameter Name="cenvot_Latitud" Mode="In" Type="Double" />
+            <Parameter Name="cenvot_Longitud" Mode="In" Type="Double" />
+            <Parameter Name="cenvot_TotalMesas" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="UDP_tbCentrosVotacion_Edit" ReturnType="Collection(VotoElectronicoModel.UDP_tbCentrosVotacion_Edit_Result)">
+            <Parameter Name="cenvot_Id" Mode="In" Type="Int32" />
+            <Parameter Name="depto_Id" Mode="In" Type="Int32" />
+            <Parameter Name="muni_Id" Mode="In" Type="Int32" />
+            <Parameter Name="cenvot_CodigoArea" Mode="In" Type="Int32" />
+            <Parameter Name="cenvot_CodigoSectorElectoral" Mode="In" Type="Int32" />
+            <Parameter Name="cenvot_Nombre" Mode="In" Type="String" />
+            <Parameter Name="cenvot_Latitud" Mode="In" Type="Double" />
+            <Parameter Name="cenvot_Longitud" Mode="In" Type="Double" />
+            <Parameter Name="cenvot_TotalMesas" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="UDP_tbCentrosVotacion_Delete" ReturnType="Collection(VotoElectronicoModel.UDP_tbCentrosVotacion_Delete_Result)">
+          <Parameter Name="cenvot_Id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="UDP_tbMesasElectorales_Insert" ReturnType="Collection(VotoElectronicoModel.UDP_tbMesasElectorales_Insert_Result)">
+          <Parameter Name="cenvot_Id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="UDP_tbMesasElectorales_Edit" ReturnType="Collection(VotoElectronicoModel.UDP_tbMesasElectorales_Edit_Result)">
+            <Parameter Name="mesa_Id" Mode="In" Type="Int32" />
+            <Parameter Name="cenvot_Id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="UDP_tbMesasElectorales_Delete" ReturnType="Collection(VotoElectronicoModel.UDP_tbMesasElectorales_Delete_Result)">
+          <Parameter Name="mesa_Id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="UDP_tbCentroElectoral_Insert" ReturnType="Collection(VotoElectronicoModel.UDP_tbCentroElectoral_Insert_Result)">
+            <Parameter Name="censo_Identidad" Mode="In" Type="String" />
+            <Parameter Name="censo_PrimerNombre" Mode="In" Type="String" />
+            <Parameter Name="censo_SegundoNombre" Mode="In" Type="String" />
+            <Parameter Name="censo_PrimerApellido" Mode="In" Type="String" />
+            <Parameter Name="censo_SegundoApellido" Mode="In" Type="String" />
+            <Parameter Name="censo_CodigoSexo" Mode="In" Type="String" />
+            <Parameter Name="censo_FechaNacimiento" Mode="In" Type="DateTime" />
+            <Parameter Name="estCiv_Id" Mode="In" Type="Int32" />
+            <Parameter Name="depto_Id" Mode="In" Type="Int32" />
+            <Parameter Name="muni_Id" Mode="In" Type="Int32" />
+            <Parameter Name="aldea_Id" Mode="In" Type="Int32" />
+            <Parameter Name="pobl_Id" Mode="In" Type="Int32" />
+            <Parameter Name="censo_CodigoArea" Mode="In" Type="Int32" />
+            <Parameter Name="censo_CodigoSectorElectoral" Mode="In" Type="Int32" />
+            <Parameter Name="cenvot_Id" Mode="In" Type="Int32" />
+            <Parameter Name="censo_NumeroLinea" Mode="In" Type="Int32" />
+            <Parameter Name="censo_EsHabilitado" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="UDP_tbCentroElectoral_Edit" ReturnType="Collection(VotoElectronicoModel.UDP_tbCentroElectoral_Edit_Result)">
+            <Parameter Name="censo_Id" Mode="In" Type="Int32" />
+            <Parameter Name="censo_Identidad" Mode="In" Type="String" />
+            <Parameter Name="censo_PrimerNombre" Mode="In" Type="String" />
+            <Parameter Name="censo_SegundoNombre" Mode="In" Type="String" />
+            <Parameter Name="censo_PrimerApellido" Mode="In" Type="String" />
+            <Parameter Name="censo_SegundoApellido" Mode="In" Type="String" />
+            <Parameter Name="censo_CodigoSexo" Mode="In" Type="String" />
+            <Parameter Name="censo_FechaNacimiento" Mode="In" Type="DateTime" />
+            <Parameter Name="estCiv_Id" Mode="In" Type="Int32" />
+            <Parameter Name="depto_Id" Mode="In" Type="Int32" />
+            <Parameter Name="muni_Id" Mode="In" Type="Int32" />
+            <Parameter Name="aldea_Id" Mode="In" Type="Int32" />
+            <Parameter Name="pobl_Id" Mode="In" Type="Int32" />
+            <Parameter Name="censo_CodigoArea" Mode="In" Type="Int32" />
+            <Parameter Name="censo_CodigoSectorElectoral" Mode="In" Type="Int32" />
+            <Parameter Name="cenvot_Id" Mode="In" Type="Int32" />
+            <Parameter Name="censo_NumeroLinea" Mode="In" Type="Int32" />
+            <Parameter Name="censo_EsHabilitado" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="UDP_tbCentroElectoral_Delete" ReturnType="Collection(VotoElectronicoModel.UDP_tbCentroElectoral_Delete_Result)">
+          <Parameter Name="censo_Id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="UDP_tbCandidatos_Insert" ReturnType="Collection(VotoElectronicoModel.UDP_tbCandidatos_Insert_Result)">
+            <Parameter Name="part_Id" Mode="In" Type="Int32" />
+            <Parameter Name="mov_Id" Mode="In" Type="Int32" />
+            <Parameter Name="tipcan_Id" Mode="In" Type="Int32" />
+            <Parameter Name="censo_Id" Mode="In" Type="Int32" />
+            <Parameter Name="depto_Id" Mode="In" Type="Int32" />
+            <Parameter Name="muni_Id" Mode="In" Type="Int32" />
+            <Parameter Name="cand_Posicion" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="UDP_tbCandidatos_Edit" ReturnType="Collection(VotoElectronicoModel.UDP_tbCandidatos_Edit_Result)">
+            <Parameter Name="cand_Id" Mode="In" Type="Int32" />
+            <Parameter Name="part_Id" Mode="In" Type="Int32" />
+            <Parameter Name="mov_Id" Mode="In" Type="Int32" />
+            <Parameter Name="tipcan_Id" Mode="In" Type="Int32" />
+            <Parameter Name="censo_Id" Mode="In" Type="Int32" />
+            <Parameter Name="depto_Id" Mode="In" Type="Int32" />
+            <Parameter Name="muni_Id" Mode="In" Type="Int32" />
+            <Parameter Name="cand_Posicion" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="UDP_tbCandidatos_Delete" ReturnType="Collection(VotoElectronicoModel.UDP_tbCandidatos_Delete_Result)">
+          <Parameter Name="cand_Id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="UDP_tbPartidos_Insert" ReturnType="Collection(VotoElectronicoModel.UDP_tbPartidos_Insert_Result)">
+            <Parameter Name="part_Nombre" Mode="In" Type="String" />
+            <Parameter Name="part_Siglas" Mode="In" Type="String" />
+            <Parameter Name="part_Sede" Mode="In" Type="String" />
+            <Parameter Name="part_ColorEmblema" Mode="In" Type="String" />
+            <Parameter Name="part_Logo" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="UDP_tbPartidos_Edit" ReturnType="Collection(VotoElectronicoModel.UDP_tbPartidos_Edit_Result)">
+            <Parameter Name="part_Id" Mode="In" Type="Int32" />
+            <Parameter Name="part_Nombre" Mode="In" Type="String" />
+            <Parameter Name="part_Siglas" Mode="In" Type="String" />
+            <Parameter Name="part_Sede" Mode="In" Type="String" />
+            <Parameter Name="part_ColorEmblema" Mode="In" Type="String" />
+            <Parameter Name="part_Logo" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="UDP_tbPartidos_Delete" ReturnType="Collection(String)">
+          <Parameter Name="part_Id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="UDP_tbModulos_Insert" ReturnType="Collection(VotoElectronicoModel.UDP_tbModulos_Insert_Result)">
+            <Parameter Name="comp_Id" Mode="In" Type="Int32" />
+            <Parameter Name="mod_Nombre" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="UDP_tbModulos_Edit" ReturnType="Collection(VotoElectronicoModel.UDP_tbModulos_Edit_Result)">
+            <Parameter Name="mod_Id" Mode="In" Type="Int32" />
+            <Parameter Name="comp_Id" Mode="In" Type="Int32" />
+            <Parameter Name="mod_Nombre" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="UDP_tbModulos_Delete" ReturnType="Collection(VotoElectronicoModel.UDP_tbModulos_Delete_Result)">
+          <Parameter Name="mod_Id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="UDP_tbModuloPantallas_Delete" ReturnType="Collection(VotoElectronicoModel.UDP_tbModuloPantallas_Delete_Result)">
+          <Parameter Name="modpan_Id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="UDP_tbModuloPantallas_Edit" ReturnType="Collection(VotoElectronicoModel.UDP_tbModuloPantallas_Edit_Result)">
+            <Parameter Name="modpan_Id" Mode="In" Type="Int32" />
+            <Parameter Name="mod_Id" Mode="In" Type="Int32" />
+            <Parameter Name="modpan_Nombre" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="UDP_tbModuloPantallas_Insert" ReturnType="Collection(VotoElectronicoModel.UDP_tbModuloPantallas_Insert_Result)">
+            <Parameter Name="mod_Id" Mode="In" Type="Int32" />
+            <Parameter Name="modpan_Nombre" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="UDP_tbUsuario_Delete" ReturnType="Collection(VotoElectronicoModel.UDP_tbUsuario_Delete_Result)">
+          <Parameter Name="usu_Id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="UDP_tbUsuario_Edit" ReturnType="Collection(VotoElectronicoModel.UDP_tbUsuario_Edit_Result)">
+            <Parameter Name="usu_Id" Mode="In" Type="Int32" />
+            <Parameter Name="usu_Identidad" Mode="In" Type="String" />
+            <Parameter Name="usu_PrimerNombre" Mode="In" Type="String" />
+            <Parameter Name="usu_PrimerApellido" Mode="In" Type="String" />
+            <Parameter Name="usu_SegundoNombre" Mode="In" Type="String" />
+            <Parameter Name="usu_SegundoApellido" Mode="In" Type="String" />
+            <Parameter Name="usu_Telefono" Mode="In" Type="String" />
+            <Parameter Name="rol_Id" Mode="In" Type="Int32" />
+            <Parameter Name="usu_EsActivo" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="UDP_tbUsuario_Insert" ReturnType="Collection(VotoElectronicoModel.UDP_tbUsuario_Insert_Result)">
+            <Parameter Name="usu_Identidad" Mode="In" Type="String" />
+            <Parameter Name="usu_PrimerNombre" Mode="In" Type="String" />
+            <Parameter Name="usu_PrimerApellido" Mode="In" Type="String" />
+            <Parameter Name="usu_SegundoNombre" Mode="In" Type="String" />
+            <Parameter Name="usu_SegundoApellido" Mode="In" Type="String" />
+            <Parameter Name="usu_Telefono" Mode="In" Type="String" />
+            <Parameter Name="usu_Contraseña" Mode="In" Type="String" />
+            <Parameter Name="rol_Id" Mode="In" Type="Int32" />
+            <Parameter Name="usu_EsActivo" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <AssociationSet Name="FK_tbCentroElectoral_tbCentrosVotacion_cenvot_Id" Association="VotoElectronicoModel.FK_tbCentroElectoral_tbCentrosVotacion_cenvot_Id">
+            <End Role="tbCentrosVotacion" EntitySet="tbCentrosVotacion" />
+            <End Role="tbCentroElectoral" EntitySet="tbCentroElectoral" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="tbCliente">
+          <Key>
+            <PropertyRef Name="cli_Id" />
+          </Key>
+          <Property Name="cli_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cli_Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="cli_RTN" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="cli_Telefono" Type="String" MaxLength="13" FixedLength="false" Unicode="true" />
+          <Property Name="cli_Dirección" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tbAldeas">
+          <Key>
+            <PropertyRef Name="aldea_Id" />
+          </Key>
+          <Property Name="aldea_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="aldea_Descripcion" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="muni_Id" Type="Int32" Nullable="false" />
+          <Property Name="depto_Id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="tbDepartamentos" Relationship="VotoElectronicoModel.FK_tbAldeas_tbDepartamentos_depto_Id" FromRole="tbAldeas" ToRole="tbDepartamentos" />
+          <NavigationProperty Name="tbMunicipios" Relationship="VotoElectronicoModel.FK_tbAldeas_tbMunicipios_muni_Id" FromRole="tbAldeas" ToRole="tbMunicipios" />
+          <NavigationProperty Name="tbCentroElectoral" Relationship="VotoElectronicoModel.FK_tbCentroElectoral_tbAldeas_aldea_Id" FromRole="tbAldeas" ToRole="tbCentroElectoral" />
+          <NavigationProperty Name="tbPoblados" Relationship="VotoElectronicoModel.FK_tbPoblados_tbAldeas_aldea_Id" FromRole="tbAldeas" ToRole="tbPoblados" />
+        </EntityType>
+        <EntityType Name="tbCandidatos">
+          <Key>
+            <PropertyRef Name="cand_Id" />
+          </Key>
+          <Property Name="cand_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="part_Id" Type="Int32" Nullable="false" />
+          <Property Name="mov_Id" Type="Int32" Nullable="false" />
+          <Property Name="tipcan_Id" Type="Int32" Nullable="false" />
+          <Property Name="censo_Id" Type="Int32" Nullable="false" />
+          <Property Name="depto_Id" Type="Int32" Nullable="false" />
+          <Property Name="muni_Id" Type="Int32" Nullable="false" />
+          <Property Name="cand_Posicion" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="tbCentroElectoral" Relationship="VotoElectronicoModel.FK_tbCandidatos_tbCentroElectoral_censo_Id" FromRole="tbCandidatos" ToRole="tbCentroElectoral" />
+          <NavigationProperty Name="tbDepartamentos" Relationship="VotoElectronicoModel.FK_tbCandidatos_tbDepartamentos_depto_Id" FromRole="tbCandidatos" ToRole="tbDepartamentos" />
+          <NavigationProperty Name="tbMunicipios" Relationship="VotoElectronicoModel.FK_tbCandidatos_tbMunicipios_muni_Id" FromRole="tbCandidatos" ToRole="tbMunicipios" />
+          <NavigationProperty Name="tbPartidos" Relationship="VotoElectronicoModel.FK_tbCandidatos_tbPartidos_part_Id" FromRole="tbCandidatos" ToRole="tbPartidos" />
+          <NavigationProperty Name="tbTipoCandidato" Relationship="VotoElectronicoModel.FK_tbCandidatos_tbTipoCandidato_tipcan_Id" FromRole="tbCandidatos" ToRole="tbTipoCandidato" />
+          <NavigationProperty Name="tbMovimientos" Relationship="VotoElectronicoModel.FK_tbCandidatos_tbMoviminetos_mov_Id" FromRole="tbCandidatos" ToRole="tbMovimientos" />
+        </EntityType>
+        <EntityType Name="tbCentroElectoral">
+          <Key>
+            <PropertyRef Name="censo_Id" />
+          </Key>
+          <Property Name="censo_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="censo_Identidad" Type="String" Nullable="false" MaxLength="13" FixedLength="false" Unicode="false" />
+          <Property Name="censo_PrimerNombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="censo_SegundoNombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="censo_PrimerApellido" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="censo_SegundoApellido" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="censo_CodigoSexo" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="censo_FechaNacimiento" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="estCiv_Id" Type="Int32" Nullable="false" />
+          <Property Name="depto_Id" Type="Int32" Nullable="false" />
+          <Property Name="muni_Id" Type="Int32" Nullable="false" />
+          <Property Name="aldea_Id" Type="Int32" Nullable="false" />
+          <Property Name="pobl_Id" Type="Int32" Nullable="false" />
+          <Property Name="censo_CodigoArea" Type="Int32" Nullable="false" />
+          <Property Name="censo_CodigoSectorElectoral" Type="Int32" Nullable="false" />
+          <Property Name="cenvot_Id" Type="Int32" Nullable="false" />
+          <Property Name="censo_NumeroLinea" Type="Int32" Nullable="false" />
+          <Property Name="censo_EsHabilitado" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="tbAldeas" Relationship="VotoElectronicoModel.FK_tbCentroElectoral_tbAldeas_aldea_Id" FromRole="tbCentroElectoral" ToRole="tbAldeas" />
+          <NavigationProperty Name="tbCandidatos" Relationship="VotoElectronicoModel.FK_tbCandidatos_tbCentroElectoral_censo_Id" FromRole="tbCentroElectoral" ToRole="tbCandidatos" />
+          <NavigationProperty Name="tbDepartamentos" Relationship="VotoElectronicoModel.FK_tbCentroElectoral_tbDepartamentos_depto_Id" FromRole="tbCentroElectoral" ToRole="tbDepartamentos" />
+          <NavigationProperty Name="tbEstadosCivil" Relationship="VotoElectronicoModel.FK_tbCentroElectoral_tbEstadosCivil_estCiv_Id" FromRole="tbCentroElectoral" ToRole="tbEstadosCivil" />
+          <NavigationProperty Name="tbMunicipios" Relationship="VotoElectronicoModel.FK_tbCentroElectoral_tbMunicipios_muni_Id" FromRole="tbCentroElectoral" ToRole="tbMunicipios" />
+          <NavigationProperty Name="tbPoblados" Relationship="VotoElectronicoModel.FK_tbCentroElectoral_tbPoblados_pobl_Id" FromRole="tbCentroElectoral" ToRole="tbPoblados" />
+          <Property Name="censo_Voto" Type="Boolean" />
+          <NavigationProperty Name="tbCentrosVotacion" Relationship="VotoElectronicoModel.FK_tbCentroElectoral_tbCentrosVotacion_cenvot_Id" FromRole="tbCentroElectoral" ToRole="tbCentrosVotacion" />
+        </EntityType>
+        <EntityType Name="tbCentrosVotacion">
+          <Key>
+            <PropertyRef Name="cenvot_Id" />
+          </Key>
+          <Property Name="cenvot_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="depto_Id" Type="Int32" Nullable="false" />
+          <Property Name="muni_Id" Type="Int32" Nullable="false" />
+          <Property Name="cenvot_CodigoArea" Type="Int32" Nullable="false" />
+          <Property Name="cenvot_CodigoSectorElectoral" Type="Int32" Nullable="false" />
+          <Property Name="cenvot_Nombre" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="cenvot_Latitud" Type="Double" Nullable="false" />
+          <Property Name="cenvot_Longitud" Type="Double" Nullable="false" />
+          <Property Name="cenvot_TotalMesas" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="tbDepartamentos" Relationship="VotoElectronicoModel.FK_tbCentrosVotacion_tbDepartamentos_depto_Id" FromRole="tbCentrosVotacion" ToRole="tbDepartamentos" />
+          <NavigationProperty Name="tbMunicipios" Relationship="VotoElectronicoModel.FK_tbCentrosVotacion_tbMunicipios_muni_Id" FromRole="tbCentrosVotacion" ToRole="tbMunicipios" />
+          <NavigationProperty Name="tbMesasElectorales" Relationship="VotoElectronicoModel.FK_tbMesasElectorales_tbCentrosVotacion_cenvot_Id" FromRole="tbCentrosVotacion" ToRole="tbMesasElectorales" />
+          <NavigationProperty Name="tbCentroElectoral" Relationship="VotoElectronicoModel.FK_tbCentroElectoral_tbCentrosVotacion_cenvot_Id" FromRole="tbCentrosVotacion" ToRole="tbCentroElectoral" />
+        </EntityType>
+        <EntityType Name="tbDepartamentos">
+          <Key>
+            <PropertyRef Name="depto_Id" />
+          </Key>
+          <Property Name="depto_Id" Type="Int32" Nullable="false" />
+          <Property Name="depto_Descripcion" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tbAldeas" Relationship="VotoElectronicoModel.FK_tbAldeas_tbDepartamentos_depto_Id" FromRole="tbDepartamentos" ToRole="tbAldeas" />
+          <NavigationProperty Name="tbCandidatos" Relationship="VotoElectronicoModel.FK_tbCandidatos_tbDepartamentos_depto_Id" FromRole="tbDepartamentos" ToRole="tbCandidatos" />
+          <NavigationProperty Name="tbCentroElectoral" Relationship="VotoElectronicoModel.FK_tbCentroElectoral_tbDepartamentos_depto_Id" FromRole="tbDepartamentos" ToRole="tbCentroElectoral" />
+          <NavigationProperty Name="tbCentrosVotacion" Relationship="VotoElectronicoModel.FK_tbCentrosVotacion_tbDepartamentos_depto_Id" FromRole="tbDepartamentos" ToRole="tbCentrosVotacion" />
+          <NavigationProperty Name="tbMunicipios" Relationship="VotoElectronicoModel.FK_tbMunicipios_tbDepartamentos_depto_Id" FromRole="tbDepartamentos" ToRole="tbMunicipios" />
+          <NavigationProperty Name="tbPoblados" Relationship="VotoElectronicoModel.FK_tbPoblados_tbDepartamentos_depto_Id" FromRole="tbDepartamentos" ToRole="tbPoblados" />
+        </EntityType>
+        <EntityType Name="tbEstadosCivil">
+          <Key>
+            <PropertyRef Name="estCiv_Id" />
+          </Key>
+          <Property Name="estCiv_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="estCiv_Descripcion" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tbCentroElectoral" Relationship="VotoElectronicoModel.FK_tbCentroElectoral_tbEstadosCivil_estCiv_Id" FromRole="tbEstadosCivil" ToRole="tbCentroElectoral" />
+        </EntityType>
+        <EntityType Name="tbMesasElectorales">
+          <Key>
+            <PropertyRef Name="mesa_Id" />
+          </Key>
+          <Property Name="mesa_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cenvot_Id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="tbCentrosVotacion" Relationship="VotoElectronicoModel.FK_tbMesasElectorales_tbCentrosVotacion_cenvot_Id" FromRole="tbMesasElectorales" ToRole="tbCentrosVotacion" />
+        </EntityType>
+        <EntityType Name="tbMunicipios">
+          <Key>
+            <PropertyRef Name="muni_Id" />
+          </Key>
+          <Property Name="muni_Id" Type="Int32" Nullable="false" />
+          <Property Name="muni_Descripcion" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="depto_Id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="tbAldeas" Relationship="VotoElectronicoModel.FK_tbAldeas_tbMunicipios_muni_Id" FromRole="tbMunicipios" ToRole="tbAldeas" />
+          <NavigationProperty Name="tbCandidatos" Relationship="VotoElectronicoModel.FK_tbCandidatos_tbMunicipios_muni_Id" FromRole="tbMunicipios" ToRole="tbCandidatos" />
+          <NavigationProperty Name="tbCentroElectoral" Relationship="VotoElectronicoModel.FK_tbCentroElectoral_tbMunicipios_muni_Id" FromRole="tbMunicipios" ToRole="tbCentroElectoral" />
+          <NavigationProperty Name="tbCentrosVotacion" Relationship="VotoElectronicoModel.FK_tbCentrosVotacion_tbMunicipios_muni_Id" FromRole="tbMunicipios" ToRole="tbCentrosVotacion" />
+          <NavigationProperty Name="tbDepartamentos" Relationship="VotoElectronicoModel.FK_tbMunicipios_tbDepartamentos_depto_Id" FromRole="tbMunicipios" ToRole="tbDepartamentos" />
+          <NavigationProperty Name="tbPoblados" Relationship="VotoElectronicoModel.FK_tbPoblados_tbMunicipios_muni_Id" FromRole="tbMunicipios" ToRole="tbPoblados" />
+          <Property Name="muni_Codigo" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbPartidos">
+          <Key>
+            <PropertyRef Name="part_Id" />
+          </Key>
+          <Property Name="part_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="part_Nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="part_Siglas" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="part_Sede" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="part_ColorEmblema" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="part_Logo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tbCandidatos" Relationship="VotoElectronicoModel.FK_tbCandidatos_tbPartidos_part_Id" FromRole="tbPartidos" ToRole="tbCandidatos" />
+          <NavigationProperty Name="tbMovimientos" Relationship="VotoElectronicoModel.FK_tbMoviminetos_tbPartidos_part_Id" FromRole="tbPartidos" ToRole="tbMovimientos" />
+        </EntityType>
+        <EntityType Name="tbPoblados">
+          <Key>
+            <PropertyRef Name="pobl_Id" />
+          </Key>
+          <Property Name="pobl_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="pobl_Descripcion" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="muni_Id" Type="Int32" Nullable="false" />
+          <Property Name="depto_Id" Type="Int32" Nullable="false" />
+          <Property Name="aldea_Id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="tbAldeas" Relationship="VotoElectronicoModel.FK_tbPoblados_tbAldeas_aldea_Id" FromRole="tbPoblados" ToRole="tbAldeas" />
+          <NavigationProperty Name="tbCentroElectoral" Relationship="VotoElectronicoModel.FK_tbCentroElectoral_tbPoblados_pobl_Id" FromRole="tbPoblados" ToRole="tbCentroElectoral" />
+          <NavigationProperty Name="tbDepartamentos" Relationship="VotoElectronicoModel.FK_tbPoblados_tbDepartamentos_depto_Id" FromRole="tbPoblados" ToRole="tbDepartamentos" />
+          <NavigationProperty Name="tbMunicipios" Relationship="VotoElectronicoModel.FK_tbPoblados_tbMunicipios_muni_Id" FromRole="tbPoblados" ToRole="tbMunicipios" />
+        </EntityType>
+        <EntityType Name="tbTipoCandidato">
+          <Key>
+            <PropertyRef Name="tipcan_Id" />
+          </Key>
+          <Property Name="tipcan_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tipcan_Descripcion" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tbCandidatos" Relationship="VotoElectronicoModel.FK_tbCandidatos_tbTipoCandidato_tipcan_Id" FromRole="tbTipoCandidato" ToRole="tbCandidatos" />
+        </EntityType>
+        <Association Name="FK_tbAldeas_tbDepartamentos_depto_Id">
+          <End Type="VotoElectronicoModel.tbDepartamentos" Role="tbDepartamentos" Multiplicity="1" />
+          <End Type="VotoElectronicoModel.tbAldeas" Role="tbAldeas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbDepartamentos">
+              <PropertyRef Name="depto_Id" />
+            </Principal>
+            <Dependent Role="tbAldeas">
+              <PropertyRef Name="depto_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbAldeas_tbMunicipios_muni_Id">
+          <End Type="VotoElectronicoModel.tbMunicipios" Role="tbMunicipios" Multiplicity="1" />
+          <End Type="VotoElectronicoModel.tbAldeas" Role="tbAldeas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbMunicipios">
+              <PropertyRef Name="muni_Id" />
+            </Principal>
+            <Dependent Role="tbAldeas">
+              <PropertyRef Name="muni_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbCentroElectoral_tbAldeas_aldea_Id">
+          <End Type="VotoElectronicoModel.tbAldeas" Role="tbAldeas" Multiplicity="1" />
+          <End Type="VotoElectronicoModel.tbCentroElectoral" Role="tbCentroElectoral" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbAldeas">
+              <PropertyRef Name="aldea_Id" />
+            </Principal>
+            <Dependent Role="tbCentroElectoral">
+              <PropertyRef Name="aldea_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbPoblados_tbAldeas_aldea_Id">
+          <End Type="VotoElectronicoModel.tbAldeas" Role="tbAldeas" Multiplicity="1" />
+          <End Type="VotoElectronicoModel.tbPoblados" Role="tbPoblados" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbAldeas">
+              <PropertyRef Name="aldea_Id" />
+            </Principal>
+            <Dependent Role="tbPoblados">
+              <PropertyRef Name="aldea_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbCandidatos_tbCentroElectoral_censo_Id">
+          <End Type="VotoElectronicoModel.tbCentroElectoral" Role="tbCentroElectoral" Multiplicity="1" />
+          <End Type="VotoElectronicoModel.tbCandidatos" Role="tbCandidatos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbCentroElectoral">
+              <PropertyRef Name="censo_Id" />
+            </Principal>
+            <Dependent Role="tbCandidatos">
+              <PropertyRef Name="censo_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbCandidatos_tbDepartamentos_depto_Id">
+          <End Type="VotoElectronicoModel.tbDepartamentos" Role="tbDepartamentos" Multiplicity="1" />
+          <End Type="VotoElectronicoModel.tbCandidatos" Role="tbCandidatos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbDepartamentos">
+              <PropertyRef Name="depto_Id" />
+            </Principal>
+            <Dependent Role="tbCandidatos">
+              <PropertyRef Name="depto_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbCandidatos_tbMunicipios_muni_Id">
+          <End Type="VotoElectronicoModel.tbMunicipios" Role="tbMunicipios" Multiplicity="1" />
+          <End Type="VotoElectronicoModel.tbCandidatos" Role="tbCandidatos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbMunicipios">
+              <PropertyRef Name="muni_Id" />
+            </Principal>
+            <Dependent Role="tbCandidatos">
+              <PropertyRef Name="muni_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbCandidatos_tbPartidos_part_Id">
+          <End Type="VotoElectronicoModel.tbPartidos" Role="tbPartidos" Multiplicity="1" />
+          <End Type="VotoElectronicoModel.tbCandidatos" Role="tbCandidatos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbPartidos">
+              <PropertyRef Name="part_Id" />
+            </Principal>
+            <Dependent Role="tbCandidatos">
+              <PropertyRef Name="part_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbCandidatos_tbTipoCandidato_tipcan_Id">
+          <End Type="VotoElectronicoModel.tbTipoCandidato" Role="tbTipoCandidato" Multiplicity="1" />
+          <End Type="VotoElectronicoModel.tbCandidatos" Role="tbCandidatos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbTipoCandidato">
+              <PropertyRef Name="tipcan_Id" />
+            </Principal>
+            <Dependent Role="tbCandidatos">
+              <PropertyRef Name="tipcan_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbCentroElectoral_tbDepartamentos_depto_Id">
+          <End Type="VotoElectronicoModel.tbDepartamentos" Role="tbDepartamentos" Multiplicity="1" />
+          <End Type="VotoElectronicoModel.tbCentroElectoral" Role="tbCentroElectoral" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbDepartamentos">
+              <PropertyRef Name="depto_Id" />
+            </Principal>
+            <Dependent Role="tbCentroElectoral">
+              <PropertyRef Name="depto_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbCentroElectoral_tbEstadosCivil_estCiv_Id">
+          <End Type="VotoElectronicoModel.tbEstadosCivil" Role="tbEstadosCivil" Multiplicity="1" />
+          <End Type="VotoElectronicoModel.tbCentroElectoral" Role="tbCentroElectoral" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbEstadosCivil">
+              <PropertyRef Name="estCiv_Id" />
+            </Principal>
+            <Dependent Role="tbCentroElectoral">
+              <PropertyRef Name="estCiv_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbCentroElectoral_tbMunicipios_muni_Id">
+          <End Type="VotoElectronicoModel.tbMunicipios" Role="tbMunicipios" Multiplicity="1" />
+          <End Type="VotoElectronicoModel.tbCentroElectoral" Role="tbCentroElectoral" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbMunicipios">
+              <PropertyRef Name="muni_Id" />
+            </Principal>
+            <Dependent Role="tbCentroElectoral">
+              <PropertyRef Name="muni_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbCentroElectoral_tbPoblados_pobl_Id">
+          <End Type="VotoElectronicoModel.tbPoblados" Role="tbPoblados" Multiplicity="1" />
+          <End Type="VotoElectronicoModel.tbCentroElectoral" Role="tbCentroElectoral" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbPoblados">
+              <PropertyRef Name="pobl_Id" />
+            </Principal>
+            <Dependent Role="tbCentroElectoral">
+              <PropertyRef Name="pobl_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbCentrosVotacion_tbDepartamentos_depto_Id">
+          <End Type="VotoElectronicoModel.tbDepartamentos" Role="tbDepartamentos" Multiplicity="1" />
+          <End Type="VotoElectronicoModel.tbCentrosVotacion" Role="tbCentrosVotacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbDepartamentos">
+              <PropertyRef Name="depto_Id" />
+            </Principal>
+            <Dependent Role="tbCentrosVotacion">
+              <PropertyRef Name="depto_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbCentrosVotacion_tbMunicipios_muni_Id">
+          <End Type="VotoElectronicoModel.tbMunicipios" Role="tbMunicipios" Multiplicity="1" />
+          <End Type="VotoElectronicoModel.tbCentrosVotacion" Role="tbCentrosVotacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbMunicipios">
+              <PropertyRef Name="muni_Id" />
+            </Principal>
+            <Dependent Role="tbCentrosVotacion">
+              <PropertyRef Name="muni_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbMesasElectorales_tbCentrosVotacion_cenvot_Id">
+          <End Type="VotoElectronicoModel.tbCentrosVotacion" Role="tbCentrosVotacion" Multiplicity="1" />
+          <End Type="VotoElectronicoModel.tbMesasElectorales" Role="tbMesasElectorales" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbCentrosVotacion">
+              <PropertyRef Name="cenvot_Id" />
+            </Principal>
+            <Dependent Role="tbMesasElectorales">
+              <PropertyRef Name="cenvot_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbMunicipios_tbDepartamentos_depto_Id">
+          <End Type="VotoElectronicoModel.tbDepartamentos" Role="tbDepartamentos" Multiplicity="1" />
+          <End Type="VotoElectronicoModel.tbMunicipios" Role="tbMunicipios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbDepartamentos">
+              <PropertyRef Name="depto_Id" />
+            </Principal>
+            <Dependent Role="tbMunicipios">
+              <PropertyRef Name="depto_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbPoblados_tbDepartamentos_depto_Id">
+          <End Type="VotoElectronicoModel.tbDepartamentos" Role="tbDepartamentos" Multiplicity="1" />
+          <End Type="VotoElectronicoModel.tbPoblados" Role="tbPoblados" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbDepartamentos">
+              <PropertyRef Name="depto_Id" />
+            </Principal>
+            <Dependent Role="tbPoblados">
+              <PropertyRef Name="depto_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbPoblados_tbMunicipios_muni_Id">
+          <End Type="VotoElectronicoModel.tbMunicipios" Role="tbMunicipios" Multiplicity="1" />
+          <End Type="VotoElectronicoModel.tbPoblados" Role="tbPoblados" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbMunicipios">
+              <PropertyRef Name="muni_Id" />
+            </Principal>
+            <Dependent Role="tbPoblados">
+              <PropertyRef Name="muni_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="tbMovimientos">
+          <Key>
+            <PropertyRef Name="mov_Id" />
+          </Key>
+          <Property Name="mov_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="part_Id" Type="Int32" Nullable="false" />
+          <Property Name="mov_Nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="mov_Logo" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="mov_Eslogan" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tbCandidatos" Relationship="VotoElectronicoModel.FK_tbCandidatos_tbMoviminetos_mov_Id" FromRole="tbMovimientos" ToRole="tbCandidatos" />
+          <NavigationProperty Name="tbPartidos" Relationship="VotoElectronicoModel.FK_tbMoviminetos_tbPartidos_part_Id" FromRole="tbMovimientos" ToRole="tbPartidos" />
+        </EntityType>
+        <Association Name="FK_tbCandidatos_tbMoviminetos_mov_Id">
+          <End Type="VotoElectronicoModel.tbMovimientos" Role="tbMovimientos" Multiplicity="1" />
+          <End Type="VotoElectronicoModel.tbCandidatos" Role="tbCandidatos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbMovimientos">
+              <PropertyRef Name="mov_Id" />
+            </Principal>
+            <Dependent Role="tbCandidatos">
+              <PropertyRef Name="mov_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbMoviminetos_tbPartidos_part_Id">
+          <End Type="VotoElectronicoModel.tbPartidos" Role="tbPartidos" Multiplicity="1" />
+          <End Type="VotoElectronicoModel.tbMovimientos" Role="tbMovimientos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbPartidos">
+              <PropertyRef Name="part_Id" />
+            </Principal>
+            <Dependent Role="tbMovimientos">
+              <PropertyRef Name="part_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="UDP_tbComponentes_Insert_Result">
+          <Property Type="String" Name="resultado" Nullable="true" MaxLength="500" />
+        </ComplexType>
+        <ComplexType Name="UDP_tbEstadosCivil_Insert_Result">
+          <Property Type="String" Name="resultado" Nullable="true" MaxLength="500" />
+        </ComplexType>
+        <ComplexType Name="UDP_tbTipoCandidato_Insert_Result">
+          <Property Type="String" Name="resultado" Nullable="true" MaxLength="500" />
+        </ComplexType>
+        <EntityType Name="tbModulos">
+          <Key>
+            <PropertyRef Name="mod_Id" />
+          </Key>
+          <Property Name="mod_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="comp_Id" Type="Int32" />
+          <Property Name="mod_Nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tbComponentes" Relationship="VotoElectronicoModel.FK_tbModulos_tbComponente_comp_Id" FromRole="tbModulos" ToRole="tbComponentes" />
+          <NavigationProperty Name="tbModuloPantallas" Relationship="VotoElectronicoModel.FK_tbModuloPantallas_tbModulos_mod_Id" FromRole="tbModulos" ToRole="tbModuloPantallas" />
+        </EntityType>
+        <Association Name="FK_tbModulos_tbComponente_comp_Id">
+          <End Type="VotoElectronicoModel.tbComponentes" Role="tbComponentes" Multiplicity="0..1" />
+          <End Type="VotoElectronicoModel.tbModulos" Role="tbModulos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbComponentes">
+              <PropertyRef Name="comp_Id" />
+            </Principal>
+            <Dependent Role="tbModulos">
+              <PropertyRef Name="comp_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tbModuloPantallas_tbModulos_mod_Id">
+          <End Type="VotoElectronicoModel.tbModulos" Role="tbModulos" Multiplicity="0..1" />
+          <End Type="VotoElectronicoModel.tbModuloPantallas" Role="tbModuloPantallas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbModulos">
+              <PropertyRef Name="mod_Id" />
+            </Principal>
+            <Dependent Role="tbModuloPantallas">
+              <PropertyRef Name="mod_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="UDP_tbDepartamentos_Insert_Result">
+          <Property Type="String" Name="resultado" Nullable="true" MaxLength="500" />
+        </ComplexType>
+        <ComplexType Name="UDP_tbComponentes_Delete_Result">
+          <Property Type="String" Name="resultado" Nullable="false" MaxLength="1" />
+        </ComplexType>
+        <ComplexType Name="UDP_tbComponentes_Edit_Result">
+          <Property Type="String" Name="resultado" Nullable="false" MaxLength="1" />
+        </ComplexType>
+        <ComplexType Name="UDP_tbDepartamentos_Delete_Result">
+          <Property Type="String" Name="resultado" Nullable="false" MaxLength="1" />
+        </ComplexType>
+        <ComplexType Name="UDP_tbDepartamentos_Edit_Result">
+          <Property Type="String" Name="resultado" Nullable="false" MaxLength="1" />
+        </ComplexType>
+        <ComplexType Name="UDP_tbEstadosCivil_Delete_Result">
+          <Property Type="String" Name="resultado" Nullable="false" MaxLength="1" />
+        </ComplexType>
+        <ComplexType Name="UDP_tbEstadosCivil_Edit_Result">
+          <Property Type="String" Name="resultado" Nullable="false" MaxLength="1" />
+        </ComplexType>
+        <ComplexType Name="UDP_tbTipoCandidato_Delete_Result">
+          <Property Type="String" Name="resultado" Nullable="false" MaxLength="1" />
+        </ComplexType>
+        <ComplexType Name="UDP_tbTipoCandidato_Edit_Result">
+          <Property Type="String" Name="resultado" Nullable="false" MaxLength="1" />
+        </ComplexType>
+        <ComplexType Name="UDP_tbMunicipios_Insert_Result">
+          <Property Type="String" Name="resultado" Nullable="true" MaxLength="500" />
+        </ComplexType>
+        <ComplexType Name="UDP_tbMunicipios_Delete_Result">
+          <Property Type="String" Name="resultado" Nullable="false" MaxLength="1" />
+        </ComplexType>
+        <ComplexType Name="UDP_tbMunicipios_Edit_Result">
+          <Property Type="String" Name="resultado" Nullable="false" MaxLength="1" />
+        </ComplexType>
+        <ComplexType Name="UDP_tbAldeas_Insert_Result">
+          <Property Type="String" Name="resultado" Nullable="true" MaxLength="500" />
+        </ComplexType>
+        <ComplexType Name="UDP_tbAldeas_Edit_Result">
+          <Property Type="String" Name="resultado" Nullable="false" MaxLength="1" />
+        </ComplexType>
+        <ComplexType Name="UDP_tbAldeas_Delete_Result">
+          <Property Type="String" Name="resultado" Nullable="false" MaxLength="1" />
+        </ComplexType>
+        <ComplexType Name="UDP_tbPoblados_Insert_Result">
+          <Property Type="String" Name="resultado" Nullable="true" MaxLength="500" />
+        </ComplexType>
+        <ComplexType Name="UDP_tbPoblados_Edit_Result">
+          <Property Type="String" Name="resultado" Nullable="false" MaxLength="1" />
+        </ComplexType>
+        <ComplexType Name="UDP_tbPoblados_Delete_Result">
+          <Property Type="String" Name="resultado" Nullable="false" MaxLength="1" />
+        </ComplexType>
+        <ComplexType Name="UDP_tbCentrosVotacion_Insert_Result">
+          <Property Type="String" Name="resultado" Nullable="true" MaxLength="500" />
+        </ComplexType>
+        <ComplexType Name="UDP_tbCentrosVotacion_Edit_Result">
+          <Property Type="String" Name="resultado" Nullable="false" MaxLength="1" />
+        </ComplexType>
+        <ComplexType Name="UDP_tbCentrosVotacion_Delete_Result">
+          <Property Type="String" Name="resultado" Nullable="false" MaxLength="1" />
+        </ComplexType>
+        <ComplexType Name="UDP_tbMesasElectorales_Insert_Result">
+          <Property Type="String" Name="resultado" Nullable="true" MaxLength="500" />
+        </ComplexType>
+        <ComplexType Name="UDP_tbMesasElectorales_Edit_Result">
+          <Property Type="String" Name="resultado" Nullable="false" MaxLength="1" />
+        </ComplexType>
+        <ComplexType Name="UDP_tbMesasElectorales_Delete_Result">
+          <Property Type="String" Name="resultado" Nullable="false" MaxLength="1" />
+        </ComplexType>
+        <ComplexType Name="UDP_tbCentroElectoral_Insert_Result">
+          <Property Type="String" Name="resultado" Nullable="true" MaxLength="500" />
+        </ComplexType>
+        <ComplexType Name="UDP_tbCentroElectoral_Edit_Result">
+          <Property Type="String" Name="resultado" Nullable="false" MaxLength="1" />
+        </ComplexType>
+        <ComplexType Name="UDP_tbCentroElectoral_Delete_Result">
+          <Property Type="String" Name="resultado" Nullable="false" MaxLength="1" />
+        </ComplexType>
+        <ComplexType Name="UDP_tbCandidatos_Insert_Result">
+          <Property Type="String" Name="resultado" Nullable="true" MaxLength="500" />
+        </ComplexType>
+        <ComplexType Name="UDP_tbCandidatos_Edit_Result">
+          <Property Type="String" Name="resultado" Nullable="false" MaxLength="1" />
+        </ComplexType>
+        <ComplexType Name="UDP_tbCandidatos_Delete_Result">
+          <Property Type="String" Name="resultado" Nullable="false" MaxLength="1" />
+        </ComplexType>
+        <ComplexType Name="UDP_tbPartidos_Insert_Result">
+          <Property Type="String" Name="resultado" Nullable="true" MaxLength="500" />
+        </ComplexType>
+        <ComplexType Name="UDP_tbPartidos_Edit_Result">
+          <Property Type="String" Name="resultado" Nullable="false" MaxLength="1" />
+        </ComplexType>
+        <ComplexType Name="UDP_tbModulos_Insert_Result">
+          <Property Type="String" Name="resultado" Nullable="true" MaxLength="500" />
+        </ComplexType>
+        <ComplexType Name="UDP_tbModulos_Edit_Result">
+          <Property Type="String" Name="resultado" Nullable="false" MaxLength="1" />
+        </ComplexType>
+        <ComplexType Name="UDP_tbMunicipios_Delete_Result1">
+          <Property Type="String" Name="resultado" Nullable="false" MaxLength="1" />
+        </ComplexType>
+        <ComplexType Name="UDP_tbModulos_Delete_Result">
+          <Property Type="String" Name="resultado" Nullable="false" MaxLength="1" />
+        </ComplexType>
+        <ComplexType Name="UDP_tbModuloPantallas_Insert_Result">
+          <Property Type="String" Name="resultado" Nullable="true" MaxLength="500" />
+        </ComplexType>
+        <ComplexType Name="UDP_tbModuloPantallas_Edit_Result">
+          <Property Type="String" Name="resultado" Nullable="false" MaxLength="1" />
+        </ComplexType>
+        <ComplexType Name="UDP_tbModuloPantallas_Delete_Result">
+          <Property Type="String" Name="resultado" Nullable="false" MaxLength="1" />
+        </ComplexType>
+        <ComplexType Name="UDP_tbUsuario_Delete_Result">
+          <Property Type="String" Name="resultado" Nullable="false" MaxLength="1" />
+        </ComplexType>
+        <ComplexType Name="UDP_tbUsuario_Edit_Result">
+          <Property Type="String" Name="resultado" Nullable="false" MaxLength="1" />
+        </ComplexType>
+        <ComplexType Name="UDP_tbUsuario_Insert_Result">
+          <Property Type="String" Name="resultado" Nullable="true" MaxLength="500" />
+        </ComplexType>
+        <Association Name="FK_tbCentroElectoral_tbCentrosVotacion_cenvot_Id">
+          <End Type="VotoElectronicoModel.tbCentrosVotacion" Role="tbCentrosVotacion" Multiplicity="1" />
+          <End Type="VotoElectronicoModel.tbCentroElectoral" Role="tbCentroElectoral" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbCentrosVotacion">
+              <PropertyRef Name="cenvot_Id" />
+            </Principal>
+            <Dependent Role="tbCentroElectoral">
+              <PropertyRef Name="cenvot_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="VotoElectronicoModelStoreContainer" CdmEntityContainer="VotoElectronicoEntities3">
+          <EntitySetMapping Name="tbComponentes">
+            <EntityTypeMapping TypeName="VotoElectronicoModel.tbComponentes">
+              <MappingFragment StoreEntitySet="tbComponentes">
+                <ScalarProperty Name="comp_Id" ColumnName="comp_Id" />
+                <ScalarProperty Name="comp_Nombre" ColumnName="comp_Nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbModuloPantallas">
+            <EntityTypeMapping TypeName="VotoElectronicoModel.tbModuloPantallas">
+              <MappingFragment StoreEntitySet="tbModuloPantallas">
+                <ScalarProperty Name="modpan_Id" ColumnName="modpan_Id" />
+                <ScalarProperty Name="mod_Id" ColumnName="mod_Id" />
+                <ScalarProperty Name="modpan_Nombre" ColumnName="modpan_Nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbRoles">
+            <EntityTypeMapping TypeName="VotoElectronicoModel.tbRoles">
+              <MappingFragment StoreEntitySet="tbRoles">
+                <ScalarProperty Name="rol_Id" ColumnName="rol_Id" />
+                <ScalarProperty Name="rol_Nombre" ColumnName="rol_Nombre" />
+                <ScalarProperty Name="rol_EsActivo" ColumnName="rol_EsActivo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbRolModuloPantallas">
+            <EntityTypeMapping TypeName="VotoElectronicoModel.tbRolModuloPantallas">
+              <MappingFragment StoreEntitySet="tbRolModuloPantallas">
+                <ScalarProperty Name="rmodPant" ColumnName="rmodPant" />
+                <ScalarProperty Name="modpan_Id" ColumnName="modpan_Id" />
+                <ScalarProperty Name="rol_Id" ColumnName="rol_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbUsuarios">
+            <EntityTypeMapping TypeName="VotoElectronicoModel.tbUsuarios">
+              <MappingFragment StoreEntitySet="tbUsuarios">
+                <ScalarProperty Name="usu_Id" ColumnName="usu_Id" />
+                <ScalarProperty Name="usu_Identidad" ColumnName="usu_Identidad" />
+                <ScalarProperty Name="usu_PrimerNombre" ColumnName="usu_PrimerNombre" />
+                <ScalarProperty Name="usu_PrimerApellido" ColumnName="usu_PrimerApellido" />
+                <ScalarProperty Name="usu_SegundoNombre" ColumnName="usu_SegundoNombre" />
+                <ScalarProperty Name="usu_SegundoApellido" ColumnName="usu_SegundoApellido" />
+                <ScalarProperty Name="usu_Telefono" ColumnName="usu_Telefono" />
+                <ScalarProperty Name="usu_Contraseña" ColumnName="usu_Contraseña" />
+                <ScalarProperty Name="rol_Id" ColumnName="rol_Id" />
+                <ScalarProperty Name="usu_EsActivo" ColumnName="usu_EsActivo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbCliente">
+            <EntityTypeMapping TypeName="VotoElectronicoModel.tbCliente">
+              <MappingFragment StoreEntitySet="tbCliente">
+                <ScalarProperty Name="cli_Dirección" ColumnName="cli_Dirección" />
+                <ScalarProperty Name="cli_Telefono" ColumnName="cli_Telefono" />
+                <ScalarProperty Name="cli_RTN" ColumnName="cli_RTN" />
+                <ScalarProperty Name="cli_Nombre" ColumnName="cli_Nombre" />
+                <ScalarProperty Name="cli_Id" ColumnName="cli_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbAldeas">
+            <EntityTypeMapping TypeName="VotoElectronicoModel.tbAldeas">
+              <MappingFragment StoreEntitySet="tbAldeas">
+                <ScalarProperty Name="depto_Id" ColumnName="depto_Id" />
+                <ScalarProperty Name="muni_Id" ColumnName="muni_Id" />
+                <ScalarProperty Name="aldea_Descripcion" ColumnName="aldea_Descripcion" />
+                <ScalarProperty Name="aldea_Id" ColumnName="aldea_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbCandidatos">
+            <EntityTypeMapping TypeName="VotoElectronicoModel.tbCandidatos">
+              <MappingFragment StoreEntitySet="tbCandidatos">
+                <ScalarProperty Name="cand_Posicion" ColumnName="cand_Posicion" />
+                <ScalarProperty Name="muni_Id" ColumnName="muni_Id" />
+                <ScalarProperty Name="depto_Id" ColumnName="depto_Id" />
+                <ScalarProperty Name="censo_Id" ColumnName="censo_Id" />
+                <ScalarProperty Name="tipcan_Id" ColumnName="tipcan_Id" />
+                <ScalarProperty Name="mov_Id" ColumnName="mov_Id" />
+                <ScalarProperty Name="part_Id" ColumnName="part_Id" />
+                <ScalarProperty Name="cand_Id" ColumnName="cand_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbCentroElectoral">
+            <EntityTypeMapping TypeName="VotoElectronicoModel.tbCentroElectoral">
+              <MappingFragment StoreEntitySet="tbCentroElectoral">
+                <ScalarProperty Name="censo_Voto" ColumnName="censo_Voto" />
+                <ScalarProperty Name="censo_EsHabilitado" ColumnName="censo_EsHabilitado" />
+                <ScalarProperty Name="censo_NumeroLinea" ColumnName="censo_NumeroLinea" />
+                <ScalarProperty Name="cenvot_Id" ColumnName="cenvot_Id" />
+                <ScalarProperty Name="censo_CodigoSectorElectoral" ColumnName="censo_CodigoSectorElectoral" />
+                <ScalarProperty Name="censo_CodigoArea" ColumnName="censo_CodigoArea" />
+                <ScalarProperty Name="pobl_Id" ColumnName="pobl_Id" />
+                <ScalarProperty Name="aldea_Id" ColumnName="aldea_Id" />
+                <ScalarProperty Name="muni_Id" ColumnName="muni_Id" />
+                <ScalarProperty Name="depto_Id" ColumnName="depto_Id" />
+                <ScalarProperty Name="estCiv_Id" ColumnName="estCiv_Id" />
+                <ScalarProperty Name="censo_FechaNacimiento" ColumnName="censo_FechaNacimiento" />
+                <ScalarProperty Name="censo_CodigoSexo" ColumnName="censo_CodigoSexo" />
+                <ScalarProperty Name="censo_SegundoApellido" ColumnName="censo_SegundoApellido" />
+                <ScalarProperty Name="censo_PrimerApellido" ColumnName="censo_PrimerApellido" />
+                <ScalarProperty Name="censo_SegundoNombre" ColumnName="censo_SegundoNombre" />
+                <ScalarProperty Name="censo_PrimerNombre" ColumnName="censo_PrimerNombre" />
+                <ScalarProperty Name="censo_Identidad" ColumnName="censo_Identidad" />
+                <ScalarProperty Name="censo_Id" ColumnName="censo_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbCentrosVotacion">
+            <EntityTypeMapping TypeName="VotoElectronicoModel.tbCentrosVotacion">
+              <MappingFragment StoreEntitySet="tbCentrosVotacion">
+                <ScalarProperty Name="cenvot_TotalMesas" ColumnName="cenvot_TotalMesas" />
+                <ScalarProperty Name="cenvot_Longitud" ColumnName="cenvot_Longitud" />
+                <ScalarProperty Name="cenvot_Latitud" ColumnName="cenvot_Latitud" />
+                <ScalarProperty Name="cenvot_Nombre" ColumnName="cenvot_Nombre" />
+                <ScalarProperty Name="cenvot_CodigoSectorElectoral" ColumnName="cenvot_CodigoSectorElectoral" />
+                <ScalarProperty Name="cenvot_CodigoArea" ColumnName="cenvot_CodigoArea" />
+                <ScalarProperty Name="muni_Id" ColumnName="muni_Id" />
+                <ScalarProperty Name="depto_Id" ColumnName="depto_Id" />
+                <ScalarProperty Name="cenvot_Id" ColumnName="cenvot_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbDepartamentos">
+            <EntityTypeMapping TypeName="VotoElectronicoModel.tbDepartamentos">
+              <MappingFragment StoreEntitySet="tbDepartamentos">
+                <ScalarProperty Name="depto_Descripcion" ColumnName="depto_Descripcion" />
+                <ScalarProperty Name="depto_Id" ColumnName="depto_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbEstadosCivil">
+            <EntityTypeMapping TypeName="VotoElectronicoModel.tbEstadosCivil">
+              <MappingFragment StoreEntitySet="tbEstadosCivil">
+                <ScalarProperty Name="estCiv_Descripcion" ColumnName="estCiv_Descripcion" />
+                <ScalarProperty Name="estCiv_Id" ColumnName="estCiv_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbMesasElectorales">
+            <EntityTypeMapping TypeName="VotoElectronicoModel.tbMesasElectorales">
+              <MappingFragment StoreEntitySet="tbMesasElectorales">
+                <ScalarProperty Name="cenvot_Id" ColumnName="cenvot_Id" />
+                <ScalarProperty Name="mesa_Id" ColumnName="mesa_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbMunicipios">
+            <EntityTypeMapping TypeName="VotoElectronicoModel.tbMunicipios">
+              <MappingFragment StoreEntitySet="tbMunicipios">
+                <ScalarProperty Name="muni_Codigo" ColumnName="muni_Codigo" />
+                <ScalarProperty Name="depto_Id" ColumnName="depto_Id" />
+                <ScalarProperty Name="muni_Descripcion" ColumnName="muni_Descripcion" />
+                <ScalarProperty Name="muni_Id" ColumnName="muni_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbPartidos">
+            <EntityTypeMapping TypeName="VotoElectronicoModel.tbPartidos">
+              <MappingFragment StoreEntitySet="tbPartidos">
+                <ScalarProperty Name="part_Logo" ColumnName="part_Logo" />
+                <ScalarProperty Name="part_ColorEmblema" ColumnName="part_ColorEmblema" />
+                <ScalarProperty Name="part_Sede" ColumnName="part_Sede" />
+                <ScalarProperty Name="part_Siglas" ColumnName="part_Siglas" />
+                <ScalarProperty Name="part_Nombre" ColumnName="part_Nombre" />
+                <ScalarProperty Name="part_Id" ColumnName="part_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbPoblados">
+            <EntityTypeMapping TypeName="VotoElectronicoModel.tbPoblados">
+              <MappingFragment StoreEntitySet="tbPoblados">
+                <ScalarProperty Name="aldea_Id" ColumnName="aldea_Id" />
+                <ScalarProperty Name="depto_Id" ColumnName="depto_Id" />
+                <ScalarProperty Name="muni_Id" ColumnName="muni_Id" />
+                <ScalarProperty Name="pobl_Descripcion" ColumnName="pobl_Descripcion" />
+                <ScalarProperty Name="pobl_Id" ColumnName="pobl_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbTipoCandidato">
+            <EntityTypeMapping TypeName="VotoElectronicoModel.tbTipoCandidato">
+              <MappingFragment StoreEntitySet="tbTipoCandidato">
+                <ScalarProperty Name="tipcan_Descripcion" ColumnName="tipcan_Descripcion" />
+                <ScalarProperty Name="tipcan_Id" ColumnName="tipcan_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbMovimientos">
+            <EntityTypeMapping TypeName="VotoElectronicoModel.tbMovimientos">
+              <MappingFragment StoreEntitySet="tbMovimientos">
+                <ScalarProperty Name="mov_Eslogan" ColumnName="mov_Eslogan" />
+                <ScalarProperty Name="mov_Logo" ColumnName="mov_Logo" />
+                <ScalarProperty Name="mov_Nombre" ColumnName="mov_Nombre" />
+                <ScalarProperty Name="part_Id" ColumnName="part_Id" />
+                <ScalarProperty Name="mov_Id" ColumnName="mov_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="UDP_tbComponentes_Insert" FunctionName="VotoElectronicoModel.Store.UDP_tbComponentes_Insert" >
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="VotoElectronicoModel.UDP_tbComponentes_Insert_Result">
+                <ScalarProperty Name="resultado" ColumnName="resultado" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="UDP_tbEstadosCivil_Insert" FunctionName="VotoElectronicoModel.Store.UDP_tbEstadosCivil_Insert" >
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="VotoElectronicoModel.UDP_tbEstadosCivil_Insert_Result">
+                <ScalarProperty Name="resultado" ColumnName="resultado" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="UDP_tbTipoCandidato_Insert" FunctionName="VotoElectronicoModel.Store.UDP_tbTipoCandidato_Insert" >
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="VotoElectronicoModel.UDP_tbTipoCandidato_Insert_Result">
+                <ScalarProperty Name="resultado" ColumnName="resultado" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="tbModulos">
+            <EntityTypeMapping TypeName="VotoElectronicoModel.tbModulos">
+              <MappingFragment StoreEntitySet="tbModulos">
+                <ScalarProperty Name="mod_Nombre" ColumnName="mod_Nombre" />
+                <ScalarProperty Name="comp_Id" ColumnName="comp_Id" />
+                <ScalarProperty Name="mod_Id" ColumnName="mod_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="UDP_tbDepartamentos_Insert" FunctionName="VotoElectronicoModel.Store.UDP_tbDepartamentos_Insert" >
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="VotoElectronicoModel.UDP_tbDepartamentos_Insert_Result">
+                <ScalarProperty Name="resultado" ColumnName="resultado" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="UDP_tbComponentes_Delete" FunctionName="VotoElectronicoModel.Store.UDP_tbComponentes_Delete" >
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="VotoElectronicoModel.UDP_tbComponentes_Delete_Result">
+                <ScalarProperty Name="resultado" ColumnName="resultado" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="UDP_tbComponentes_Edit" FunctionName="VotoElectronicoModel.Store.UDP_tbComponentes_Edit" >
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="VotoElectronicoModel.UDP_tbComponentes_Edit_Result">
+                <ScalarProperty Name="resultado" ColumnName="resultado" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="UDP_tbDepartamentos_Delete" FunctionName="VotoElectronicoModel.Store.UDP_tbDepartamentos_Delete" >
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="VotoElectronicoModel.UDP_tbDepartamentos_Delete_Result">
+                <ScalarProperty Name="resultado" ColumnName="resultado" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="UDP_tbDepartamentos_Edit" FunctionName="VotoElectronicoModel.Store.UDP_tbDepartamentos_Edit" >
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="VotoElectronicoModel.UDP_tbDepartamentos_Edit_Result">
+                <ScalarProperty Name="resultado" ColumnName="resultado" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="UDP_tbEstadosCivil_Delete" FunctionName="VotoElectronicoModel.Store.UDP_tbEstadosCivil_Delete" >
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="VotoElectronicoModel.UDP_tbEstadosCivil_Delete_Result">
+                <ScalarProperty Name="resultado" ColumnName="resultado" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="UDP_tbEstadosCivil_Edit" FunctionName="VotoElectronicoModel.Store.UDP_tbEstadosCivil_Edit" >
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="VotoElectronicoModel.UDP_tbEstadosCivil_Edit_Result">
+                <ScalarProperty Name="resultado" ColumnName="resultado" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="UDP_tbTipoCandidato_Delete" FunctionName="VotoElectronicoModel.Store.UDP_tbTipoCandidato_Delete" >
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="VotoElectronicoModel.UDP_tbTipoCandidato_Delete_Result">
+                <ScalarProperty Name="resultado" ColumnName="resultado" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="UDP_tbTipoCandidato_Edit" FunctionName="VotoElectronicoModel.Store.UDP_tbTipoCandidato_Edit" >
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="VotoElectronicoModel.UDP_tbTipoCandidato_Edit_Result">
+                <ScalarProperty Name="resultado" ColumnName="resultado" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="UDP_tbMunicipios_Insert" FunctionName="VotoElectronicoModel.Store.UDP_tbMunicipios_Insert" >
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="VotoElectronicoModel.UDP_tbMunicipios_Insert_Result">
+                <ScalarProperty Name="resultado" ColumnName="resultado" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="UDP_tbMunicipios_Edit" FunctionName="VotoElectronicoModel.Store.UDP_tbMunicipios_Edit" >
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="VotoElectronicoModel.UDP_tbMunicipios_Edit_Result">
+                <ScalarProperty Name="resultado" ColumnName="resultado" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="UDP_tbMunicipios_Delete" FunctionName="VotoElectronicoModel.Store.UDP_tbMunicipios_Delete" >
+          <ResultMapping>
+              <ComplexTypeMapping TypeName="VotoElectronicoModel.UDP_tbMunicipios_Delete_Result1">
+                <ScalarProperty Name="resultado" ColumnName="resultado" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="UDP_tbAldeas_Insert" FunctionName="VotoElectronicoModel.Store.UDP_tbAldeas_Insert" >
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="VotoElectronicoModel.UDP_tbAldeas_Insert_Result">
+                <ScalarProperty Name="resultado" ColumnName="resultado" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="UDP_tbAldeas_Edit" FunctionName="VotoElectronicoModel.Store.UDP_tbAldeas_Edit" >
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="VotoElectronicoModel.UDP_tbAldeas_Edit_Result">
+                <ScalarProperty Name="resultado" ColumnName="resultado" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="UDP_tbAldeas_Delete" FunctionName="VotoElectronicoModel.Store.UDP_tbAldeas_Delete" >
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="VotoElectronicoModel.UDP_tbAldeas_Delete_Result">
+                <ScalarProperty Name="resultado" ColumnName="resultado" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="UDP_tbPoblados_Insert" FunctionName="VotoElectronicoModel.Store.UDP_tbPoblados_Insert" >
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="VotoElectronicoModel.UDP_tbPoblados_Insert_Result">
+                <ScalarProperty Name="resultado" ColumnName="resultado" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="UDP_tbPoblados_Edit" FunctionName="VotoElectronicoModel.Store.UDP_tbPoblados_Edit" >
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="VotoElectronicoModel.UDP_tbPoblados_Edit_Result">
+                <ScalarProperty Name="resultado" ColumnName="resultado" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="UDP_tbPoblados_Delete" FunctionName="VotoElectronicoModel.Store.UDP_tbPoblados_Delete" >
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="VotoElectronicoModel.UDP_tbPoblados_Delete_Result">
+                <ScalarProperty Name="resultado" ColumnName="resultado" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="UDP_tbCentrosVotacion_Insert" FunctionName="VotoElectronicoModel.Store.UDP_tbCentrosVotacion_Insert" >
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="VotoElectronicoModel.UDP_tbCentrosVotacion_Insert_Result">
+                <ScalarProperty Name="resultado" ColumnName="resultado" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="UDP_tbCentrosVotacion_Edit" FunctionName="VotoElectronicoModel.Store.UDP_tbCentrosVotacion_Edit" >
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="VotoElectronicoModel.UDP_tbCentrosVotacion_Edit_Result">
+                <ScalarProperty Name="resultado" ColumnName="resultado" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="UDP_tbCentrosVotacion_Delete" FunctionName="VotoElectronicoModel.Store.UDP_tbCentrosVotacion_Delete" >
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="VotoElectronicoModel.UDP_tbCentrosVotacion_Delete_Result">
+                <ScalarProperty Name="resultado" ColumnName="resultado" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="UDP_tbMesasElectorales_Insert" FunctionName="VotoElectronicoModel.Store.UDP_tbMesasElectorales_Insert" >
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="VotoElectronicoModel.UDP_tbMesasElectorales_Insert_Result">
+                <ScalarProperty Name="resultado" ColumnName="resultado" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="UDP_tbMesasElectorales_Edit" FunctionName="VotoElectronicoModel.Store.UDP_tbMesasElectorales_Edit" >
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="VotoElectronicoModel.UDP_tbMesasElectorales_Edit_Result">
+                <ScalarProperty Name="resultado" ColumnName="resultado" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="UDP_tbMesasElectorales_Delete" FunctionName="VotoElectronicoModel.Store.UDP_tbMesasElectorales_Delete" >
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="VotoElectronicoModel.UDP_tbMesasElectorales_Delete_Result">
+                <ScalarProperty Name="resultado" ColumnName="resultado" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="UDP_tbCentroElectoral_Insert" FunctionName="VotoElectronicoModel.Store.UDP_tbCentroElectoral_Insert" >
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="VotoElectronicoModel.UDP_tbCentroElectoral_Insert_Result">
+                <ScalarProperty Name="resultado" ColumnName="resultado" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="UDP_tbCentroElectoral_Edit" FunctionName="VotoElectronicoModel.Store.UDP_tbCentroElectoral_Edit" >
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="VotoElectronicoModel.UDP_tbCentroElectoral_Edit_Result">
+                <ScalarProperty Name="resultado" ColumnName="resultado" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="UDP_tbCentroElectoral_Delete" FunctionName="VotoElectronicoModel.Store.UDP_tbCentroElectoral_Delete" >
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="VotoElectronicoModel.UDP_tbCentroElectoral_Delete_Result">
+                <ScalarProperty Name="resultado" ColumnName="resultado" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="UDP_tbCandidatos_Insert" FunctionName="VotoElectronicoModel.Store.UDP_tbCandidatos_Insert" >
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="VotoElectronicoModel.UDP_tbCandidatos_Insert_Result">
+                <ScalarProperty Name="resultado" ColumnName="resultado" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="UDP_tbCandidatos_Edit" FunctionName="VotoElectronicoModel.Store.UDP_tbCandidatos_Edit" >
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="VotoElectronicoModel.UDP_tbCandidatos_Edit_Result">
+                <ScalarProperty Name="resultado" ColumnName="resultado" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="UDP_tbCandidatos_Delete" FunctionName="VotoElectronicoModel.Store.UDP_tbCandidatos_Delete" >
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="VotoElectronicoModel.UDP_tbCandidatos_Delete_Result">
+                <ScalarProperty Name="resultado" ColumnName="resultado" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="UDP_tbPartidos_Insert" FunctionName="VotoElectronicoModel.Store.UDP_tbPartidos_Insert" >
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="VotoElectronicoModel.UDP_tbPartidos_Insert_Result">
+                <ScalarProperty Name="resultado" ColumnName="resultado" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="UDP_tbPartidos_Edit" FunctionName="VotoElectronicoModel.Store.UDP_tbPartidos_Edit" >
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="VotoElectronicoModel.UDP_tbPartidos_Edit_Result">
+                <ScalarProperty Name="resultado" ColumnName="resultado" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="UDP_tbPartidos_Delete" FunctionName="VotoElectronicoModel.Store.UDP_tbPartidos_Delete" />
+          <FunctionImportMapping FunctionImportName="UDP_tbModulos_Insert" FunctionName="VotoElectronicoModel.Store.UDP_tbModulos_Insert" >
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="VotoElectronicoModel.UDP_tbModulos_Insert_Result">
+                <ScalarProperty Name="resultado" ColumnName="resultado" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="UDP_tbModulos_Edit" FunctionName="VotoElectronicoModel.Store.UDP_tbModulos_Edit" >
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="VotoElectronicoModel.UDP_tbModulos_Edit_Result">
+                <ScalarProperty Name="resultado" ColumnName="resultado" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="UDP_tbModulos_Delete" FunctionName="VotoElectronicoModel.Store.UDP_tbModulos_Delete" >
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="VotoElectronicoModel.UDP_tbModulos_Delete_Result">
+                <ScalarProperty Name="resultado" ColumnName="resultado" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="UDP_tbModuloPantallas_Delete" FunctionName="VotoElectronicoModel.Store.UDP_tbModuloPantallas_Delete" >
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="VotoElectronicoModel.UDP_tbModuloPantallas_Delete_Result">
+                <ScalarProperty Name="resultado" ColumnName="resultado" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="UDP_tbModuloPantallas_Edit" FunctionName="VotoElectronicoModel.Store.UDP_tbModuloPantallas_Edit" >
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="VotoElectronicoModel.UDP_tbModuloPantallas_Edit_Result">
+                <ScalarProperty Name="resultado" ColumnName="resultado" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="UDP_tbModuloPantallas_Insert" FunctionName="VotoElectronicoModel.Store.UDP_tbModuloPantallas_Insert" >
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="VotoElectronicoModel.UDP_tbModuloPantallas_Insert_Result">
+                <ScalarProperty Name="resultado" ColumnName="resultado" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="UDP_tbUsuario_Delete" FunctionName="VotoElectronicoModel.Store.UDP_tbUsuario_Delete" >
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="VotoElectronicoModel.UDP_tbUsuario_Delete_Result">
+                <ScalarProperty Name="resultado" ColumnName="resultado" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="UDP_tbUsuario_Edit" FunctionName="VotoElectronicoModel.Store.UDP_tbUsuario_Edit" >
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="VotoElectronicoModel.UDP_tbUsuario_Edit_Result">
+                <ScalarProperty Name="resultado" ColumnName="resultado" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="UDP_tbUsuario_Insert" FunctionName="VotoElectronicoModel.Store.UDP_tbUsuario_Insert" >
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="VotoElectronicoModel.UDP_tbUsuario_Insert_Result">
+                <ScalarProperty Name="resultado" ColumnName="resultado" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

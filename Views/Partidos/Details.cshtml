@@ -1,0 +1,59 @@
+﻿@model VotoElectronico.Models.tbPartidos
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>tbPartidos</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.part_Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.part_Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.part_Siglas)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.part_Siglas)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.part_Sede)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.part_Sede)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.part_ColorEmblema)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.part_ColorEmblema)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.part_Logo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.part_Logo)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.part_Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

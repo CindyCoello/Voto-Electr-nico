@@ -1,0 +1,898 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="VotoElectronicoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tbAldeas">
+    <Key>
+      <PropertyRef Name="aldea_Id" />
+    </Key>
+    <Property Name="aldea_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="aldea_Descripcion" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="muni_Id" Type="int" Nullable="false" />
+    <Property Name="depto_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbCandidatos">
+    <Key>
+      <PropertyRef Name="cand_Id" />
+    </Key>
+    <Property Name="cand_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="part_Id" Type="int" Nullable="false" />
+    <Property Name="mov_Id" Type="int" Nullable="false" />
+    <Property Name="tipcan_Id" Type="int" Nullable="false" />
+    <Property Name="censo_Id" Type="int" Nullable="false" />
+    <Property Name="depto_Id" Type="int" Nullable="false" />
+    <Property Name="muni_Id" Type="int" Nullable="false" />
+    <Property Name="cand_Posicion" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbCentroElectoral">
+    <Key>
+      <PropertyRef Name="censo_Id" />
+    </Key>
+    <Property Name="censo_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="censo_Identidad" Type="varchar" MaxLength="13" Nullable="false" />
+    <Property Name="censo_PrimerNombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="censo_SegundoNombre" Type="nvarchar" MaxLength="50" />
+    <Property Name="censo_PrimerApellido" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="censo_SegundoApellido" Type="nvarchar" MaxLength="50" />
+    <Property Name="censo_CodigoSexo" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="censo_FechaNacimiento" Type="date" Nullable="false" />
+    <Property Name="estCiv_Id" Type="int" Nullable="false" />
+    <Property Name="depto_Id" Type="int" Nullable="false" />
+    <Property Name="muni_Id" Type="int" Nullable="false" />
+    <Property Name="aldea_Id" Type="int" Nullable="false" />
+    <Property Name="pobl_Id" Type="int" Nullable="false" />
+    <Property Name="censo_CodigoArea" Type="int" Nullable="false" />
+    <Property Name="censo_CodigoSectorElectoral" Type="int" Nullable="false" />
+    <Property Name="cenvot_Id" Type="int" Nullable="false" />
+    <Property Name="censo_NumeroLinea" Type="int" Nullable="false" />
+    <Property Name="censo_EsHabilitado" Type="bit" Nullable="false" />
+    <Property Name="censo_Voto" Type="bit" />
+  </EntityType>
+  <EntityType Name="tbCentrosVotacion">
+    <Key>
+      <PropertyRef Name="cenvot_Id" />
+    </Key>
+    <Property Name="cenvot_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="depto_Id" Type="int" Nullable="false" />
+    <Property Name="muni_Id" Type="int" Nullable="false" />
+    <Property Name="cenvot_CodigoArea" Type="int" Nullable="false" />
+    <Property Name="cenvot_CodigoSectorElectoral" Type="int" Nullable="false" />
+    <Property Name="cenvot_Nombre" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="cenvot_Latitud" Type="float" Nullable="false" />
+    <Property Name="cenvot_Longitud" Type="float" Nullable="false" />
+    <Property Name="cenvot_TotalMesas" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbCliente">
+    <Key>
+      <PropertyRef Name="cli_Id" />
+    </Key>
+    <Property Name="cli_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cli_Nombre" Type="nvarchar" MaxLength="100" />
+    <Property Name="cli_RTN" Type="nvarchar" MaxLength="15" />
+    <Property Name="cli_Telefono" Type="nvarchar" MaxLength="13" />
+    <Property Name="cli_Dirección" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="tbComponentes">
+    <Key>
+      <PropertyRef Name="comp_Id" />
+    </Key>
+    <Property Name="comp_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="comp_Nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbDepartamentos">
+    <Key>
+      <PropertyRef Name="depto_Id" />
+    </Key>
+    <Property Name="depto_Id" Type="int" Nullable="false" />
+    <Property Name="depto_Descripcion" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbEstadosCivil">
+    <Key>
+      <PropertyRef Name="estCiv_Id" />
+    </Key>
+    <Property Name="estCiv_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="estCiv_Descripcion" Type="nvarchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbMesasElectorales">
+    <Key>
+      <PropertyRef Name="mesa_Id" />
+    </Key>
+    <Property Name="mesa_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cenvot_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbModuloPantallas">
+    <Key>
+      <PropertyRef Name="modpan_Id" />
+    </Key>
+    <Property Name="modpan_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="mod_Id" Type="int" />
+    <Property Name="modpan_Nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbModulos">
+    <Key>
+      <PropertyRef Name="mod_Id" />
+    </Key>
+    <Property Name="mod_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="comp_Id" Type="int" />
+    <Property Name="mod_Nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbMovimientos">
+    <Key>
+      <PropertyRef Name="mov_Id" />
+    </Key>
+    <Property Name="mov_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="part_Id" Type="int" Nullable="false" />
+    <Property Name="mov_Nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="mov_Logo" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="mov_Eslogan" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbMunicipios">
+    <Key>
+      <PropertyRef Name="muni_Id" />
+    </Key>
+    <Property Name="muni_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="muni_Codigo" Type="int" Nullable="false" />
+    <Property Name="muni_Descripcion" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="depto_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbPartidos">
+    <Key>
+      <PropertyRef Name="part_Id" />
+    </Key>
+    <Property Name="part_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="part_Nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="part_Siglas" Type="nvarchar" MaxLength="3" Nullable="false" />
+    <Property Name="part_Sede" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="part_ColorEmblema" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="part_Logo" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="tbPoblados">
+    <Key>
+      <PropertyRef Name="pobl_Id" />
+    </Key>
+    <Property Name="pobl_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="pobl_Descripcion" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="muni_Id" Type="int" Nullable="false" />
+    <Property Name="depto_Id" Type="int" Nullable="false" />
+    <Property Name="aldea_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbRoles">
+    <Key>
+      <PropertyRef Name="rol_Id" />
+    </Key>
+    <Property Name="rol_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="rol_Nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="rol_EsActivo" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbRolModuloPantallas">
+    <Key>
+      <PropertyRef Name="rmodPant" />
+    </Key>
+    <Property Name="rmodPant" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="modpan_Id" Type="int" Nullable="false" />
+    <Property Name="rol_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbTipoCandidato">
+    <Key>
+      <PropertyRef Name="tipcan_Id" />
+    </Key>
+    <Property Name="tipcan_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tipcan_Descripcion" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbUsuarios">
+    <Key>
+      <PropertyRef Name="usu_Id" />
+    </Key>
+    <Property Name="usu_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="usu_Identidad" Type="varchar" MaxLength="13" Nullable="false" />
+    <Property Name="usu_PrimerNombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="usu_PrimerApellido" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="usu_SegundoNombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="usu_SegundoApellido" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="usu_Telefono" Type="varchar" MaxLength="8" Nullable="false" />
+    <Property Name="usu_Contraseña" Type="varbinary" MaxLength="8000" Nullable="false" />
+    <Property Name="rol_Id" Type="int" Nullable="false" />
+    <Property Name="usu_EsActivo" Type="bit" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_bRolModuloPantallas_tbModuloPantallas_modpan_Id">
+    <End Role="tbModuloPantallas" Type="Self.tbModuloPantallas" Multiplicity="1" />
+    <End Role="tbRolModuloPantallas" Type="Self.tbRolModuloPantallas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbModuloPantallas">
+        <PropertyRef Name="modpan_Id" />
+      </Principal>
+      <Dependent Role="tbRolModuloPantallas">
+        <PropertyRef Name="modpan_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_bRolModuloPantallas_tbRoles_rol_Id">
+    <End Role="tbRoles" Type="Self.tbRoles" Multiplicity="1" />
+    <End Role="tbRolModuloPantallas" Type="Self.tbRolModuloPantallas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbRoles">
+        <PropertyRef Name="rol_Id" />
+      </Principal>
+      <Dependent Role="tbRolModuloPantallas">
+        <PropertyRef Name="rol_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbAldeas_tbDepartamentos_depto_Id">
+    <End Role="tbDepartamentos" Type="Self.tbDepartamentos" Multiplicity="1" />
+    <End Role="tbAldeas" Type="Self.tbAldeas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbDepartamentos">
+        <PropertyRef Name="depto_Id" />
+      </Principal>
+      <Dependent Role="tbAldeas">
+        <PropertyRef Name="depto_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbAldeas_tbMunicipios_muni_Id">
+    <End Role="tbMunicipios" Type="Self.tbMunicipios" Multiplicity="1" />
+    <End Role="tbAldeas" Type="Self.tbAldeas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbMunicipios">
+        <PropertyRef Name="muni_Id" />
+      </Principal>
+      <Dependent Role="tbAldeas">
+        <PropertyRef Name="muni_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbCandidatos_tbCentroElectoral_censo_Id">
+    <End Role="tbCentroElectoral" Type="Self.tbCentroElectoral" Multiplicity="1" />
+    <End Role="tbCandidatos" Type="Self.tbCandidatos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbCentroElectoral">
+        <PropertyRef Name="censo_Id" />
+      </Principal>
+      <Dependent Role="tbCandidatos">
+        <PropertyRef Name="censo_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbCandidatos_tbDepartamentos_depto_Id">
+    <End Role="tbDepartamentos" Type="Self.tbDepartamentos" Multiplicity="1" />
+    <End Role="tbCandidatos" Type="Self.tbCandidatos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbDepartamentos">
+        <PropertyRef Name="depto_Id" />
+      </Principal>
+      <Dependent Role="tbCandidatos">
+        <PropertyRef Name="depto_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbCandidatos_tbMoviminetos_mov_Id">
+    <End Role="tbMovimientos" Type="Self.tbMovimientos" Multiplicity="1" />
+    <End Role="tbCandidatos" Type="Self.tbCandidatos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbMovimientos">
+        <PropertyRef Name="mov_Id" />
+      </Principal>
+      <Dependent Role="tbCandidatos">
+        <PropertyRef Name="mov_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbCandidatos_tbMunicipios_muni_Id">
+    <End Role="tbMunicipios" Type="Self.tbMunicipios" Multiplicity="1" />
+    <End Role="tbCandidatos" Type="Self.tbCandidatos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbMunicipios">
+        <PropertyRef Name="muni_Id" />
+      </Principal>
+      <Dependent Role="tbCandidatos">
+        <PropertyRef Name="muni_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbCandidatos_tbPartidos_part_Id">
+    <End Role="tbPartidos" Type="Self.tbPartidos" Multiplicity="1" />
+    <End Role="tbCandidatos" Type="Self.tbCandidatos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbPartidos">
+        <PropertyRef Name="part_Id" />
+      </Principal>
+      <Dependent Role="tbCandidatos">
+        <PropertyRef Name="part_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbCandidatos_tbTipoCandidato_tipcan_Id">
+    <End Role="tbTipoCandidato" Type="Self.tbTipoCandidato" Multiplicity="1" />
+    <End Role="tbCandidatos" Type="Self.tbCandidatos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbTipoCandidato">
+        <PropertyRef Name="tipcan_Id" />
+      </Principal>
+      <Dependent Role="tbCandidatos">
+        <PropertyRef Name="tipcan_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbCentroElectoral_tbAldeas_aldea_Id">
+    <End Role="tbAldeas" Type="Self.tbAldeas" Multiplicity="1" />
+    <End Role="tbCentroElectoral" Type="Self.tbCentroElectoral" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbAldeas">
+        <PropertyRef Name="aldea_Id" />
+      </Principal>
+      <Dependent Role="tbCentroElectoral">
+        <PropertyRef Name="aldea_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbCentroElectoral_tbCentrosVotacion_cenvot_Id">
+    <End Role="tbCentrosVotacion" Type="Self.tbCentrosVotacion" Multiplicity="1" />
+    <End Role="tbCentroElectoral" Type="Self.tbCentroElectoral" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbCentrosVotacion">
+        <PropertyRef Name="cenvot_Id" />
+      </Principal>
+      <Dependent Role="tbCentroElectoral">
+        <PropertyRef Name="cenvot_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbCentroElectoral_tbDepartamentos_depto_Id">
+    <End Role="tbDepartamentos" Type="Self.tbDepartamentos" Multiplicity="1" />
+    <End Role="tbCentroElectoral" Type="Self.tbCentroElectoral" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbDepartamentos">
+        <PropertyRef Name="depto_Id" />
+      </Principal>
+      <Dependent Role="tbCentroElectoral">
+        <PropertyRef Name="depto_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbCentroElectoral_tbEstadosCivil_estCiv_Id">
+    <End Role="tbEstadosCivil" Type="Self.tbEstadosCivil" Multiplicity="1" />
+    <End Role="tbCentroElectoral" Type="Self.tbCentroElectoral" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbEstadosCivil">
+        <PropertyRef Name="estCiv_Id" />
+      </Principal>
+      <Dependent Role="tbCentroElectoral">
+        <PropertyRef Name="estCiv_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbCentroElectoral_tbMunicipios_muni_Id">
+    <End Role="tbMunicipios" Type="Self.tbMunicipios" Multiplicity="1" />
+    <End Role="tbCentroElectoral" Type="Self.tbCentroElectoral" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbMunicipios">
+        <PropertyRef Name="muni_Id" />
+      </Principal>
+      <Dependent Role="tbCentroElectoral">
+        <PropertyRef Name="muni_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbCentroElectoral_tbPoblados_pobl_Id">
+    <End Role="tbPoblados" Type="Self.tbPoblados" Multiplicity="1" />
+    <End Role="tbCentroElectoral" Type="Self.tbCentroElectoral" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbPoblados">
+        <PropertyRef Name="pobl_Id" />
+      </Principal>
+      <Dependent Role="tbCentroElectoral">
+        <PropertyRef Name="pobl_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbCentrosVotacion_tbDepartamentos_depto_Id">
+    <End Role="tbDepartamentos" Type="Self.tbDepartamentos" Multiplicity="1" />
+    <End Role="tbCentrosVotacion" Type="Self.tbCentrosVotacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbDepartamentos">
+        <PropertyRef Name="depto_Id" />
+      </Principal>
+      <Dependent Role="tbCentrosVotacion">
+        <PropertyRef Name="depto_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbCentrosVotacion_tbMunicipios_muni_Id">
+    <End Role="tbMunicipios" Type="Self.tbMunicipios" Multiplicity="1" />
+    <End Role="tbCentrosVotacion" Type="Self.tbCentrosVotacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbMunicipios">
+        <PropertyRef Name="muni_Id" />
+      </Principal>
+      <Dependent Role="tbCentrosVotacion">
+        <PropertyRef Name="muni_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbMesasElectorales_tbCentrosVotacion_cenvot_Id">
+    <End Role="tbCentrosVotacion" Type="Self.tbCentrosVotacion" Multiplicity="1" />
+    <End Role="tbMesasElectorales" Type="Self.tbMesasElectorales" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbCentrosVotacion">
+        <PropertyRef Name="cenvot_Id" />
+      </Principal>
+      <Dependent Role="tbMesasElectorales">
+        <PropertyRef Name="cenvot_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbModuloPantallas_tbModulos_mod_Id">
+    <End Role="tbModulos" Type="Self.tbModulos" Multiplicity="0..1" />
+    <End Role="tbModuloPantallas" Type="Self.tbModuloPantallas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbModulos">
+        <PropertyRef Name="mod_Id" />
+      </Principal>
+      <Dependent Role="tbModuloPantallas">
+        <PropertyRef Name="mod_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbModulos_tbComponente_comp_Id">
+    <End Role="tbComponentes" Type="Self.tbComponentes" Multiplicity="0..1" />
+    <End Role="tbModulos" Type="Self.tbModulos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbComponentes">
+        <PropertyRef Name="comp_Id" />
+      </Principal>
+      <Dependent Role="tbModulos">
+        <PropertyRef Name="comp_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbMoviminetos_tbPartidos_part_Id">
+    <End Role="tbPartidos" Type="Self.tbPartidos" Multiplicity="1" />
+    <End Role="tbMovimientos" Type="Self.tbMovimientos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbPartidos">
+        <PropertyRef Name="part_Id" />
+      </Principal>
+      <Dependent Role="tbMovimientos">
+        <PropertyRef Name="part_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbMunicipios_tbDepartamentos_depto_Id">
+    <End Role="tbDepartamentos" Type="Self.tbDepartamentos" Multiplicity="1" />
+    <End Role="tbMunicipios" Type="Self.tbMunicipios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbDepartamentos">
+        <PropertyRef Name="depto_Id" />
+      </Principal>
+      <Dependent Role="tbMunicipios">
+        <PropertyRef Name="depto_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbPoblados_tbAldeas_aldea_Id">
+    <End Role="tbAldeas" Type="Self.tbAldeas" Multiplicity="1" />
+    <End Role="tbPoblados" Type="Self.tbPoblados" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbAldeas">
+        <PropertyRef Name="aldea_Id" />
+      </Principal>
+      <Dependent Role="tbPoblados">
+        <PropertyRef Name="aldea_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbPoblados_tbDepartamentos_depto_Id">
+    <End Role="tbDepartamentos" Type="Self.tbDepartamentos" Multiplicity="1" />
+    <End Role="tbPoblados" Type="Self.tbPoblados" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbDepartamentos">
+        <PropertyRef Name="depto_Id" />
+      </Principal>
+      <Dependent Role="tbPoblados">
+        <PropertyRef Name="depto_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbPoblados_tbMunicipios_muni_Id">
+    <End Role="tbMunicipios" Type="Self.tbMunicipios" Multiplicity="1" />
+    <End Role="tbPoblados" Type="Self.tbPoblados" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbMunicipios">
+        <PropertyRef Name="muni_Id" />
+      </Principal>
+      <Dependent Role="tbPoblados">
+        <PropertyRef Name="muni_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbUsuarios_tbRoles_rol_Id">
+    <End Role="tbRoles" Type="Self.tbRoles" Multiplicity="1" />
+    <End Role="tbUsuarios" Type="Self.tbUsuarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbRoles">
+        <PropertyRef Name="rol_Id" />
+      </Principal>
+      <Dependent Role="tbUsuarios">
+        <PropertyRef Name="rol_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="UDP_tbAldeas_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="aldea_Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="UDP_tbAldeas_Edit" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="aldea_Id" Type="int" Mode="In" />
+    <Parameter Name="aldea_Descripcion" Type="nvarchar" Mode="In" />
+    <Parameter Name="muni_Id" Type="int" Mode="In" />
+    <Parameter Name="depto_Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="UDP_tbAldeas_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="aldea_Descripcion" Type="nvarchar" Mode="In" />
+    <Parameter Name="muni_Id" Type="int" Mode="In" />
+    <Parameter Name="depto_Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="UDP_tbCandidatos_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="cand_Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="UDP_tbCandidatos_Edit" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="cand_Id" Type="int" Mode="In" />
+    <Parameter Name="part_Id" Type="int" Mode="In" />
+    <Parameter Name="mov_Id" Type="int" Mode="In" />
+    <Parameter Name="tipcan_Id" Type="int" Mode="In" />
+    <Parameter Name="censo_Id" Type="int" Mode="In" />
+    <Parameter Name="depto_Id" Type="int" Mode="In" />
+    <Parameter Name="muni_Id" Type="int" Mode="In" />
+    <Parameter Name="cand_Posicion" Type="int" Mode="In" />
+  </Function>
+  <Function Name="UDP_tbCandidatos_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="part_Id" Type="int" Mode="In" />
+    <Parameter Name="mov_Id" Type="int" Mode="In" />
+    <Parameter Name="tipcan_Id" Type="int" Mode="In" />
+    <Parameter Name="censo_Id" Type="int" Mode="In" />
+    <Parameter Name="depto_Id" Type="int" Mode="In" />
+    <Parameter Name="muni_Id" Type="int" Mode="In" />
+    <Parameter Name="cand_Posicion" Type="int" Mode="In" />
+  </Function>
+  <Function Name="UDP_tbCentroElectoral_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="censo_Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="UDP_tbCentroElectoral_Edit" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="censo_Id" Type="int" Mode="In" />
+    <Parameter Name="censo_Identidad" Type="varchar" Mode="In" />
+    <Parameter Name="censo_PrimerNombre" Type="nvarchar" Mode="In" />
+    <Parameter Name="censo_SegundoNombre" Type="nvarchar" Mode="In" />
+    <Parameter Name="censo_PrimerApellido" Type="nvarchar" Mode="In" />
+    <Parameter Name="censo_SegundoApellido" Type="nvarchar" Mode="In" />
+    <Parameter Name="censo_CodigoSexo" Type="char" Mode="In" />
+    <Parameter Name="censo_FechaNacimiento" Type="date" Mode="In" />
+    <Parameter Name="estCiv_Id" Type="int" Mode="In" />
+    <Parameter Name="depto_Id" Type="int" Mode="In" />
+    <Parameter Name="muni_Id" Type="int" Mode="In" />
+    <Parameter Name="aldea_Id" Type="int" Mode="In" />
+    <Parameter Name="pobl_Id" Type="int" Mode="In" />
+    <Parameter Name="censo_CodigoArea" Type="int" Mode="In" />
+    <Parameter Name="censo_CodigoSectorElectoral" Type="int" Mode="In" />
+    <Parameter Name="cenvot_Id" Type="int" Mode="In" />
+    <Parameter Name="censo_NumeroLinea" Type="int" Mode="In" />
+    <Parameter Name="censo_EsHabilitado" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="UDP_tbCentroElectoral_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="censo_Identidad" Type="varchar" Mode="In" />
+    <Parameter Name="censo_PrimerNombre" Type="nvarchar" Mode="In" />
+    <Parameter Name="censo_SegundoNombre" Type="nvarchar" Mode="In" />
+    <Parameter Name="censo_PrimerApellido" Type="nvarchar" Mode="In" />
+    <Parameter Name="censo_SegundoApellido" Type="nvarchar" Mode="In" />
+    <Parameter Name="censo_CodigoSexo" Type="char" Mode="In" />
+    <Parameter Name="censo_FechaNacimiento" Type="date" Mode="In" />
+    <Parameter Name="estCiv_Id" Type="int" Mode="In" />
+    <Parameter Name="depto_Id" Type="int" Mode="In" />
+    <Parameter Name="muni_Id" Type="int" Mode="In" />
+    <Parameter Name="aldea_Id" Type="int" Mode="In" />
+    <Parameter Name="pobl_Id" Type="int" Mode="In" />
+    <Parameter Name="censo_CodigoArea" Type="int" Mode="In" />
+    <Parameter Name="censo_CodigoSectorElectoral" Type="int" Mode="In" />
+    <Parameter Name="cenvot_Id" Type="int" Mode="In" />
+    <Parameter Name="censo_NumeroLinea" Type="int" Mode="In" />
+    <Parameter Name="censo_EsHabilitado" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="UDP_tbCentrosVotacion_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="cenvot_Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="UDP_tbCentrosVotacion_Edit" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="cenvot_Id" Type="int" Mode="In" />
+    <Parameter Name="depto_Id" Type="int" Mode="In" />
+    <Parameter Name="muni_Id" Type="int" Mode="In" />
+    <Parameter Name="cenvot_CodigoArea" Type="int" Mode="In" />
+    <Parameter Name="cenvot_CodigoSectorElectoral" Type="int" Mode="In" />
+    <Parameter Name="cenvot_Nombre" Type="nvarchar" Mode="In" />
+    <Parameter Name="cenvot_Latitud" Type="float" Mode="In" />
+    <Parameter Name="cenvot_Longitud" Type="float" Mode="In" />
+    <Parameter Name="cenvot_TotalMesas" Type="int" Mode="In" />
+  </Function>
+  <Function Name="UDP_tbCentrosVotacion_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="depto_Id" Type="int" Mode="In" />
+    <Parameter Name="muni_Id" Type="int" Mode="In" />
+    <Parameter Name="cenvot_CodigoArea" Type="int" Mode="In" />
+    <Parameter Name="cenvot_CodigoSectorElectoral" Type="int" Mode="In" />
+    <Parameter Name="cenvot_Nombre" Type="nvarchar" Mode="In" />
+    <Parameter Name="cenvot_Latitud" Type="float" Mode="In" />
+    <Parameter Name="cenvot_Longitud" Type="float" Mode="In" />
+    <Parameter Name="cenvot_TotalMesas" Type="int" Mode="In" />
+  </Function>
+  <Function Name="UDP_tbComponentes_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="comp_Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="UDP_tbComponentes_Edit" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="comp_Id" Type="int" Mode="In" />
+    <Parameter Name="comp_Nombre" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="UDP_tbComponentes_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="comp_Nombre" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="UDP_tbDepartamentos_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="depto_Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="UDP_tbDepartamentos_Edit" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="depto_Id" Type="int" Mode="In" />
+    <Parameter Name="depto_Descripcion" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="UDP_tbDepartamentos_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="depto_Id" Type="int" Mode="In" />
+    <Parameter Name="depto_Descripcion" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="UDP_tbEstadosCivil_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="estCiv_Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="UDP_tbEstadosCivil_Edit" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="estCiv_Id" Type="int" Mode="In" />
+    <Parameter Name="estCiv_Descripcion" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="UDP_tbEstadosCivil_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="estCiv_Descripcion" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="UDP_tbMesasElectorales_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="mesa_Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="UDP_tbMesasElectorales_Edit" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="mesa_Id" Type="int" Mode="In" />
+    <Parameter Name="cenvot_Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="UDP_tbMesasElectorales_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="cenvot_Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="UDP_tbModuloPantallas_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="modpan_Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="UDP_tbModuloPantallas_Edit" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="modpan_Id" Type="int" Mode="In" />
+    <Parameter Name="mod_Id" Type="int" Mode="In" />
+    <Parameter Name="modpan_Nombre" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="UDP_tbModuloPantallas_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="mod_Id" Type="int" Mode="In" />
+    <Parameter Name="modpan_Nombre" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="UDP_tbModulos_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="mod_Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="UDP_tbModulos_Edit" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="mod_Id" Type="int" Mode="In" />
+    <Parameter Name="comp_Id" Type="int" Mode="In" />
+    <Parameter Name="mod_Nombre" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="UDP_tbModulos_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="comp_Id" Type="int" Mode="In" />
+    <Parameter Name="mod_Nombre" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="UDP_tbMunicipios_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="muni_Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="UDP_tbMunicipios_Edit" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="muni_Id" Type="int" Mode="In" />
+    <Parameter Name="muni_Codigo" Type="int" Mode="In" />
+    <Parameter Name="muni_Descripcion" Type="nvarchar" Mode="In" />
+    <Parameter Name="depto_Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="UDP_tbMunicipios_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="muni_Codigo" Type="int" Mode="In" />
+    <Parameter Name="muni_Descripcion" Type="nvarchar" Mode="In" />
+    <Parameter Name="depto_Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="UDP_tbPartidos_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="part_Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="UDP_tbPartidos_Edit" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="part_Id" Type="int" Mode="In" />
+    <Parameter Name="part_Nombre" Type="nvarchar" Mode="In" />
+    <Parameter Name="part_Siglas" Type="nvarchar" Mode="In" />
+    <Parameter Name="part_Sede" Type="nvarchar" Mode="In" />
+    <Parameter Name="part_ColorEmblema" Type="nvarchar" Mode="In" />
+    <Parameter Name="part_Logo" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="UDP_tbPartidos_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="part_Nombre" Type="nvarchar" Mode="In" />
+    <Parameter Name="part_Siglas" Type="nvarchar" Mode="In" />
+    <Parameter Name="part_Sede" Type="nvarchar" Mode="In" />
+    <Parameter Name="part_ColorEmblema" Type="nvarchar" Mode="In" />
+    <Parameter Name="part_Logo" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="UDP_tbPoblados_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="pobl_Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="UDP_tbPoblados_Edit" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="pobl_Id" Type="int" Mode="In" />
+    <Parameter Name="pobl_Descripcion" Type="nvarchar" Mode="In" />
+    <Parameter Name="muni_Id" Type="int" Mode="In" />
+    <Parameter Name="depto_Id" Type="int" Mode="In" />
+    <Parameter Name="aldea_Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="UDP_tbPoblados_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="pobl_Descripcion" Type="nvarchar" Mode="In" />
+    <Parameter Name="muni_Id" Type="int" Mode="In" />
+    <Parameter Name="depto_Id" Type="int" Mode="In" />
+    <Parameter Name="aldea_Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="UDP_tbTipoCandidato_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="tipcan_Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="UDP_tbTipoCandidato_Edit" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="tipcan_Id" Type="int" Mode="In" />
+    <Parameter Name="tipcan_Descripcion" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="UDP_tbTipoCandidato_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="tipcan_Descripcion" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="UDP_tbUsuario_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="usu_Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="UDP_tbUsuario_Edit" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="usu_Id" Type="int" Mode="In" />
+    <Parameter Name="usu_Identidad" Type="varchar" Mode="In" />
+    <Parameter Name="usu_PrimerNombre" Type="nvarchar" Mode="In" />
+    <Parameter Name="usu_PrimerApellido" Type="nvarchar" Mode="In" />
+    <Parameter Name="usu_SegundoNombre" Type="nvarchar" Mode="In" />
+    <Parameter Name="usu_SegundoApellido" Type="nvarchar" Mode="In" />
+    <Parameter Name="usu_Telefono" Type="varchar" Mode="In" />
+    <Parameter Name="rol_Id" Type="int" Mode="In" />
+    <Parameter Name="usu_EsActivo" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="UDP_tbUsuario_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="usu_Identidad" Type="varchar" Mode="In" />
+    <Parameter Name="usu_PrimerNombre" Type="nvarchar" Mode="In" />
+    <Parameter Name="usu_PrimerApellido" Type="nvarchar" Mode="In" />
+    <Parameter Name="usu_SegundoNombre" Type="nvarchar" Mode="In" />
+    <Parameter Name="usu_SegundoApellido" Type="nvarchar" Mode="In" />
+    <Parameter Name="usu_Telefono" Type="varchar" Mode="In" />
+    <Parameter Name="usu_Contraseña" Type="nvarchar" Mode="In" />
+    <Parameter Name="rol_Id" Type="int" Mode="In" />
+    <Parameter Name="usu_EsActivo" Type="bit" Mode="In" />
+  </Function>
+  <EntityContainer Name="VotoElectronicoModelStoreContainer">
+    <EntitySet Name="tbAldeas" EntityType="Self.tbAldeas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbCandidatos" EntityType="Self.tbCandidatos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbCentroElectoral" EntityType="Self.tbCentroElectoral" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbCentrosVotacion" EntityType="Self.tbCentrosVotacion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbCliente" EntityType="Self.tbCliente" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbComponentes" EntityType="Self.tbComponentes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbDepartamentos" EntityType="Self.tbDepartamentos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbEstadosCivil" EntityType="Self.tbEstadosCivil" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbMesasElectorales" EntityType="Self.tbMesasElectorales" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbModuloPantallas" EntityType="Self.tbModuloPantallas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbModulos" EntityType="Self.tbModulos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbMovimientos" EntityType="Self.tbMovimientos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbMunicipios" EntityType="Self.tbMunicipios" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbPartidos" EntityType="Self.tbPartidos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbPoblados" EntityType="Self.tbPoblados" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbRoles" EntityType="Self.tbRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbRolModuloPantallas" EntityType="Self.tbRolModuloPantallas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbTipoCandidato" EntityType="Self.tbTipoCandidato" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbUsuarios" EntityType="Self.tbUsuarios" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_bRolModuloPantallas_tbModuloPantallas_modpan_Id" Association="Self.FK_bRolModuloPantallas_tbModuloPantallas_modpan_Id">
+      <End Role="tbModuloPantallas" EntitySet="tbModuloPantallas" />
+      <End Role="tbRolModuloPantallas" EntitySet="tbRolModuloPantallas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_bRolModuloPantallas_tbRoles_rol_Id" Association="Self.FK_bRolModuloPantallas_tbRoles_rol_Id">
+      <End Role="tbRoles" EntitySet="tbRoles" />
+      <End Role="tbRolModuloPantallas" EntitySet="tbRolModuloPantallas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbAldeas_tbDepartamentos_depto_Id" Association="Self.FK_tbAldeas_tbDepartamentos_depto_Id">
+      <End Role="tbDepartamentos" EntitySet="tbDepartamentos" />
+      <End Role="tbAldeas" EntitySet="tbAldeas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbAldeas_tbMunicipios_muni_Id" Association="Self.FK_tbAldeas_tbMunicipios_muni_Id">
+      <End Role="tbMunicipios" EntitySet="tbMunicipios" />
+      <End Role="tbAldeas" EntitySet="tbAldeas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbCandidatos_tbCentroElectoral_censo_Id" Association="Self.FK_tbCandidatos_tbCentroElectoral_censo_Id">
+      <End Role="tbCentroElectoral" EntitySet="tbCentroElectoral" />
+      <End Role="tbCandidatos" EntitySet="tbCandidatos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbCandidatos_tbDepartamentos_depto_Id" Association="Self.FK_tbCandidatos_tbDepartamentos_depto_Id">
+      <End Role="tbDepartamentos" EntitySet="tbDepartamentos" />
+      <End Role="tbCandidatos" EntitySet="tbCandidatos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbCandidatos_tbMoviminetos_mov_Id" Association="Self.FK_tbCandidatos_tbMoviminetos_mov_Id">
+      <End Role="tbMovimientos" EntitySet="tbMovimientos" />
+      <End Role="tbCandidatos" EntitySet="tbCandidatos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbCandidatos_tbMunicipios_muni_Id" Association="Self.FK_tbCandidatos_tbMunicipios_muni_Id">
+      <End Role="tbMunicipios" EntitySet="tbMunicipios" />
+      <End Role="tbCandidatos" EntitySet="tbCandidatos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbCandidatos_tbPartidos_part_Id" Association="Self.FK_tbCandidatos_tbPartidos_part_Id">
+      <End Role="tbPartidos" EntitySet="tbPartidos" />
+      <End Role="tbCandidatos" EntitySet="tbCandidatos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbCandidatos_tbTipoCandidato_tipcan_Id" Association="Self.FK_tbCandidatos_tbTipoCandidato_tipcan_Id">
+      <End Role="tbTipoCandidato" EntitySet="tbTipoCandidato" />
+      <End Role="tbCandidatos" EntitySet="tbCandidatos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbCentroElectoral_tbAldeas_aldea_Id" Association="Self.FK_tbCentroElectoral_tbAldeas_aldea_Id">
+      <End Role="tbAldeas" EntitySet="tbAldeas" />
+      <End Role="tbCentroElectoral" EntitySet="tbCentroElectoral" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbCentroElectoral_tbCentrosVotacion_cenvot_Id" Association="Self.FK_tbCentroElectoral_tbCentrosVotacion_cenvot_Id">
+      <End Role="tbCentrosVotacion" EntitySet="tbCentrosVotacion" />
+      <End Role="tbCentroElectoral" EntitySet="tbCentroElectoral" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbCentroElectoral_tbDepartamentos_depto_Id" Association="Self.FK_tbCentroElectoral_tbDepartamentos_depto_Id">
+      <End Role="tbDepartamentos" EntitySet="tbDepartamentos" />
+      <End Role="tbCentroElectoral" EntitySet="tbCentroElectoral" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbCentroElectoral_tbEstadosCivil_estCiv_Id" Association="Self.FK_tbCentroElectoral_tbEstadosCivil_estCiv_Id">
+      <End Role="tbEstadosCivil" EntitySet="tbEstadosCivil" />
+      <End Role="tbCentroElectoral" EntitySet="tbCentroElectoral" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbCentroElectoral_tbMunicipios_muni_Id" Association="Self.FK_tbCentroElectoral_tbMunicipios_muni_Id">
+      <End Role="tbMunicipios" EntitySet="tbMunicipios" />
+      <End Role="tbCentroElectoral" EntitySet="tbCentroElectoral" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbCentroElectoral_tbPoblados_pobl_Id" Association="Self.FK_tbCentroElectoral_tbPoblados_pobl_Id">
+      <End Role="tbPoblados" EntitySet="tbPoblados" />
+      <End Role="tbCentroElectoral" EntitySet="tbCentroElectoral" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbCentrosVotacion_tbDepartamentos_depto_Id" Association="Self.FK_tbCentrosVotacion_tbDepartamentos_depto_Id">
+      <End Role="tbDepartamentos" EntitySet="tbDepartamentos" />
+      <End Role="tbCentrosVotacion" EntitySet="tbCentrosVotacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbCentrosVotacion_tbMunicipios_muni_Id" Association="Self.FK_tbCentrosVotacion_tbMunicipios_muni_Id">
+      <End Role="tbMunicipios" EntitySet="tbMunicipios" />
+      <End Role="tbCentrosVotacion" EntitySet="tbCentrosVotacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbMesasElectorales_tbCentrosVotacion_cenvot_Id" Association="Self.FK_tbMesasElectorales_tbCentrosVotacion_cenvot_Id">
+      <End Role="tbCentrosVotacion" EntitySet="tbCentrosVotacion" />
+      <End Role="tbMesasElectorales" EntitySet="tbMesasElectorales" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbModuloPantallas_tbModulos_mod_Id" Association="Self.FK_tbModuloPantallas_tbModulos_mod_Id">
+      <End Role="tbModulos" EntitySet="tbModulos" />
+      <End Role="tbModuloPantallas" EntitySet="tbModuloPantallas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbModulos_tbComponente_comp_Id" Association="Self.FK_tbModulos_tbComponente_comp_Id">
+      <End Role="tbComponentes" EntitySet="tbComponentes" />
+      <End Role="tbModulos" EntitySet="tbModulos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbMoviminetos_tbPartidos_part_Id" Association="Self.FK_tbMoviminetos_tbPartidos_part_Id">
+      <End Role="tbPartidos" EntitySet="tbPartidos" />
+      <End Role="tbMovimientos" EntitySet="tbMovimientos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbMunicipios_tbDepartamentos_depto_Id" Association="Self.FK_tbMunicipios_tbDepartamentos_depto_Id">
+      <End Role="tbDepartamentos" EntitySet="tbDepartamentos" />
+      <End Role="tbMunicipios" EntitySet="tbMunicipios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbPoblados_tbAldeas_aldea_Id" Association="Self.FK_tbPoblados_tbAldeas_aldea_Id">
+      <End Role="tbAldeas" EntitySet="tbAldeas" />
+      <End Role="tbPoblados" EntitySet="tbPoblados" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbPoblados_tbDepartamentos_depto_Id" Association="Self.FK_tbPoblados_tbDepartamentos_depto_Id">
+      <End Role="tbDepartamentos" EntitySet="tbDepartamentos" />
+      <End Role="tbPoblados" EntitySet="tbPoblados" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbPoblados_tbMunicipios_muni_Id" Association="Self.FK_tbPoblados_tbMunicipios_muni_Id">
+      <End Role="tbMunicipios" EntitySet="tbMunicipios" />
+      <End Role="tbPoblados" EntitySet="tbPoblados" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbUsuarios_tbRoles_rol_Id" Association="Self.FK_tbUsuarios_tbRoles_rol_Id">
+      <End Role="tbRoles" EntitySet="tbRoles" />
+      <End Role="tbUsuarios" EntitySet="tbUsuarios" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

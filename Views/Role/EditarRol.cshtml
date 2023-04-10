@@ -1,0 +1,94 @@
+﻿@model VotoElectronico.Models.RoleWiewModel
+
+@{
+    ViewBag.Title = "EditarRol";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div class="col-12">
+
+    <div class="card">
+        <div class="card-body">
+            <input type="hidden" name="rol_Id " id="rol_Id " value="@ViewBag.rol_Id" />
+            <div class="portlet-body">
+                <div class="row">
+                    <div class="col-md-4">
+                        <h3 class="mb-1">Informacion del rol</h3>
+                        <p class="text-muted small">Ingrese un nombre único que describa el proposito del rol</p>
+
+                        <div class="form-group">
+                            <label class="control-label">Nombre Rol</label>
+                            <input class="form-control" name="rol_Nombre" id="rol_Nombre" type="text" maxlength="50" required />
+                            <span class="text-danger" id="messageError"></span>
+
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-7 offset-1">
+                        <h3 class="mb-1">Seleccione los permisos del rol</h3>
+                        <p class="text-muted small">Módulos y acciones disponibles dentro de los componentes.</p>
+                        <input type="hidden" value="@Model.ModuleItemsInput" />
+                        <div id="components-tree">
+
+                            <ul>
+                                @foreach (var componente in Model.ComponentesTree.OrderBy(x => x.comp_Nombre))
+
+                                {
+                                    <li data-jstree='{"icon":"la la-archive text-primary"}'>
+                                        <strong>@componente.comp_Nombre</strong>
+
+
+                                        <ul>
+                                            @foreach (var modulo in Model.ModulosTree.OrderBy(x => x.mod_Nombre))
+                                            {
+
+                                                <li data-jstree='{"icon":"la la-folder text-warning"}'>
+                                                    <span class="sbold">@modulo.mod_Nombre</span>
+
+                                                    <ul>
+
+
+                                                        @foreach (var pantalla in Model.ModuloPantallasTree.OrderBy(x => x.modpan_Nombre).Where(x => x.mod_Id == modulo.mod_Id))
+                                                        {
+                                                            <li data-jstree='{"icon":"la la-file text-info"'>
+
+                                                                @pantalla.modpan_Nombre
+                                                            </li>
+                                                        }
+
+                                                    </ul>
+
+                                                </li>
+                                            }
+
+
+                                        </ul>
+
+
+                                    </li>
+                                }
+
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+@section Scripts{
+    <link href="~/Scripts/jstree/themes/default/style.min.css" rel="stylesheet" />
+    <script src="~/Scripts/jstree/jstree.min.js"></script>
+    <script src="~/Content/js/app/seguridad/list-roles.js"></script>
+    <script>VotoElectronicoConfig.Roles.configureRole();</script>
+}

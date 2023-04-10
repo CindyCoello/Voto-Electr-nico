@@ -1,0 +1,224 @@
+﻿@model IEnumerable<VotoElectronico.Models.tbPoblados>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card">
+    <div class="card-header">
+
+        <div class="float-left"><h3 style="font-family: Nunito,sans-serif; font-size:1.1em;font-weight: 600;">Listado de Poblados</h3></div>
+
+    </div>
+    <div class="card-body">
+
+        <table class="table table-striped table-bordered dt-responsive  nowrap" id="datatable">
+            <thead>
+                <tr>
+                    <th>
+                        ID Poblado
+                    </th>
+                    <th>
+                        Nombre del Poblado
+                    </th>
+                     <th>
+                        Aldea
+                    </th>
+                    <th>
+                        Municipio
+                    </th>
+                    <th>
+                        Departamento
+                    </th>
+
+                   
+                    <th>Acciones</th>
+
+                </tr>
+            </thead>
+
+        </table>
+
+    </div>
+</div>
+
+<!-- Modal insertar data -->
+<div class="modal fade" id="modalNuevo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color: #3051d3;">
+                <h5 class="modal-title" style="color:white " ; id="exampleModalLabel">Crear Poblados</h5>
+
+            </div>
+            <div class="modal-body">
+                <div class="form-row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label class="control-label">Nombre Poblado</label>
+                            <input class="form-control" type="text" maxlength="50" id="nombrePoblado" />
+                            <label class="text-danger" id="errorMessage"></label>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="form-row">
+
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label class="control-label">Municipio</label>
+                            <select id="muni_IdNuevo" class="form-control">
+                                <option>Seleccione un Municipio</option>
+                            </select>
+
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label class="control-label">Departamento</label>
+                            <select id="depto_IdNuevo" class="form-control">
+                                <option>Seleccione un departamento</option>
+                            </select>
+
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label class="control-label">Aldea</label>
+                            <select id="aldea_IdNuevo" class="form-control">
+                                <option>Seleccione una Aldea</option>
+                            </select>
+
+
+                        </div>
+                    </div>
+
+                 
+
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary" onclick="GuardarPoblados('Guardar');"><i class="mdi mdi-content-save"></i>Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Modal Editar-->
+<div class="modal fade" id="modalEditar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color: #3051d3;">
+                <h5 class="modal-title" style="color:white " ; id="exampleModalLabel">Editar Poblados</h5>
+
+            </div>
+            <div class="modal-body">
+                <div class="form-row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <input type="hidden" id="idPobladoEdit" />
+                            <label class="control-label">Nombre Poblado</label>
+                            <input class="form-control" type="text" id="nombrePobladoEdit" />
+                            <input type="hidden" maxlength="50" id="idPoblado" />
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="form-row">
+
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label class="control-label">Municipio</label>
+                            <select id="muni_IdEdit" class="form-control">
+                                <option>Seleccione un Municipio</option>
+                            </select>
+
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label class="control-label">Departamento</label>
+                            <select id="depto_IdEdit" class="form-control">
+                                <option>Seleccione un departamento</option>
+                            </select>
+
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label class="control-label">Aldea</label>
+                            <select id="aldea_IdEdit" class="form-control">
+                                <option>Seleccione una Aldea</option>
+                            </select>
+
+
+                        </div>
+                    </div>
+
+                    <label class="text-danger" id="errorMessage"></label>
+
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary" onclick="GuardarPoblados('Editar');"><i class="mdi mdi-content-save"></i>Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Modal Eliminar data-->
+<div class="modal fade" id="ModalEliminar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Eliminar Poblados</h5>
+
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <p>¿Esta Seguro que quieres eliminar este registro?</p>
+
+                            <input type="hidden" id="idPobladoeEliminar">
+                            <input type="hidden" id="nombrePobladoEliminar">
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary" onclick="GuardarPoblados('Eliminar');">Confirmar</button>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts{
+    <script src="~/Content/js/app/seguridad/poblados.js"></script>
+    <script src="~/Content/js/app/seguridad/list-poblados.js"></script>
+
+    <script>
+     
+        VotoElectronicoConfig.Poblados.configureTable({ listUrl: "@Url.Action("ListPoblados")" });
+    </script>
+}
+

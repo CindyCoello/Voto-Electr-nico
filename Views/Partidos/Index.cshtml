@@ -1,0 +1,73 @@
+﻿@model IEnumerable<VotoElectronico.Models.tbPartidos>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<p>
+   
+</p>
+
+<div class="card">
+    <div class="card-header" >
+        <div class="row">
+            @*<i class="mdi mdi-plus-thick"></i>*@
+            <div class="col-md-11"><h3 style="font-family: Nunito,sans-serif; font-size:1.2em;font-weight: 600;">Listado de Partidos</h3></div>
+            <div class="col-md-2">@Html.ActionLink("Nuevo", "Create", null, new { @class = "btn btn-primary mdi mdi-plus-thick" })</div>
+
+        </div>
+    </div>
+    <div class="card-body">
+
+        <table class="table table-bordered table-hover">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.part_Nombre)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.part_Siglas)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.part_Sede)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.part_ColorEmblema)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.part_Logo)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.part_Nombre)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.part_Siglas)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.part_Sede)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.part_ColorEmblema)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.part_Logo)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.part_Id }, new { @class = "btn btn-success btn-sm " }) |
+                        @*@Html.ActionLink("Details", "Details", new { id = item.part_Id }, new { @class = "btn btn-warning btn-sm" }) |*@
+                        @Html.ActionLink("Delete", "Delete", new { id = item.part_Id }, new { @class = "btn btn-danger btn-sm" })
+
+                    </td>
+                </tr>
+            }
+
+        </table>
+
+    </div>
+</div>
